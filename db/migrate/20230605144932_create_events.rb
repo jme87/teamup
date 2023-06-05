@@ -10,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.integer :spots_available
       t.string :category
       t.float :duration
-      t.references :group, null: false, foreign_key: true
+      t.references :group, foreign_key: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
