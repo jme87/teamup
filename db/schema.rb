@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_145611) do
 
   create_table "groups", force: :cascade do |t|
     t.string "title"
-    t.string "desription"
+    t.string "description"
     t.string "city"
     t.string "category"
     t.string "private"
