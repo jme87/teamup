@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "pages#home"
-  resources :events
-  resources :groups
+  resources :events do
+    resources :bookings, only: %i[create delete]
+  end
+  resources :groups do
+    resources :user_groups, only: %i[create delete]
+  end
 end
