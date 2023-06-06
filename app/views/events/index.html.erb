@@ -4,3 +4,9 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="d-flex justify-content-center">
+  <% @events.each do |event| %>
+    <%= render "card", event: event %>
+  <% end %>
+</div>

@@ -10,3 +10,9 @@
   <% @event.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+
+<%= link_to 'Edit event', edit_event_path(@event) %>
+<%= link_to "Delete event",
+  event_path(@event),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
