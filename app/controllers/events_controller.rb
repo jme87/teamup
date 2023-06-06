@@ -35,6 +35,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      @categories = ApplicationRecord::CATEGORIES
       render :new, status: :unprocessable_entity
     end
   end
@@ -52,6 +53,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      @categories = ApplicationRecord::CATEGORIES
       render :new, status: :unprocessable_entity
     end
   end
