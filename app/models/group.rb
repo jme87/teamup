@@ -5,6 +5,7 @@ class Group < ApplicationRecord
   has_many :users, through: :user_groups
   has_many :user_groups
   has_many :events
+  has_one_attached :photo
 
   validates :title, presence: true
   validates :description, presence: true
