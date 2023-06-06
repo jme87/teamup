@@ -87,4 +87,45 @@ user5 = User.new(
 user5.photo.attach(io: user5photo, filename: "user5.png", content_type: "image/png")
 user5.save!
 
-#################### 5 hardcoded events ####################
+#################### 3 hardcoded groups ####################
+# group1photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
+# group1 = Group.new(
+#   {
+#     title: 'The Flying Volleyballs',
+#     description: "Join our group of gravity-defying volleyball enthusiasts and soar to new heights.",
+#     city: "Berlin",
+#     category: "Volleyball",
+#     user_id: user1.id
+#   }
+# )
+# group1.photo.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
+# group1.save!
+
+# group2photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
+# group2 = Group.new(
+#   {
+#     title: 'Tennis and Beer',
+#     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
+#     city: "Berlin",
+#     category: "Tennis",
+#     user_id: user2.id
+#   }
+# )
+# group2.photo.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
+# group2.save!
+
+# group3photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
+# group3 = Group.new(
+#   {
+#     title: 'Goal Scoring Squad',
+#     description: "Unleash your inner goal-scoring machine and join our football frenzy.",
+#     city: "Paris",
+#     category: "Football",
+#     user_id: user3.id
+#   }
+# )
+# group3.photo.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
+# group3.save!
+
+
+# #################### 3 hardcoded events ####################
