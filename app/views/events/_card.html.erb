@@ -1,0 +1,12 @@
+<div class="card m-3" style="width: 18rem;">
+  <% if event.photos.attached? %>
+    <%= cl_image_tag event.photos[0].key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <img src="../../assets/images/placeholder.png" class="card-img-top" alt="Event Placeholder Image">
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= event.title %></h5>
+    <p class="card-text"><%= event.description %></p>
+    <%= link_to 'Check Event', event_path(event), :class  => "btn btn-primary" %>
+  </div>
+</div>
