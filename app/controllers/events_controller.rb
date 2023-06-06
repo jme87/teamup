@@ -25,6 +25,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @categories = ApplicationRecord::CATEGORIES
   end
 
   def create
@@ -38,6 +39,28 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    @categories = ApplicationRecord::CATEGORIES
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    @event.duration = @event.end_date - @event.start_date
+    @event.user_id = current_user.id
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path, status: :see_other
+  end
 
   private
 

@@ -1,10 +1,12 @@
+<h1>Hello from the Edit the Event Page</h1>
+
 <%= simple_form_for @event do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :start_date, as: :datetime %>
   <%= f.input :end_date, as: :datetime %>
   <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
   %>
   <%= f.input :price %>
