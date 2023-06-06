@@ -8,11 +8,25 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = current_user
     if @group.save
-      redirect_to root_path
+      redirect_to group_path(@group)
     else
       @categories = ApplicationRecord::CATEGORIES
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @group = Group.find(params[:id])
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @group.update (group_params)
+    redirect_to group_path(@group)
   end
 
   def destroy
