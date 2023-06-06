@@ -9,4 +9,6 @@ class Group < ApplicationRecord
   validates :description, presence: true
   validates :city, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
+
+  attr_accessor :toggle_attribute
 end
