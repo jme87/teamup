@@ -8,7 +8,10 @@
 
 require 'faker'
 require 'open-uri'
-
+puts "Cleaning Database.........................."
+User.destroy_all
+Group.destroy_all
+Event.destroy_all
 puts "Seeding the database ....................................."
 
 #################### 5 hardcoded users ####################
@@ -87,45 +90,63 @@ user5 = User.new(
 user5.photo.attach(io: user5photo, filename: "user5.png", content_type: "image/png")
 user5.save!
 
-#################### 3 hardcoded groups ####################
-# group1photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
-# group1 = Group.new(
+################### 3 hardcoded groups ####################
+
+group1photo = URI.open("https://source.unsplash.com/0NaQQsLWLkA/1200x600")
+group1 = Group.new(
+  {
+    title: 'The Flying Volleyballs',
+    description: "Join our group of gravity-defying volleyball enthusiasts and soar to new heights.",
+    city: "Berlin",
+    category: "Volleyball",
+    user_id: user1.id
+  }
+)
+group1.photo.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
+group1.save!
+
+group2photo = URI.open("https://source.unsplash.com/RNiK93wcz-U/1200x600")
+group2 = Group.new(
+  {
+    title: 'Tennis and Beer',
+    description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
+    city: "Berlin",
+    category: "Tennis",
+    user_id: user2.id
+  }
+)
+group2.photo.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
+group2.save!
+
+group3photo = URI.open("https://source.unsplash.com/Wt9IRghaLN0/1200x600")
+group3 = Group.new(
+  {
+    title: 'Goal Scoring Squad',
+    description: "Unleash your inner goal-scoring machine and join our football frenzy.",
+    city: "Paris",
+    category: "Football",
+    user_id: user3.id
+  }
+)
+group3.photo.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
+group3.save!
+
+#################### 3 hardcoded events ####################
+# event1photo = URI.open("https://source.unsplash.com/464ps_nOflw/1200x600")
+# event1 = Event.new(
 #   {
-#     title: 'The Flying Volleyballs',
-#     description: "Join our group of gravity-defying volleyball enthusiasts and soar to new heights.",
-#     city: "Berlin",
-#     category: "Volleyball",
+#     title: 'Sunday Volleyball Tournament',
+#     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
+#     start_date: DateTime.new(2023, 6, 15, 10, 0, 0),
+#     end_date: DateTime.new(2023, 6, 15, 16, 0, 0),
+#     address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
+#     price: Faker::Number.within(range: 0..10),
+#     spots_available: 20,
+#     category: 'Volleyball',
+#     duration: 4.0,
+#     group_id: group1.id,
 #     user_id: user1.id
 #   }
 # )
-# group1.photo.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
-# group1.save!
-
-# group2photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
-# group2 = Group.new(
-#   {
-#     title: 'Tennis and Beer',
-#     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
-#     city: "Berlin",
-#     category: "Tennis",
-#     user_id: user2.id
-#   }
-# )
-# group2.photo.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
-# group2.save!
-
-# group3photo = URI.open("https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1307&q=80")
-# group3 = Group.new(
-#   {
-#     title: 'Goal Scoring Squad',
-#     description: "Unleash your inner goal-scoring machine and join our football frenzy.",
-#     city: "Paris",
-#     category: "Football",
-#     user_id: user3.id
-#   }
-# )
-# group3.photo.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
-# group3.save!
-
-
-# #################### 3 hardcoded events ####################
+# event1.photo.attach(io: event1photo, filename: "event1.png", content_type: "image/png")
+# event1.save!
