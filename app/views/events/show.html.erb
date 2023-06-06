@@ -11,8 +11,25 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
+<%= link_to "Join event",
+  event_bookings_path(@event),
+  data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
+%>
+<br>
+<%= link_to "Leave event",
+  delete_booking_path(@event),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<br>
 <%= link_to 'Edit event', edit_event_path(@event) %>
+<br>
 <%= link_to "Delete event",
   event_path(@event),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
+
+<br>
+<h3>All the bookings</h3>
+<% @event.bookings.each do |booking| %>
+  <h4><%= booking.user.first_name %></h4>
+<% end %>
