@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+
   belongs_to :group, optional: true
   belongs_to :user
   has_many :users, through: :bookings
