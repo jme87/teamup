@@ -47,7 +47,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
+    if event_params[:photos].all? { |element| element == "" }
+      params = event_params.except(:photos)
+    else
+      params = event_params
+      @event.photos.purge
+    end
+    @event.update(params)
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
     if @event.save
