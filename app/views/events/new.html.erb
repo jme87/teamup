@@ -11,7 +11,7 @@
   <%= f.input :spots_available, as: :integer %>
   <%= f.input :category,
   collection: @categories,
-  promt: "Select a category",
+  prompt: "Select a category",
   requiered: true,
   autofocus: true %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

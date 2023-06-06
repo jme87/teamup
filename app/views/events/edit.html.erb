@@ -6,14 +6,14 @@
   <%= f.input :start_date, as: :datetime %>
   <%= f.input :end_date, as: :datetime %>
   <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", placeholder: 'hello' },
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_address_value: @event.address, address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
   %>
   <%= f.input :price %>
   <%= f.input :spots_available, as: :integer %>
   <%= f.input :category,
   collection: @categories,
-  promt: "Select a category",
+  prompt: "Select a category",
   requiered: true,
   autofocus: true %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
