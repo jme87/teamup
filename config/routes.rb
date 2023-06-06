@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "pages#home"
   resources :events do
-    resources :bookings, only: %i[create delete]
+    resources :bookings, only: :create
   end
   resources :groups do
-    resources :user_groups, only: %i[create delete]
+    resources :user_groups, only: :create
   end
+  delete "bookings/:id", to: "bookings#destroy", as: 'delete_booking'
+  delete "user_groups/:id", to: "user_groups#destroy", as: 'delete_user_group'
 end
