@@ -1,0 +1,7 @@
+<%= render "shared/home_banner" %>
+
+<h2>The top events in <%= @city %></h2>
+
+<% @events.each do |event| %>
+  <%= render "shared/card", event: event %>
+<% end %>

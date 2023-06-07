@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :users, through: :bookings
   has_many :bookings, dependent: :destroy
+  has_one :chatroom
 
   validates :title, presence: true
   validates :description, presence: true
