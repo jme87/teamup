@@ -1,0 +1,40 @@
+.category-bar {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    margin-right: 10px;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+
+  a:hover {
+    background-color: #ccc;
+  }
+}
+
+.container-fluid{
+  max-width: 100%;
+}
+.category-container{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
