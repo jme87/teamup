@@ -1,13 +1,7 @@
 <div class="category-bar">
   <ul>
     <% ApplicationRecord::CATEGORIES.each do |category| %>
-      <li>
-          <%= link_to category, events_path(category: category) do %>
-            <div id="<%= category%>" class="item">
-                <h1><%= category %></h1>
-            </div>
-          <% end %>
-        </li>
+      <li><%= link_to category, events_path(category: category) %></li>
     <% end %>
   </ul>
 </div>
