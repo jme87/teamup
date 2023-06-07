@@ -108,7 +108,7 @@ group1.save!
 group2photo = URI.open("https://source.unsplash.com/RNiK93wcz-U/1200x600")
 group2 = Group.new(
   {
-    title: 'Tennis and Beer',
+    title: 'Tennis and beer',
     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
     city: "Berlin",
     category: "Tennis",
@@ -132,13 +132,13 @@ group3.photo.attach(io: group3photo, filename: "group3.png", content_type: "imag
 group3.save!
 
 #################### 3 hardcoded events ####################
-# event1photo = URI.open("https://source.unsplash.com/464ps_nOflw/1200x600")
+# event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/1200x600")
 # event1 = Event.new(
 #   {
 #     title: 'Sunday Volleyball Tournament',
 #     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
 #     start_date: DateTime.new(2023, 6, 15, 10, 0, 0),
-#     end_date: DateTime.new(2023, 6, 15, 16, 0, 0),
+#     end_date: DateTime.new(2023, 6, 15, 14, 0, 0),
 #     address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
 #     price: Faker::Number.within(range: 0..10),
 #     spots_available: 20,
@@ -150,3 +150,41 @@ group3.save!
 # )
 # event1.photo.attach(io: event1photo, filename: "event1.png", content_type: "image/png")
 # event1.save!
+
+# event2photo = URI.open("https://source.unsplash.com/WkY8KhEFXak/1200x600")
+# event2 = Event.new(
+#   {
+#     title: "Women Doubles",
+#     description: "Calling all tennis enthusiasts! Join our Doubles with your bestie or find a partner here!",
+#     start_date: DateTime.new(2023, 6, 20, 8, 0, 0),
+#     end_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+#     address: "Am Friedrichshain 15, 10407 Berlin",
+#     price: Faker::Number.within(range: 0..10),
+#     spots_available: 12,
+#     category: "Tennis",
+#     duration: 2.0,
+#     group_id: group2.id,
+#     user_id: user2.id
+#   }
+# )
+# event2.photo.attach(io: event2photo, filename: "event2.png", content_type: "image/png")
+# event2.save!
+
+# event3photo = URI.open("https://source.unsplash.com/WkY8KhEFXak/1200x600")
+# event3 = Event.new(
+#   {
+#     title: "Thursday Football",
+#     description: "Join our Thursday night Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
+#     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
+#     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
+#     address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris, France",
+#     price: Faker::Number.within(range: 0..10),
+#     spots_available: 12,
+#     category: "Football",
+#     duration: 2.0,
+#     group_id: group3.id
+#     user_id: user3.id
+#   }
+# )
+# event3.photo.attach(io: event3photo, filename: "event3.png", content_type: "image/png")
+# event3.save!
