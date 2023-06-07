@@ -4,6 +4,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :nickname %>
+    <%= f.input :city %>
+    <%= f.input :bio %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -11,14 +17,14 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "leave field blank if you don't want to change your password",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Your current password is needed to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
