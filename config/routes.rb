@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#landing_page"
-  get "/dashboard", to: "pages#dashboard"
+  get "/dashboard", to: "dashboard#profile"
 
   resources :events do
     resources :bookings, only: :create
