@@ -4,4 +4,10 @@ class DashboardController < ApplicationController
 
   end
 
+  def user_events
+  end
+
+  def user_groups
+  end
+
 end
