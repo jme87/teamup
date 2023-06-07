@@ -1,0 +1,7 @@
+<p> City: <%= @group.city %> </p>
+<p> Members: <%= @users_count %>  | <%= @group.private ? 'Private group' : 'Public group' %></p>
+<p>Organized by: <strong><%= @creator %></strong></p>
+<p>Share: FB TW IG</p>
+<div class="button d-flex justify-content-center">
+  <%= link_to "Join Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-primary col-9" %>
+</div>
