@@ -1,1 +1,60 @@
-<h1>Hello from the Dashboard</h1>
+<div class="container">
+  <div class="welcome-header">
+    <div class="user-img">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, height: 400, width: 600, crop: :fill %>
+      <% else %>
+        <%= image_tag "placeholder.png" %>
+      <% end %>
+    </div>
+    <div class="welcome-msg">
+      <h2>Welcome, <%= current_user.first_name.capitalize %> 👋 </h2>
+    </div>
+    <div class="user-profile">
+      <ul>
+        <li> <i class="fa-solid fa-user"></i> <%= current_user.nickname.capitalize %> </li>
+        <li> <i class="fa-solid fa-location-dot"></i> <%= current_user.city.capitalize %> </li>
+        <li> <i class="fa-solid fa-ticket"></i> Attended 3 Events</li>
+      </ul>
+      <h5>Your Bio</h5>
+      <p> <%= current_user.bio %> </p>
+    </div>
+    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+  </div>
+
+  <hr>
+
+  <div class="user-events">
+    <h3>Your Upcoming Events</h3><%= link_to "View All Events", edit_user_registration_path %>
+
+    <% if @all_events_by_user.any? %>
+      <ul>
+        <% @all_events_by_user.each do |event| %>
+          <li><%= event.title %></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>You have no upcoming events.</p>
+    <% end %>
+
+  </div>
+
+  <hr>
+
+  <div class="user-events">
+    <h3>Your Groups</h3><%= link_to "View All Groups", edit_user_registration_path %>
+
+    <% if @all_events_by_user.any? %>
+      <ul>
+        <% @all_events_by_user.each do |event| %>
+          <li><%= event.title %></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>You are not a member of any groups.</p>
+    <% end %>
+
+  </div>
+
+
+</div>
