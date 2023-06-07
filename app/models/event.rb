@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many :users, through: :bookings
   has_many :bookings, dependent: :destroy
   has_one :chatroom
+  has_many_attached :photos
 
   validates :title, presence: true
   validates :description, presence: true
@@ -18,6 +19,4 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-  has_many_attached :photos
 end
