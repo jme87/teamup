@@ -21,6 +21,7 @@ class EventsController < ApplicationController
       info_window_html: render_to_string(partial: "info_window", locals: { event: @event }),
       marker_html: render_to_string(partial: "marker", locals: { event: @event })
     }]
+    @message = Message.new
   end
 
   def new
@@ -33,6 +34,7 @@ class EventsController < ApplicationController
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
     if @event.save
+      @event.create_chatroom!(name: "Chatroom for #{@event.title}")
       redirect_to event_path(@event)
     else
       @categories = ApplicationRecord::CATEGORIES
@@ -47,7 +49,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
+    if event_params[:photos].all? { |element| element == "" }
+      params = event_params.except(:photos)
+    else
+      params = event_params
+      @event.photos.purge
+    end
+    @event.update(params)
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
     if @event.save
