@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     else
       @city = "Berlin"
     end
-    @events = Event.near('Berlin', 10)
+    @events = Event.near(@city, 10)
     # @events = Event.near("Tour Eiffel", 10)
   end
 end
