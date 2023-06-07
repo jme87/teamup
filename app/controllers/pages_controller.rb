@@ -13,22 +13,18 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # Pending events
-    @all_events_by_user = current_user.events
+  # User Events:
+  #   # All users events
+  #   @all_users_events = current_user.events.find(:all, :order => "date")
 
-    @my_pending_events = Booking.where(event_id: @all_events_by_user.pluck(:id), status: 'pending').select(:event_id).distinct
+  #   # Users upcoming 4 events
+  #   @users_upcoming_4_events = @all_users_events.first(4)
 
-    # Approved events
-    @my_approved_events = Booking.where(event_id: @all_events_by_user.pluck(:id), status: 'confirmed')
-    # Events I applied
-    sql_query = <<~SQL
-      bookings.user_id = :user_id AND bookings.status = 'pending'
-    SQL
-    @applied_events = Event.joins(:bookings).where(sql_query, user_id: current_user.id)
-    # Events I got approved
-    sql_query = <<~SQL
-      bookings.user_id = :user_id AND bookings.status = 'confirmed'
-    SQL
-    @approved_events = Event.joins(:bookings).where(sql_query, user_id: current_user.id)
+  # # User Groups:
+  #   # All user member groups
+  #   @all_groups_user_member = current_user.groups
+
+  #   # All user organising groups
+  #   @all_groups_user_organises = current_user.groups
   end
 end

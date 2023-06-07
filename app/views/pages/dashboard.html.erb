@@ -25,18 +25,34 @@
   <hr>
 
   <div class="user-events">
-    <h3>Your Upcoming Events</h3><%= link_to "View All Events", edit_user_registration_path, class: "btn btn-primary" %>
+    <h3>Your Upcoming Events</h3><%= link_to "View All Events", edit_user_registration_path %>
 
-    <p>display list of user top upcoming events</p>
+    <% if @all_events_by_user.any? %>
+      <ul>
+        <% @all_events_by_user.each do |event| %>
+          <li><%= event.title %></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>You have no upcoming events.</p>
+    <% end %>
 
   </div>
 
   <hr>
 
   <div class="user-events">
-    <h3>Your Groups</h3><%= link_to "View All Groups", edit_user_registration_path, class: "btn btn-primary" %>
+    <h3>Your Groups</h3><%= link_to "View All Groups", edit_user_registration_path %>
 
-    <p>display list of top 4 groups</p>
+    <% if @all_events_by_user.any? %>
+      <ul>
+        <% @all_events_by_user.each do |event| %>
+          <li><%= event.title %></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>You are not a member of any groups.</p>
+    <% end %>
 
   </div>
 
