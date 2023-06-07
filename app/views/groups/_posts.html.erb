@@ -1,0 +1,53 @@
+<h2>Posts</h2>
+<% posts.each do |post| %>
+  <% if post.post_id.nil? %>
+    <div data-controller="post">
+      <p><i><%= post.user.nickname %></i></p>
+      <strong><%= post.message %></strong>
+      <button data-action="click->post#edit">Edit</button>
+      <div data-post-target="editForm" class="d-none mt-5">
+        <%= simple_form_for [@group, post] do |f| %>
+          <%= f.input :message %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+      <button data-action="click->post#answer">Answer</button>
+      <div data-post-target="answerForm" class="d-none">
+        <%= simple_form_for [@group, @post] do |f| %>
+          <%= f.input :message %>
+          <%= f.input :post_id, as: :hidden, input_html: { value: post.id } %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+      <button>Delete</button>
+      <%= link_to "Delete",
+      post_path(post),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+    <div>
+      <% related_posts = posts.where(post_id: post.id) %>
+      <% related_posts.each do |related_post| %>
+        <p><i><%= related_post.user.nickname %></i></p>
+        <p><%= related_post.message %></p>
+        <button data-action="click->post#edit">Edit</button>
+        <div data-post-target="editForm" class="d-none mt-5">
+          <%= simple_form_for [@group, related_post] do |f| %>
+            <%= f.input :message %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+        <button>Delete</button>
+        <%= link_to "Delete",
+        post_path(related_post),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class: "btn btn-primary"
+        %>
+      <% end %>
+    </div>
+    </div>
+  <% end %>
+<% end %>
+<%= simple_form_for [@group, @post] do |f| %>
+  <%= f.input :message %>
+  <%= f.button :submit %>
+<% end %>
