@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_202223) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_122146) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,7 +106,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_202223) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_id"
     t.index ["group_id"], name: "index_posts_on_group_id"
+    t.index ["post_id"], name: "index_posts_on_post_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -129,7 +131,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_202223) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "user_name"
     t.text "bio"
     t.string "city"
     t.string "nickname"
@@ -147,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_202223) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "groups"
+  add_foreign_key "posts", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"

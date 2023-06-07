@@ -17,6 +17,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @post = Post.new
     @users = @group.users
     @users_count = @users.count
     @creator = @group.user.user_name
