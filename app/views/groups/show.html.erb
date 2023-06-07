@@ -1,4 +1,15 @@
-<h2><%= @group.title %></h2>
-
-
+<div class="container">
+  <% if @group.photo.attached? %>
+    <%= cl_image_tag @group.photo.key, class: "img-fluid", crop: :fill %>
+    <% else %>
+    <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
+  <% end %>
+  <h1><strong><%= @group.title %></strong></h1>
+  <div class="group-info">
+    <%= render "shared/group_info" %>
+  </div>
+  <div class="group-description">
+    <%= render "shared/group_description" %>
+  </div>
+</div>
 <%= render "posts", posts: @group.posts %>
