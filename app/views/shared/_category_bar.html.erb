@@ -1,7 +1,5 @@
-<div class="category-bar">
-  <ul>
-    <% ApplicationRecord::CATEGORIES.each do |category| %>
-      <li><%= link_to category, events_path(category: category) %></li>
-    <% end %>
-  </ul>
+<div class="category-bar d-flex justify-content-between">
+  <% ApplicationRecord::CATEGORIES.each do |category| %>
+    <%= link_to category, events_path(category: category), class: "btn btn-primary" %>
+  <% end %>
 </div>
