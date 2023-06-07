@@ -2,7 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def landing_page
-  #  @events = Event.all.sample(3)
+    # All Categories
+    @categories = Event.where(category: params[:query])
+    #  @events = Event.all.sample(3)
     if request.location.city.present?
       @city = request.location.city
     else
