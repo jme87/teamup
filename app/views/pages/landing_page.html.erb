@@ -1,10 +1,11 @@
 <%= render "shared/home_banner" %>
 
-<%= render "shared/category_bar" %>
+<div class="container">
+  <%= render "shared/category_bar" %>
 
-<h2>The top events in <%= @city %></h2>
+  <h2>The top events in <%= @city %></h2>
 
-
-<% @events.each do |event| %>
-  <%= render "shared/card", event: event %>
-<% end %>
+  <% @events.each do |event| %>
+    <%= render "shared/event_card_long", event: event %>
+  <% end %>
+</div>
