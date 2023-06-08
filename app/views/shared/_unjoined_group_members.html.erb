@@ -3,13 +3,13 @@
   <% @sample.each do |user| %>
     <%= cl_image_tag user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
   <% end %>
-  <span class="fa-stack fa-4x">
+  <%# <span class="fa-stack fa-4x">
       <i class="fa fa-circle fa-stack-2x icon-background"></i>
       <i class="fa-solid fa-user-plus person-icon"></i>
-  </span>
+  </span> %>
 </div>
 
-<span class="fa-stack" style="vertical-align: top;">
+<%# <span class="fa-stack" style="vertical-align: top;">
     <i class="fa-solid fa-circle fa-stack-2x icon-background"></i>
     <i class="fa-solid fa-user-plus fa-stack-1x fa-inverse"></i>
-</span>
+</span> %>
