@@ -18,7 +18,7 @@ export default class extends Controller {
     // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     // Creating the whole message from the `data.message` String
-    const messageElement = this.#buildMessageElement(currentUserIsSender, data)
+    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
 
     // Inserting the `message` in the DOM
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
