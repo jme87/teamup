@@ -19,7 +19,8 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @users = @group.users
     @users_count = @users.count
-    @creator = @group.user.user_name
+    @creator = @group.user.nickname
+    @sample = @users.sample(3)
   end
 
   def edit
