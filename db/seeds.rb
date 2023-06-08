@@ -11,7 +11,7 @@ require 'open-uri'
 puts "Cleaning the database................................................"
 UserGroup.destroy_all
 Booking.destroy_all
-Chatroom.destroy.all
+Chatroom.destroy_all
 Event.destroy_all
 Group.destroy_all
 User.destroy_all
@@ -214,7 +214,7 @@ group3.save!
 event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
 event1 = Event.new(
   {
-    title: 'Sunday Volleyball Tournament',
+    title: 'Summer Volleyball Tournament',
     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
     start_date: DateTime.new(2023, 6, 15, 10, 0, 0),
     end_date: DateTime.new(2023, 6, 15, 14, 0, 0),
@@ -254,8 +254,8 @@ event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 event3photo = URI.open("https://source.unsplash.com/PxWYtbARH9s/400x300")
 event3 = Event.new(
   {
-    title: "Thursday Football",
-    description: "Join our Thursday night Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
+    title: "Casual Football",
+    description: "Join our evening Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
     address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris, France",
@@ -282,19 +282,19 @@ booking = Booking.create!(
   }
 )
 
-# booking = Booking.create!(
-#   {
-#     user_id: user2.id,
-#     event_id: event1.id
-#   }
-# )
+booking = Booking.create!(
+  {
+    user_id: user2.id,
+    event_id: event1.id
+  }
+)
 
-# booking = Booking.create!(
-#   {
-#     user_id: user3.id,
-#     event_id: event1.id
-#   }
-# )
+booking = Booking.create!(
+  {
+    user_id: user3.id,
+    event_id: event1.id
+  }
+)
 
 ##### Event 2
 
