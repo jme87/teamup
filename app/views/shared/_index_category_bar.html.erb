@@ -1,0 +1,14 @@
+<div class="category-container">
+    <div class="carousel">
+      <% categories = Event.pluck(:category).uniq %>
+      <% categories.each do |category| %>
+      <%= link_to events_path(query: category) do%>
+        <% category_with_hyphen = category.gsub(" ", "-") %>
+        <div id="<%= category_with_hyphen %>" class="item">
+
+          <h1><%= category %></h1>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
