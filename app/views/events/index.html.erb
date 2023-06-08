@@ -17,16 +17,18 @@
     </div>
   </div>
 
-<% if params[:query].present? %>
-  <h2>Results for <%= @category %></h2>
-<% else %>
-  <h2>All events</h2>
-<% end %>
-
-<div class="row">
-  <% @events.each do |event| %>
-    <div class="col-md-4">
-      <%= render "shared/event_card_long", event: event %>
-    </div>
+<div class="container">
+  <% if params[:query].present? %>
+    <h2>Results for <%= @category %></h2>
+  <% else %>
+    <h2>All events</h2>
   <% end %>
+
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <%= render "shared/event_card_long", event: event %>
+      </div>
+    <% end %>
+  </div>
 </div>
