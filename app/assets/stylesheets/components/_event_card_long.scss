@@ -7,12 +7,21 @@
 .event-card-long {
   background-color: #FFFFFF;
   display: flex;
-  width: 340px;
+  width: 360px;
   height: 140px;
-  margin: 0px 10px 15px 0px;
+  margin: 10px 0px 10px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .event-card-long-image {
@@ -24,6 +33,9 @@
 .event-card-long-right {
   width: 100%;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .event-card-long-name {
@@ -34,4 +46,5 @@
 .event-card-long-date,
 .event-card-long-attendance {
   margin: 5px 0;
+  font-size: 15px;
 }
