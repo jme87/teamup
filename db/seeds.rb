@@ -11,7 +11,7 @@ require 'open-uri'
 puts "Cleaning the database................................................"
 UserGroup.destroy_all
 Booking.destroy_all
-Chatroom.destroy.all
+Chatroom.destroy_all
 Event.destroy_all
 Group.destroy_all
 User.destroy_all
