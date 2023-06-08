@@ -288,6 +288,7 @@ event4 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 10,
     category: 'Volleyball',
+    level: "Intermediate",
     duration: 2.0,
     group_id: group1.id,
     user_id: user1.id
@@ -308,6 +309,7 @@ event5 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 10,
     category: 'Volleyball',
+    level: "Beginner",
     duration: 1.0,
     group_id: group1.id,
     user_id: user1.id
