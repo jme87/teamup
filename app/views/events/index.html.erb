@@ -1,4 +1,4 @@
-<h1>Welcome from the Events Index Page</h1>
+<h1>View all the Events</h1>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
@@ -6,13 +6,11 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <div class="category-container">
-    <div class="carousel">
+    <div class="index-category-bar">
       <% categories = Event.pluck(:category).uniq %>
       <% categories.each do |category| %>
       <%= link_to events_path(query: category) do%>
-        <% category_with_hyphen = category.gsub(" ", "-") %>
-        <div id="<%= category_with_hyphen %>" class="item">
-
+        <div id="<%= category %>" class="item">
           <h1><%= category %></h1>
         </div>
       <% end %>
@@ -21,10 +19,10 @@
   </div>
 
 <h2>Results for Tennis in Berlin</h2>
-<%# form_tag do %>
-  <%# select_tag 'city', options_for_select(@cities.map { |city| [city.name, city.id] }), include_blank: true %>
-  <%#submit_tag 'Filter' %>
-<%# end %>
+<%= form_tag do %>
+  <%= select_tag 'city', options_for_select(@cities), include_blank: true %>
+  <%= submit_tag 'Filter' %>
+<% end %>
 <div class="d-flex justify-content-center">
   <% @events.each do |event| %>
     <%= render "shared/card", event: event %>
