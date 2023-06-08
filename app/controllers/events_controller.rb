@@ -1,4 +1,17 @@
-e
+class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+  def index
+    @events = Event.all
+    # The `geocoded` scope filters only events with coordinates
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { event: event }),
+        marker_html: render_to_string(partial: "marker", locals: { event: event })
+      }
+    end
+  end
 
   def show
     @event = Event.find(params[:id])

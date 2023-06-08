@@ -19,10 +19,10 @@
   </div>
 
 <h2>Results for Tennis in Berlin</h2>
-<%= form_tag do %>
-  <%= select_tag 'city', options_for_select(@cities), include_blank: true %>
-  <%= submit_tag 'Filter' %>
-<% end %>
+<%# form_tag do %>
+  <%# select_tag 'city', options_for_select(@cities), include_blank: true %>
+  <%# submit_tag 'Filter' %>
+<%# end %>
 <div class="d-flex justify-content-center">
   <% @events.each do |event| %>
     <%= render "shared/card", event: event %>
