@@ -1,0 +1,29 @@
+.each-member-avatar {
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+// .fa-user-plus {
+//   border: 3px solid black;
+//   border-radius: 50%;
+// }
+
+
+.person-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.icon-background {
+  font-size: 60px;
+}
+
+.icon-spacing {
+  margin: 0px auto;
+
+}
