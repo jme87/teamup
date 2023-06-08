@@ -5,7 +5,9 @@
 
   <h2>The top events in <%= @city %></h2>
 
-  <% @events.each do |event| %>
-    <%= render "shared/event_card_long", event: event %>
-  <% end %>
+  <div class="d-flex flex-wrap justify-content-between">
+    <% @events.each do |event| %>
+      <%= render "shared/event_card_long", event: event %>
+    <% end %>
+  </div>
 </div>
