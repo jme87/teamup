@@ -282,26 +282,26 @@ booking = Booking.create!(
   }
 )
 
-booking = Booking.create!(
-  {
-    user_id: user2.id,
-    event_id: event1.id
-  }
-)
+# booking = Booking.create!(
+#   {
+#     user_id: user2.id,
+#     event_id: event1.id
+#   }
+# )
 
-booking = Booking.create!(
-  {
-    user_id: user3.id,
-    event_id: event1.id
-  }
-)
+# booking = Booking.create!(
+#   {
+#     user_id: user3.id,
+#     event_id: event1.id
+#   }
+# )
 
 ##### Event 2
 
 booking = Booking.create!(
   {
     user_id: user2.id,
-    event_id: event2.id
+    event_id: event1.id
   }
 )
 
