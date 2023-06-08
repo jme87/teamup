@@ -1,10 +1,26 @@
 <%= render "shared/home_banner" %>
 
 <%= render "shared/category_bar" %>
+<div class="d-flex align-items-center gap-2">
+  <span> Discover events in</span>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle m-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+      Berlin
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Berlin</a></li>
+      <li><a class="dropdown-item" href="#">Munich</a></li>
+      <li><a class="dropdown-item" href="#">Paris</a></li>
+    </ul>
+  </div>
+</div>
 
 <h2>The top events in <%= @city %></h2>
 
 
 <% @events.each do |event| %>
-  <%= render "shared/card", event: event %>
+  <%= render "shared/event_card_long", event: event %>
 <% end %>
