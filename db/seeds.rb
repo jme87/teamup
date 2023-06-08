@@ -345,12 +345,12 @@ booking = Booking.create!(
   }
 )
 
-##### Event 2 Women doble
+##### Event 2 Women double
 
 booking = Booking.create!(
   {
     user_id: user2.id,
-    event_id: event1.id
+    event_id: event2.id
   }
 )
 
