@@ -1,12 +1,15 @@
-<h1>Welcome from the Events Index Page</h1>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <h1>Welcome from the Events Index Page</h1>
 
-<div class="d-flex justify-content-center">
-  <% @events.each do |event| %>
-    <%= render "shared/card", event: event %>
-  <% end %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="container">
+  <div class="d-flex flex-wrap">
+    <% @events.each do |event| %>
+      <%= render "shared/event_card_long", event: event %>
+    <% end %>
+  </div>
 </div>

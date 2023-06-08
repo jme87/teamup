@@ -11,6 +11,7 @@ require 'open-uri'
 puts "Cleaning the database................................................"
 UserGroup.destroy_all
 Booking.destroy_all
+Chatroom.destroy.all
 Event.destroy_all
 Group.destroy_all
 User.destroy_all
@@ -228,6 +229,7 @@ event1 = Event.new(
 )
 event1.photos.attach(io: event1photo, filename: "event1.png", content_type: "image/png")
 event1.save!
+event1.create_chatroom!(name: "Chatroom for #{event1.title}")
 
 event2photo = URI.open("https://source.unsplash.com/WkY8KhEFXak/400x300")
 event2 = Event.new(
@@ -247,6 +249,7 @@ event2 = Event.new(
 )
 event2.photos.attach(io: event2photo, filename: "event2.png", content_type: "image/png")
 event2.save!
+event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 
 event3photo = URI.open("https://source.unsplash.com/PxWYtbARH9s/400x300")
 event3 = Event.new(
@@ -266,6 +269,7 @@ event3 = Event.new(
 )
 event3.photos.attach(io: event3photo, filename: "event3.png", content_type: "image/png")
 event3.save!
+event3.create_chatroom!(name: "Chatroom for #{event3.title}")
 
 #################### 7 hardcoded Bookings ####################
 
@@ -278,26 +282,26 @@ booking = Booking.create!(
   }
 )
 
-booking = Booking.create!(
-  {
-    user_id: user2.id,
-    event_id: event1.id
-  }
-)
+# booking = Booking.create!(
+#   {
+#     user_id: user2.id,
+#     event_id: event1.id
+#   }
+# )
 
-booking = Booking.create!(
-  {
-    user_id: user3.id,
-    event_id: event1.id
-  }
-)
+# booking = Booking.create!(
+#   {
+#     user_id: user3.id,
+#     event_id: event1.id
+#   }
+# )
 
 ##### Event 2
 
 booking = Booking.create!(
   {
     user_id: user2.id,
-    event_id: event2.id
+    event_id: event1.id
   }
 )
 
