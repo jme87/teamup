@@ -11,6 +11,7 @@ class Event < ApplicationRecord
   validates :description, presence: true
 
   validates :category, presence: true, inclusion: { in: CATEGORIES }
+  validates :level, presence: true, inclusion: { in: LEVEL }
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :address, presence: true
