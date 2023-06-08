@@ -19,4 +19,12 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def city(event)
+    event.address.split(" ")[-1].gsub(',', '')
+  end
+
+  def spots_left(event)
+    event.spots_available - event.bookings.count
+  end
 end
