@@ -1,2 +1,6 @@
 <h5><strong>Upcoming Events</strong></h5><%# render up to 3 cards with upcoming events here %>
 
+<% @group.events.each do |event| %>
+  <%= event.title %>
+  <%= event.start_date %>
+<% end %>

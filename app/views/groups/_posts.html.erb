@@ -3,46 +3,66 @@
   <% if post.post_id.nil? %>
     <div data-controller="post">
       <p><i><%= post.user.nickname %></i></p>
-      <strong><%= post.message %></strong>
-      <button data-action="click->post#edit">Edit</button>
-      <div data-post-target="editForm" class="d-none mt-5">
-        <%= simple_form_for [@group, post] do |f| %>
-          <%= f.input :message %>
-          <%= f.button :submit %>
-        <% end %>
+      <div class="d-flex">
+        <strong><%= post.message %></strong>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ⋮
+          </button>
+
+          <ul class="dropdown-menu">
+            <button data-action="click->post#edit" class="dropdown-item">Edit</button>
+            <button data-action="click->post#answer" class="dropdown-item">Answer</button>
+            <%= link_to "Delete",
+                        post_path(post),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class: "btn btn-primary dropdown-item" %>
+          </ul>
       </div>
-      <button data-action="click->post#answer">Answer</button>
-      <div data-post-target="answerForm" class="d-none">
-        <%= simple_form_for [@group, @post] do |f| %>
-          <%= f.input :message %>
-          <%= f.input :post_id, as: :hidden, input_html: { value: post.id } %>
-          <%= f.button :submit %>
-        <% end %>
-      </div>
-      <%= link_to "Delete",
-      post_path(post),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-primary"
-    %>
+    </div>
+    <%# hidden forms to toggle %>
+    <div data-post-target="editForm" class="d-none mt-5">
+      <%= simple_form_for [@group, post] do |f| %>
+        <%= f.input :message %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+
+    <div data-post-target="answerForm" class="d-none">
+      <%= simple_form_for [@group, @post] do |f| %>
+        <%= f.input :message %>
+        <%= f.input :post_id, as: :hidden, input_html: { value: post.id } %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+
     <div>
       <% related_posts = posts.where(post_id: post.id) %>
       <% related_posts.each do |related_post| %>
         <p><i><%= related_post.user.nickname %></i></p>
-        <p><%= related_post.message %></p>
-        <button data-action="click->post#editAnswer">Edit Answer</button>
+        <div class="d-flex">
+          <p><%= related_post.message %></p>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ⋮
+            </button>
+            <ul class="dropdown-menu">
+              <button data-action="click->post#editAnswer" class="dropdown-item">Edit Answer</button>
+              <%= link_to "Delete",
+                          post_path(related_post),
+                          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                          class: "btn btn-primary dropdown-item" %>
+            </ul>
+          </div>
+        </div>
+        <%# hidden form to toggle %>
         <div data-post-target="editAnswerForm" class="d-none mt-5b">
           <%= simple_form_for [related_post] do |f| %>
             <%= f.input :message %>
             <%= f.button :submit %>
           <% end %>
         </div>
-        <%= link_to "Delete",
-        post_path(related_post),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-        class: "btn btn-primary"
-        %>
       <% end %>
-    </div>
     </div>
   <% end %>
 <% end %>
