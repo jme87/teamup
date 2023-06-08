@@ -32,6 +32,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @categories = ApplicationRecord::CATEGORIES
+    @level = ApplicationRecord::LEVEL
   end
 
   def create
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       @categories = ApplicationRecord::CATEGORIES
+      @level = ApplicationRecord::LEVEL
       render :new, status: :unprocessable_entity
     end
   end
@@ -50,6 +52,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @categories = ApplicationRecord::CATEGORIES
+    @level = ApplicationRecord::LEVEL
   end
 
   def update
@@ -67,6 +70,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       @categories = ApplicationRecord::CATEGORIES
+      @level = ApplicationRecord::LEVEL
       render :new, status: :unprocessable_entity
     end
   end

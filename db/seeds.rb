@@ -178,7 +178,8 @@ group1 = Group.new(
     description: "Join our group of gravity-defying volleyball enthusiasts and soar to new heights.",
     city: "Berlin",
     category: "Volleyball",
-    user_id: user1.id
+    user_id: user1.id,
+    private: false
   }
 )
 group1.photos.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
@@ -191,7 +192,8 @@ group2 = Group.new(
     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
     city: "Berlin",
     category: "Tennis",
-    user_id: user2.id
+    user_id: user2.id,
+    private: false
   }
 )
 group2.photos.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
@@ -204,7 +206,8 @@ group3 = Group.new(
     description: "Unleash your inner goal-scoring machine and join our football frenzy.",
     city: "Paris",
     category: "Football",
-    user_id: user3.id
+    user_id: user3.id,
+    private: false
   }
 )
 group3.photos.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
@@ -214,7 +217,7 @@ group3.save!
 event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
 event1 = Event.new(
   {
-    title: 'Volleyball Tournament',
+    title: 'Summer Volleyball Tournament',
     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
     start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
     end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
@@ -222,6 +225,7 @@ event1 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 20,
     category: 'Volleyball',
+    level: "Beginner",
     duration: 4.0,
     group_id: group1.id,
     user_id: user1.id
@@ -242,6 +246,7 @@ event2 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Tennis",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group2.id,
     user_id: user2.id
@@ -254,14 +259,15 @@ event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 event3photo = URI.open("https://source.unsplash.com/PxWYtbARH9s/400x300")
 event3 = Event.new(
   {
-    title: "Evening Football",
-    description: "Join our evening Football match. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
+    title: "Casual Football",
+    description: "Join our evening Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
     address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris, France",
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Football",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group3.id,
     user_id: user3.id
@@ -323,19 +329,19 @@ booking = Booking.create!(
   }
 )
 
-# booking = Booking.create!(
-#   {
-#     user_id: user2.id,
-#     event_id: event1.id
-#   }
-# )
+booking = Booking.create!(
+  {
+    user_id: user2.id,
+    event_id: event1.id
+  }
+)
 
-# booking = Booking.create!(
-#   {
-#     user_id: user3.id,
-#     event_id: event1.id
-#   }
-# )
+booking = Booking.create!(
+  {
+    user_id: user3.id,
+    event_id: event1.id
+  }
+)
 
 ##### Event 2 Women doble
 
