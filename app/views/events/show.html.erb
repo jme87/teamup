@@ -8,7 +8,7 @@
 </div>
 
 <%# Details section %>
-<div class="container m-3 bg-info">
+<div class="container p-1 bg-info">
   <ul>
     <li>
       <div class="d-flex flex-column">
@@ -23,13 +23,34 @@
       <%= @event.level %>
     </li>
   </ul>
-  
+
+  <div class="d-flex align-items-center">
+    <% if @event.group.present? %>
+      <% if @event.group.photos.attached? %>
+        <div class="m-3">
+          <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
+        </div>
+     <% end %>
+     <div class="m-3">
+      <h4><%= @event.title %></h4>
+      <%= @event.group.private ? "Private Group" : "Public Group" %>
+    </div>
+    <% end %>
+  </div>
 </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+<div data-controller="show-map">
+  <div data-show-map-target="mymap" class="">
+    <div data-post-target="map">
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+  <button data-action="click->show-map#show">Hide/Show Map</button>
 </div>
 
 <%= link_to "Join event",

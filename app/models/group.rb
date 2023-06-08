@@ -11,7 +11,6 @@ class Group < ApplicationRecord
   validates :description, presence: true
   validates :city, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  validates :level, presence: true, inclusion: { in: LEVEL }
 
   attr_accessor :private
 end
