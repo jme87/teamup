@@ -1,4 +1,4 @@
-<h5>Group members</h5>
+<h5 class="mt-3"><strong>Group members</strong></h5>
 <div class="members-avatars d-flex">
   <% @sample.each do |user| %>
     <%= cl_image_tag user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
