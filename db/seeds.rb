@@ -214,10 +214,10 @@ group3.save!
 event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
 event1 = Event.new(
   {
-    title: 'Sunday Volleyball Tournament',
+    title: 'Volleyball Tournament',
     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
-    start_date: DateTime.new(2023, 6, 15, 10, 0, 0),
-    end_date: DateTime.new(2023, 6, 15, 14, 0, 0),
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
     address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
     price: Faker::Number.within(range: 0..10),
     spots_available: 20,
@@ -254,8 +254,8 @@ event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 event3photo = URI.open("https://source.unsplash.com/PxWYtbARH9s/400x300")
 event3 = Event.new(
   {
-    title: "Thursday Football",
-    description: "Join our Thursday night Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
+    title: "Evening Football",
+    description: "Join our evening Football match. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
     address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris, France",
@@ -296,7 +296,7 @@ booking = Booking.create!(
 #   }
 # )
 
-##### Event 2
+##### Event 2 Women doble
 
 booking = Booking.create!(
   {
