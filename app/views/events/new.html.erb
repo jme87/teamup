@@ -10,10 +10,15 @@
   <%= f.input :price %>
   <%= f.input :spots_available, as: :integer %>
   <%= f.input :category,
-  collection: @categories,
-  prompt: "Select a category",
-  requiered: true,
-  autofocus: true %>
+    collection: @categories,
+    prompt: "Select a category",
+    requiered: true,
+    autofocus: true %>
+  <%= f.input :level,
+    collection: @level,
+    prompt: "Select a category",
+    requiered: true,
+    autofocus: true %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>

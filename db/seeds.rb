@@ -11,7 +11,7 @@ require 'open-uri'
 puts "Cleaning the database................................................"
 UserGroup.destroy_all
 Booking.destroy_all
-Chatroom.destroy.all
+Chatroom.destroy_all
 Event.destroy_all
 Group.destroy_all
 User.destroy_all
@@ -222,6 +222,7 @@ event1 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 20,
     category: 'Volleyball',
+    level: "Beginner",
     duration: 4.0,
     group_id: group1.id,
     user_id: user1.id
@@ -242,6 +243,7 @@ event2 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Tennis",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group2.id,
     user_id: user2.id
@@ -262,6 +264,7 @@ event3 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Football",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group3.id,
     user_id: user3.id

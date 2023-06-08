@@ -1,24 +1,36 @@
-<div class="container">
-  <% @event.photos.each do |photo| %>
-    <% if photo %>
-      <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
-    <% else %>
-        <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
-    <% end %>
+<div class="d-flex flex-column">
+  <% if @event.photos.attached? %>
+    <%= cl_image_tag @event.photos[0].key, crop: :fill %>
+  <% else %>
+      <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
   <% end %>
   <h1 class="mt-3"><strong><%= @event.title %></strong></h1>
 </div>
 
-<%= @event.title %>
+<%# Details section %>
+<div class="container m-3 bg-info">
+  <ul>
+    <li>
+      <div class="d-flex flex-column">
+        <%= @event.start_date %>
+        <a href="#">Add to Calendar</a>
+      </div>
+    </li>
+    <li>
+      <%= @event.address %>
+    </li>
+    <li>
+      <%= @event.level %>
+    </li>
+  </ul>
+  
+</div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-  <% @event.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <%= link_to "Join event",
   event_bookings_path(@event),
