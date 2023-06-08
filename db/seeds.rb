@@ -271,6 +271,47 @@ event3.photos.attach(io: event3photo, filename: "event3.png", content_type: "ima
 event3.save!
 event3.create_chatroom!(name: "Chatroom for #{event3.title}")
 
+event4photo = URI.open("https://source.unsplash.com/1v7axvhwnOU/400x300")
+event4 = Event.new(
+  {
+    title: 'Casual Match',
+    description: "Join for a couple of hours of volleyball and make friendls!",
+    start_date: DateTime.new(2023, 6, 30, 14, 0, 0),
+    end_date: DateTime.new(2023, 6, 30, 16, 0, 0),
+    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 10,
+    category: 'Volleyball',
+    duration: 2.0,
+    group_id: group1.id,
+    user_id: user1.id
+  }
+)
+event4.photos.attach(io: event4photo, filename: "event4.png", content_type: "image/png")
+event4.save!
+event4.create_chatroom!(name: "Chatroom for #{event4.title}")
+
+event5photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
+event5 = Event.new(
+  {
+    title: 'Morning Game',
+    description: "Join for a couple of hours of volleyball and make friendls!",
+    start_date: DateTime.new(2023, 6, 30, 8, 0, 0),
+    end_date: DateTime.new(2023, 6, 30, 9, 0, 0),
+    address: 'Wolliner Str. 39, 13355 Berlin',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 10,
+    category: 'Volleyball',
+    duration: 1.0,
+    group_id: group1.id,
+    user_id: user1.id
+  }
+)
+event5.photos.attach(io: event5photo, filename: "event5.png", content_type: "image/png")
+event5.save!
+event5.create_chatroom!(name: "Chatroom for #{event5.title}")
+
+
 #################### 7 hardcoded Bookings ####################
 
 ##### Event 1

@@ -1,9 +1,8 @@
-<h1>View all the Events</h1>
-
-  <div style="width: 100%; height: 600px;"
+<div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <div class="category-container">
     <div class="index-category-bar">
@@ -18,13 +17,16 @@
     </div>
   </div>
 
-<h2>Results for <%= @category%></h2>
-<%# form_tag do %>
-  <%# select_tag 'city', options_for_select(@cities), include_blank: true %>
-  <%# submit_tag 'Filter' %>
-<%# end %>
-<div class="d-flex justify-content-center">
+<% if params[:query].present? %>
+  <h2>Results for <%= @category %></h2>
+<% else %>
+  <h2>All events</h2>
+<% end %>
+
+<div class="row">
   <% @events.each do |event| %>
-    <%= render "shared/event_card_long", event: event %>
+    <div class="col-md-4">
+      <%= render "shared/event_card_long", event: event %>
+    </div>
   <% end %>
 </div>
