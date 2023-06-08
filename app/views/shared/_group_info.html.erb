@@ -7,5 +7,9 @@
             </p>
 </div>
 <div class="button d-flex justify-content-center">
-  <%= link_to "Join Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-primary col-9" %>
+  <% if current_user.groups.include?(@group) %>
+    <button class="btn btn-success col-9"> You're a member </button>
+  <% else %>
+    <%= link_to "Join Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-primary col-9" %>
+  <% end %>
 </div>

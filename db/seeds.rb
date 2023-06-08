@@ -368,6 +368,18 @@ usergroup = UserGroup.create!(
     group_id: group1.id
   }
 )
+usergroup = UserGroup.create!(
+  {
+    user_id: user3.id,
+    group_id: group1.id
+  }
+)
+usergroup = UserGroup.create!(
+  {
+    user_id: user4.id,
+    group_id: group1.id
+  }
+)
 ##### User_Group 2
 usergroup = UserGroup.create!(
   {
