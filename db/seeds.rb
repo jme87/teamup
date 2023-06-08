@@ -178,7 +178,8 @@ group1 = Group.new(
     description: "Join our group of gravity-defying volleyball enthusiasts and soar to new heights.",
     city: "Berlin",
     category: "Volleyball",
-    user_id: user1.id
+    user_id: user1.id,
+    private: false
   }
 )
 group1.photos.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
@@ -191,7 +192,8 @@ group2 = Group.new(
     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
     city: "Berlin",
     category: "Tennis",
-    user_id: user2.id
+    user_id: user2.id,
+    private: false
   }
 )
 group2.photos.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
@@ -204,7 +206,8 @@ group3 = Group.new(
     description: "Unleash your inner goal-scoring machine and join our football frenzy.",
     city: "Paris",
     category: "Football",
-    user_id: user3.id
+    user_id: user3.id,
+    private: false
   }
 )
 group3.photos.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
@@ -222,6 +225,7 @@ event1 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 20,
     category: 'Volleyball',
+    level: "Beginner",
     duration: 4.0,
     group_id: group1.id,
     user_id: user1.id
@@ -242,6 +246,7 @@ event2 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Tennis",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group2.id,
     user_id: user2.id
@@ -262,6 +267,7 @@ event3 = Event.new(
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Football",
+    level: "Intermediate",
     duration: 2.0,
     group_id: group3.id,
     user_id: user3.id
