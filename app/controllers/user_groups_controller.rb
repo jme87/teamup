@@ -9,8 +9,8 @@ class UserGroupsController < ApplicationController
   end
 
   def destroy
-    @usergroup = Usergroup.find(params[:usergroup_id])
+    @usergroup = UserGroup.find(params[:id])
     @usergroup.destroy
-    redirect_to dashboard_path, notice: "User removed successfully."
+    redirect_to profile_path, notice: "You have been removed successfully."
   end
 end
