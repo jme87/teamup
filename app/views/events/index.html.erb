@@ -1,18 +1,7 @@
 <div class="index-container">
   <div class="map-container" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-  <div class="category-container">
-    <div class="index-category-bar">
-      <% categories = Event.pluck(:category).uniq %>
-      <% categories.each do |category| %>
-        <%= link_to events_path(query: category) do %>
-          <div id="<%= category %>" class="item">
-            <h1><%= category %></h1>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render "shared/category_bar" %>
 
   <div class="results-card-container">
     <% if params[:query].present? %>
@@ -22,9 +11,9 @@
     <% end %>
 
     <h1><%= @event_city %></h1>
-    <div class="event-cards">
+    <div class="index-event-cards">
       <% @events.each do |event| %>
-        <div class="event-card">
+        <div class="index-event-card">
           <%= render "shared/event_card_long", event: event %>
         </div>
       <% end %>
