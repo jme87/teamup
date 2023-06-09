@@ -1,10 +1,12 @@
-<p>City: <%= @group.city %> </p>
-<p>Members: <%= @users_count %>  | <%= @group.private ? 'Private group' : 'Public group' %></p>
-<p>Organized by: <strong><%= @creator %></strong></p>
-<div class="d-flex">
-  <p>Share: <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
-            <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
-            </p>
+<div class="group-info-card">
+  <p>City: <%= @group.city %> </p>
+  <p>Members: <%= @users_count %>  | <%= @group.private ? 'Private group' : 'Public group' %></p>
+  <p>Organized by: <strong><%= @creator %></strong></p>
+  <div class="d-flex">
+    <p>Share: <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
+              <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
+              </p>
+  </div>
 </div>
 <div class="button d-flex justify-content-center">
   <% if current_user.groups.include?(@group) %>

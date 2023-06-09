@@ -345,7 +345,7 @@ booking = Booking.create!(
   }
 )
 
-##### Event 2 Women doble
+##### Event 2 Women double
 
 booking = Booking.create!(
   {
