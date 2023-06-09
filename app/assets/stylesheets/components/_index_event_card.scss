@@ -1,0 +1,22 @@
+.results-card-container {
+  padding: 5%;
+
+  h2 {
+    // tbd add styles for heading
+  }
+
+  h1 {
+    // tbd add styles for event city heading
+  }
+
+  .index-event-cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    .index-event-card {
+      flex-basis: 33.33%;
+      max-width: 100%;
+
+    }
+  }
+}
