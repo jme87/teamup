@@ -8,7 +8,7 @@
 </div>
 
 <%# Details section %>
-<div class="container p-1 bg-info">
+<div class="container p-1 group-info">
   <ul>
     <li>
       <div class="d-flex flex-column">
@@ -24,7 +24,7 @@
     </li>
   </ul>
 
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center mb-3">
     <% if @event.group.present? %>
       <% if @event.group.photos.attached? %>
         <div class="m-3">
@@ -43,7 +43,7 @@
 <div data-controller="show-map">
   <div data-show-map-target="mymap" class="">
     <div data-post-target="map">
-      <div style="width: 100%; height: 600px;"
+      <div style="width: 100%; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -53,22 +53,37 @@
   <button data-action="click->show-map#show">Hide/Show Map</button>
 </div>
 
+<h5 class="mt-3"><strong>Members that joined</strong></h5>
+<div class="members-avatars">
+  <% @event.bookings.each do |booking| %>
+    <%= cl_image_tag booking.user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
+  <% end %>
+  <% (@event.spots_available - @event.bookings.count).times do %>
+    <%= link_to event_bookings_path(@event), data: {turbo_method: :post, turbo_confirm: "Are you sure?"} do %>
+      <%= image_tag "placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
+    <% end %>
+  <% end %>
+</div>
+
 <%= link_to "Join event",
   event_bookings_path(@event),
   data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
 %>
 <br>
+<% raise %>
 <%= link_to "Leave event",
   delete_booking_path(@event),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
 <br>
-<%= link_to 'Edit event', edit_event_path(@event) %>
-<br>
-<%= link_to "Delete event",
-  event_path(@event),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<% if @event.user_id == current_user.id %>
+  <%= link_to 'Edit event', edit_event_path(@event) %>
+  <br>
+  <%= link_to "Delete event",
+    event_path(@event),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
 
 <br>
 <h3>All the bookings</h3>
