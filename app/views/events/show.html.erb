@@ -8,11 +8,12 @@
 </div>
 
 <%# Details section %>
-<div class="container p-1 bg-info">
+<div class="container p-5 group-info">
+  <h3 >Details</h3>
   <ul>
     <li>
       <div class="d-flex flex-column">
-        <%= @event.start_date %>
+        <%= @event.start_date.strftime('%a, %b %d %Y %H:%M') %>
         <a href="#">Add to Calendar</a>
       </div>
     </li>
@@ -24,18 +25,20 @@
     </li>
   </ul>
 
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center mb-3">
     <% if @event.group.present? %>
-      <% if @event.group.photos.attached? %>
-        <div class="m-3">
-          <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
-        </div>
-     <% end %>
-     <div class="m-3">
-      <h4><%= @event.title %></h4>
-      <%= @event.group.private ? "Private Group" : "Public Group" %>
-    </div>
+      <%= link_to group_path(@event.group) do %>
+        <% if @event.group.photos.attached? %>
+          <div class="m-3">
+            <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
+          </div>
+      <% end %>
+      <div class="m-3">
+        <h4><%= @event.title %></h4>
+        <%= @event.group.private ? "Private Group" : "Public Group" %>
+      </div>
     <% end %>
+  <% end %>
   </div>
 </div>
 
@@ -43,7 +46,7 @@
 <div data-controller="show-map">
   <div data-show-map-target="mymap" class="">
     <div data-post-target="map">
-      <div style="width: 100%; height: 600px;"
+      <div style="width: 100%; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -53,39 +56,56 @@
   <button data-action="click->show-map#show">Hide/Show Map</button>
 </div>
 
-<%= link_to "Join event",
-  event_bookings_path(@event),
-  data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
-%>
-<br>
-<%= link_to "Leave event",
-  delete_booking_path(@event),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-<br>
-<%= link_to 'Edit event', edit_event_path(@event) %>
-<br>
-<%= link_to "Delete event",
-  event_path(@event),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<h5 class="mt-3"><strong>Members that joined</strong></h5>
+<div class="members-avatars">
+  <% @event.bookings.each do |booking| %>
+    <%= cl_image_tag booking.user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
+  <% end %>
+  <% (@event.spots_available - @event.bookings.count).times do %>
+    <%= link_to event_bookings_path(@event), data: {turbo_method: :post, turbo_confirm: "Are you sure?"} do %>
+      <%= image_tag "placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
+    <% end %>
+  <% end %>
+</div>
+
+<% if @user_has_bookings %>
+  <%= link_to "Join event",
+    event_bookings_path(@event),
+    data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
+  %>
+  <br>
+<% end %>
+<% unless @user_has_bookings %>
+  <%= link_to "Leave event",
+    delete_booking_path(@event),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+  <br>
+<% end %>
+<% if @event.user_id == current_user.id %>
+  <%= link_to 'Edit event', edit_event_path(@event) %>
+  <br>
+  <%= link_to "Delete event",
+    event_path(@event),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
 
 <br>
-<h3>All the bookings</h3>
-<% @event.bookings.each do |booking| %>
-  <h4><%= booking.user.first_name %></h4>
-<% end %>
+<div class="container p-5 group-info">
+  <h3>Description</h3>
+  <%= @event.description %>
+</div>
 
 
 
 <%# ############# Chatroom ##############%>
-<h4>Chatroom ID: <%= @event.chatroom.id %></h4>
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h1>#<%= @event.chatroom.name %></h1>
+  <h2>Event Chat</h2>
 
   <div class="messages" data-chatroom-subscription-target="messages">
   <% @event.chatroom.messages.each do |message| %>
@@ -102,7 +122,7 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@event.chatroom.name}",
+    placeholder: "Message in #{@event.title}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
