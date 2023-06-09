@@ -263,7 +263,7 @@ event3 = Event.new(
     description: "Join our evening Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
-    address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris, France",
+    address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris",
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Football",

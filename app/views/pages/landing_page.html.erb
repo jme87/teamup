@@ -1,13 +1,32 @@
 <%= render "shared/home_banner" %>
 
-<div class="container">
-  <%= render "shared/category_bar" %>
+<%= render "shared/category_bar" %>
+<div class="results-card-container">
+  <div class="d-flex align-items-center gap-2">
+    <h2> Top events in </h2>
+    <div class="city-dropdown" style="margin-bottom:5px; background-color:#fff">
+      <button style="border-width:0;" class=" dropdown-toggle m-0"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+        <span style="font-size:1.8em; color:orange; "> Berlin</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Berlin</a></li>
+        <li><a class="dropdown-item" href="#">Munich</a></li>
+        <li><a class="dropdown-item" href="#">Paris</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <h2>The top events in <%= @city %></h2>
 
-  <div class="d-flex flex-wrap justify-content-between">
+  <div class="index-event-cards">
     <% @events.each do |event| %>
-      <%= render "shared/event_card_long", event: event %>
+    <div class="index-event-card">
+          <%= render "shared/event_card_long", event: event %>
+    </div>
     <% end %>
   </div>
+  <br>
+  <%= link_to "All Events", events_path, class: "btn btn-primary btn-lg" %>
 </div>
