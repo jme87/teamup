@@ -1,2 +1,5 @@
 <h5><strong>Upcoming Events</strong></h5><%# render up to 3 cards with upcoming events here %>
 
+<% @group.events.each do |event| %>
+  <%= render "shared/event_card_long", event: event %>
+<% end %>

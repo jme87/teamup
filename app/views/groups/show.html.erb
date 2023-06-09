@@ -7,7 +7,7 @@
     <% end %>
   <% end %>
   <h1 class="mt-3"><strong><%= @group.title %></strong></h1>
-<!-- GROUP INFO -->
+  <!-- GROUP INFO -->
   <div class="group-info mb-3">
     <%= render "shared/group_info" %>
   </div>
@@ -17,7 +17,7 @@
     <%= render "shared/unjoined_group_members" %>
   <% end %>
 
-<!-- IF JOINED: NAV BAR, ELSE: NOTHING -->
+  <!-- IF JOINED: NAV BAR, ELSE: NOTHING -->
   <% if current_user.groups.include?(@group) %>
     <ul class="nav nav-tabs overflow-wrap" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -30,26 +30,30 @@
         <button class="nav-link" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">Upcoming Events</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="chat-tab" data-bs-toggle="tab" data-bs-target="#chat" type="button" role="tab" aria-controls="chat" aria-selected="false">Chat</button>
+        <button class="nav-link" id="discussion-tab" data-bs-toggle="tab" data-bs-target="#discussion" type="button" role="tab" aria-controls="discussion" aria-selected="false">Discussion</button>
       </li>
     </ul>
-  <div class="tab-content" id="myTabContent">
-<!-- GROUP DESCRIPTION -->
-  <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-    <%= render "shared/group_description" %>
-  </div>
-  <!-- IF JOINED: ALL MEMBERS, IF UNJOINED: SAMPLE OF MEMBERS  -->
-  <div class="tab-pane fade mt-3" id="members" role="tabpanel" aria-labelledby="members-tab">
-    <%= render "shared/joined_group_members" %>
-  </div>
-  <!-- IF JOINED: UPCOMING EVENTS, ELSE: NOTHING -->
-  <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
-    <%= render "shared/upcoming_group_events" %>
-  </div>
-  <!-- IF JOINED: CHAT, ELSE: NOTHING -->
-  <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
-    <%= render "posts", posts: @group.posts %>
-  </div>
-</div>
-<% end %>
+    <div class="tab-content" id="myTabContent">
+      <!-- GROUP DESCRIPTION -->
+      <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+        <%= render "shared/group_description" %>
+      </div>
+      <!-- IF JOINED: ALL MEMBERS, IF UNJOINED: SAMPLE OF MEMBERS  -->
+      <div class="tab-pane fade mt-3" id="members" role="tabpanel" aria-labelledby="members-tab">
+        <%= render "shared/joined_group_members" %>
+        <!-- LEAVE GROUP BUTTON -->
+        <div class="d-flex justify-content-center">
+          <%= link_to "Leave Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-warning col-9" %>
+        </div>
+      </div>
+      <!-- IF JOINED: UPCOMING EVENTS, ELSE: NOTHING -->
+      <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+        <%= render "shared/upcoming_group_events" %>
+      </div>
+      <!-- IF JOINED: DISCUSSION, ELSE: NOTHING -->
+      <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
+        <%= render "posts", posts: @group.posts %>
+      </div>
+    </div>
+  <% end %>
 </div>
