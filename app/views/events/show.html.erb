@@ -34,7 +34,7 @@
           </div>
       <% end %>
       <div class="m-3">
-        <h4><%= @event.title %></h4>
+        <h4><%= @event.group.title %></h4>
         <%= @event.group.private ? "Private Group" : "Public Group" %>
       </div>
     <% end %>
