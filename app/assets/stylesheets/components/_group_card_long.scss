@@ -1,14 +1,13 @@
-.event-cards-long {
+.group-cards-long {
   display: flex;
   align-items: center;
   margin-top: 25px;
 }
 
-.event-card-long {
+.group-card-long {
   background-color: #FFFFFF;
-  display: flex;
   width: 360px;
-  height: 160px;
+  height: 180px;
   margin: 20px 0px 0px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -24,18 +23,14 @@ a {
   color: inherit;
 }
 
-.event-card-long-image {
-  height: 100%;
-  width: 140px;
+.group-card-long-image {
+  height: 100px;
+  width: 100%;
   object-fit: cover;
 }
 
-.event-card-long-right {
-  width: 100%;
+.group-card-long-details {
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .event-card-long-name {
@@ -43,8 +38,7 @@ a {
 }
 
 .event-card-long-location,
-.event-card-long-date,
-.event-card-long-attendance {
+.event-card-long-members {
   margin: 5px 0;
   font-size: 15px;
 }

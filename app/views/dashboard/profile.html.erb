@@ -29,24 +29,32 @@
       <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-primary" %>
     </div>
   </div>
-
+  <br><br>
   <hr>
 
   <div class="user-events">
     <h3>Your Upcoming Events</h3>
-    <p>Displays 4 upcoming events user has booked</p>
-
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @attending.each do |event| %>
+          <%= render "shared/event_card_long", event: event %>
+          <% end %>
+      </div>
+  <br><br>
     <div class="text-center">
       <%= link_to "View All Events", user_events_path, class: "btn btn-primary" %>
     </div>
   </div>
-
+  <br><br>
   <hr>
 
   <div class="user-groups">
     <h3>Your Groups</h3>
-    <p>Displays top 4 groups user is a member of</p>
-
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @member.each do |group| %>
+          <%= render "shared/group_card_long", group: group %>
+          <% end %>
+      </div>
+  <br><br>
     <div class="text-center">
       <%= link_to "View All Groups", user_groups_path, class: "btn btn-primary" %>
     </div>

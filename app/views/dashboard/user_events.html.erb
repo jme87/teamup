@@ -16,17 +16,32 @@
   <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active mt-4" id="attending" role="tabpanel" aria-labelledby="attending-tab">
-    <p>Attending events displayed here</p>
+    <p>Attending events:</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @attending.each do |event| %>
+          <%= render "shared/event_card_long", event: event %>
+          <% end %>
+      </div>
   </div>
 
   <div class="tab-pane fade mt-4" id="hosting" role="tabpanel" aria-labelledby="hosting-tab">
     <p>Hosting events displayed here</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @hosting.each do |event| %>
+          <%= render "shared/event_card_long", event: event %>
+          <% end %>
+      </div>
   </div>
 
   <div class="tab-pane fade mt-4" id="past" role="tabpanel" aria-labelledby="past-tab">
     <p>Past events displayed here</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @hosting.each do |event| %>
+          <%= render "shared/event_card_long", event: event %>
+          <% end %>
+      </div>
   </div>
-
+<br><br>
   <div class="text-center mt-6">
     <%= link_to "Back to Profile", profile_path, class: "btn btn-outline-primary" %>
   </div>

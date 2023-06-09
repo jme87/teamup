@@ -13,13 +13,23 @@
   <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active mt-4" id="member" role="tabpanel" aria-labelledby="member-tab">
-    <p>Groups I'm a member of displayed here</p>
+    <p>Groups I'm a member of:</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @member.each do |group| %>
+          <%= render "shared/group_card_long", group: group %>
+          <% end %>
+      </div>
   </div>
 
   <div class="tab-pane fade mt-4" id="organiser" role="tabpanel" aria-labelledby="organiser-tab">
-    <p>Groups I'm organising displayed here</p>
+    <p>Groups I'm organising:</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @organiser.each do |group| %>
+          <%= render "shared/group_card_long", group: group %>
+          <% end %>
+      </div>
   </div>
-
+<br><br>
   <div class="text-center mt-6">
     <%= link_to "Back to Profile", profile_path, class: "btn btn-outline-primary" %>
   </div>
