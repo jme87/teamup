@@ -1,41 +1,63 @@
-<div class="container">
+<div class="container mt-4">
   <div class="welcome-header">
     <div class="user-img">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, height: 400, width: 600, crop: :fill %>
+        <%= cl_image_tag current_user.photo.key, class: "round-circle user-img", height: 300, width: 300, crop: :fill %>
       <% else %>
         <%= image_tag "placeholder.png" %>
       <% end %>
     </div>
-    <div class="welcome-msg">
+
+    <div class="welcome-msg text-center">
       <h2>Welcome, <%= current_user.first_name.capitalize %> 👋 </h2>
     </div>
+
     <div class="user-profile">
-      <ul>
-        <li> <i class="fa-solid fa-user"></i> <%= current_user.nickname.capitalize %> </li>
-        <li> <i class="fa-solid fa-location-dot"></i> <%= current_user.city.capitalize %> </li>
-        <li> <i class="fa-solid fa-ticket"></i> Attended 3 Events</li>
+      <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fa-solid fa-user"></i></span> <%= current_user.nickname.capitalize %> </li>
+        <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <%= current_user.city.capitalize %> </li>
+        <li><span class="fa-li"><i class="fa-solid fa-ticket"></i></span> Attended 3 Events</li>
       </ul>
+    </div>
+
+    <div class="user-bio">
       <h5>Your Bio</h5>
       <p> <%= current_user.bio %> </p>
     </div>
-    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-  </div>
 
+    <div class="text-center">
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+  <br><br>
   <hr>
 
   <div class="user-events">
     <h3>Your Upcoming Events</h3>
-    <p>Displays 4 upcoming events user has booked</p>
-    <%= link_to "View All Events", user_events_path %>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @attending.each do |event| %>
+          <%= render "shared/event_card_long", event: event %>
+          <% end %>
+      </div>
+  <br><br>
+    <div class="text-center">
+      <%= link_to "View All Events", user_events_path, class: "btn btn-primary" %>
+    </div>
   </div>
-
+  <br><br>
   <hr>
 
   <div class="user-groups">
     <h3>Your Groups</h3>
-    <p>Displays top 4 groups user is a member of</p>
-    <%= link_to "View All Groups", user_groups_path %>
+      <div class="d-flex flex-wrap justify-content-between">
+        <% @member.each do |group| %>
+          <%= render "shared/group_card_long", group: group %>
+          <% end %>
+      </div>
+  <br><br>
+    <div class="text-center">
+      <%= link_to "View All Groups", user_groups_path, class: "btn btn-primary" %>
+    </div>
   </div>
 
 </div>
