@@ -43,7 +43,7 @@
         <%= render "shared/joined_group_members" %>
         <!-- LEAVE GROUP BUTTON -->
         <div class="d-flex justify-content-center">
-          <%= link_to "Leave Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-warning col-9" %>
+          <%= link_to "Leave Group", user_group_path(@usergroup), data: {turbo_method: :delete}, class:"btn btn-warning col-9" %>
         </div>
       </div>
       <!-- IF JOINED: UPCOMING EVENTS, ELSE: NOTHING -->

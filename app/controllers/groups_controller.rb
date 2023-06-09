@@ -22,6 +22,7 @@ class GroupsController < ApplicationController
     @users_count = @users.count
     @creator = @group.user.nickname
     @sample = @users.sample(3)
+    @usergroup = @group.user_groups.find_by(user: current_user)
   end
 
   def edit

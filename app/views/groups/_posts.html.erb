@@ -1,4 +1,4 @@
-<h2>Posts</h2>
+<h5><strong>Posts</strong></h5>
 <% posts.each do |post| %>
   <% if post.post_id.nil? %>
     <div data-controller="post">
@@ -6,7 +6,7 @@
       <div class="main-post">
         <div class="d-flex justify-content-between">
           <p><i><%= post.user.nickname %></i></p>
-
+          <%= post.created_at.strftime("%B %d, %Y %H:%M") %>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               ⋮
@@ -40,8 +40,8 @@
       <% end %>
     </div>
 
+    <%# reply %>
     <div class="d-flex flex-column align-items-end">
-      <%# reply %>
       <% related_posts = posts.where(post_id: post.id) %>
       <% related_posts.each do |related_post| %>
         <div class="related-post">

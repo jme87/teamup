@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     resources :posts, except: :destroy
   end
   delete "bookings/:id", to: "bookings#destroy", as: 'delete_booking'
-  delete "user_groups/:id", to: "user_groups#destroy", as: 'delete_user_group'
+  # delete "user_groups/:id", to: "user_groups#destroy", as: 'delete_user_group'
   # delete "/groups/:group_id/posts/:id", to: "posts#destroy", as: "delete_post"
   resources :posts, only: :destroy
+  resources :user_groups, only: :destroy
 end
