@@ -16,7 +16,7 @@
   <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active mt-4" id="attending" role="tabpanel" aria-labelledby="attending-tab">
-    <p>Attending events:</p>
+    <p>Upcoming events you are attending:</p>
       <div class="d-flex flex-wrap justify-content-between">
         <% @attending.each do |event| %>
           <%= render "shared/event_card_long", event: event %>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="tab-pane fade mt-4" id="hosting" role="tabpanel" aria-labelledby="hosting-tab">
-    <p>Hosting events displayed here</p>
+    <p>Upcoming events you are hosting:</p>
       <div class="d-flex flex-wrap justify-content-between">
         <% @hosting.each do |event| %>
           <%= render "shared/event_card_long", event: event %>
@@ -34,12 +34,8 @@
   </div>
 
   <div class="tab-pane fade mt-4" id="past" role="tabpanel" aria-labelledby="past-tab">
-    <p>Past events displayed here</p>
-      <div class="d-flex flex-wrap justify-content-between">
-        <% @hosting.each do |event| %>
-          <%= render "shared/event_card_long", event: event %>
-          <% end %>
-      </div>
+    <p>Your past events:</p>
+    <p class="text-center">You currently don't have any past events.</p>
   </div>
 <br><br>
   <div class="text-center mt-6">
