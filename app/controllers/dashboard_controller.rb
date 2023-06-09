@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
     @events = Group.all
     @organiser = Group.where(user: current_user)
     @member = Group.joins(:user_groups).where(user_groups: { user: current_user })
-    @member = @member.select { |group| group.user_id == current_user.id }
+    @member = @member.reject { |group| group.user_id == current_user.id }
   end
 
 end
