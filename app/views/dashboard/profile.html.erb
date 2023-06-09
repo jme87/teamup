@@ -2,12 +2,12 @@
   <div class="welcome-header">
     <div class="user-img">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, height: 400, width: 600, crop: :fill %>
+        <%= cl_image_tag current_user.photo.key, class: "round-circle", height: 300, width: 300, crop: :fill %>
       <% else %>
         <%= image_tag "placeholder.png" %>
       <% end %>
     </div>
-    <div class="welcome-msg">
+    <div class="welcome-msg text-align-center">
       <h2>Welcome, <%= current_user.first_name.capitalize %> 👋 </h2>
     </div>
     <div class="user-profile">
@@ -16,10 +16,12 @@
         <li> <i class="fa-solid fa-location-dot"></i> <%= current_user.city.capitalize %> </li>
         <li> <i class="fa-solid fa-ticket"></i> Attended 3 Events</li>
       </ul>
+
+    <div class="user-bio">
       <h5>Your Bio</h5>
       <p> <%= current_user.bio %> </p>
     </div>
-    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-primary" %>
   </div>
 
   <hr>
