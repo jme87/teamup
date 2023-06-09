@@ -82,7 +82,7 @@
   %>
   <br>
 <% end %>
-<% if @event.user_id == current_user.id %>
+<% if current_user && @event.user_id == current_user.id %>
   <%= link_to 'Edit event', edit_event_path(@event) %>
   <br>
   <%= link_to "Delete event",
@@ -100,30 +100,32 @@
 
 
 <%# ############# Chatroom ##############%>
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+<% if current_user %>
+  <div class="container chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h2>Event Chat</h2>
+    <h2>Event Chat</h2>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-  <% @event.chatroom.messages.each do |message| %>
-  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-      <%= render "messages/message", message: message %>
+    <div class="messages" data-chatroom-subscription-target="messages">
+    <% @event.chatroom.messages.each do |message| %>
+    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+        <%= render "messages/message", message: message %>
+      </div>
     </div>
+  <% end %>
   </div>
-<% end %>
-</div>
 
-<%= simple_form_for [@event, @event.chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message in #{@event.title}",
-    wrapper_html: {class: "flex-grow-1"}
+  <%= simple_form_for [@event, @event.chatroom, @message],
+    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message in #{@event.title}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
 <% end %>

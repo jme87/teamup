@@ -27,7 +27,9 @@ class EventsController < ApplicationController
       marker_html: render_to_string(partial: "marker", locals: { event: @event })
     }]
     @message = Message.new
-    @user_has_bookings = @event.bookings.select { |booking| booking.user_id == current_user.id }.empty?
+    if current_user
+      @user_has_bookings = @event.bookings.select { |booking| booking.user_id == current_user.id }.empty?
+    end
   end
 
   def new
