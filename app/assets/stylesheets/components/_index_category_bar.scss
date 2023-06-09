@@ -14,10 +14,7 @@ h1{
   display:block;
   overflow:hidden;
 }
-.cards-container {
-  width:90%;
-  margin-left:5%;
-}
+
 .index-category-bar{
   display:block;
   width: 100%;
@@ -33,19 +30,17 @@ h1{
   background-color: $orange;
   border-radius: 0px;
 }
-.category-event-cards {
-  margin-top:-3%;
-}
+
 .item {
-    display: inline-block;
-    width:70px ;
-    margin: 0 10px;
-    height: 0%;
-    background: rgba(0, 0, 0, 0.05) no-repeat center center;
-    background-size: cover;
-    position:relative;
-    border-radius: 100px;
-    box-shadow: 0 0 10px #dfdfdf;
+  display: inline-block;
+  width:70px ;
+  margin: 0 10px;
+  height: 0%;
+  background: rgba(0, 0, 0, 0.05) no-repeat center center;
+  background-size: cover;
+  position:relative;
+  border-radius: 100px;
+  box-shadow: 0 0 10px #dfdfdf;
 }
 .item div{
   width: 100%;
@@ -55,6 +50,7 @@ h1{
   font-size: 9em;
   color: white;
 }
+
 .item h1{
   top: 50%;
   position: absolute;
@@ -63,6 +59,3 @@ h1{
   width: 100%;
   font-size: 0.8em;
 }
-
-
-
