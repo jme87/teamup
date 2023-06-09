@@ -8,11 +8,12 @@
 </div>
 
 <%# Details section %>
-<div class="container p-1 group-info">
+<div class="container p-5 group-info">
+  <h3 >Details</h3>
   <ul>
     <li>
       <div class="d-flex flex-column">
-        <%= @event.start_date %>
+        <%= @event.start_date.strftime('%a, %b %d %Y %H:%M') %>
         <a href="#">Add to Calendar</a>
       </div>
     </li>
@@ -26,16 +27,18 @@
 
   <div class="d-flex align-items-center mb-3">
     <% if @event.group.present? %>
-      <% if @event.group.photos.attached? %>
-        <div class="m-3">
-          <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
-        </div>
-     <% end %>
-     <div class="m-3">
-      <h4><%= @event.title %></h4>
-      <%= @event.group.private ? "Private Group" : "Public Group" %>
-    </div>
+      <%= link_to group_path(@event.group) do %>
+        <% if @event.group.photos.attached? %>
+          <div class="m-3">
+            <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
+          </div>
+      <% end %>
+      <div class="m-3">
+        <h4><%= @event.title %></h4>
+        <%= @event.group.private ? "Private Group" : "Public Group" %>
+      </div>
     <% end %>
+  <% end %>
   </div>
 </div>
 
@@ -65,17 +68,20 @@
   <% end %>
 </div>
 
-<%= link_to "Join event",
-  event_bookings_path(@event),
-  data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
-%>
-<br>
-<% raise %>
-<%= link_to "Leave event",
-  delete_booking_path(@event),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-<br>
+<% if @user_has_bookings %>
+  <%= link_to "Join event",
+    event_bookings_path(@event),
+    data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
+  %>
+  <br>
+<% end %>
+<% unless @user_has_bookings %>
+  <%= link_to "Leave event",
+    delete_booking_path(@event),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+  <br>
+<% end %>
 <% if @event.user_id == current_user.id %>
   <%= link_to 'Edit event', edit_event_path(@event) %>
   <br>
@@ -86,21 +92,20 @@
 <% end %>
 
 <br>
-<h3>All the bookings</h3>
-<% @event.bookings.each do |booking| %>
-  <h4><%= booking.user.first_name %></h4>
-<% end %>
+<div class="container p-5 group-info">
+  <h3>Description</h3>
+  <%= @event.description %>
+</div>
 
 
 
 <%# ############# Chatroom ##############%>
-<h4>Chatroom ID: <%= @event.chatroom.id %></h4>
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h1>#<%= @event.chatroom.name %></h1>
+  <h2>Event Chat</h2>
 
   <div class="messages" data-chatroom-subscription-target="messages">
   <% @event.chatroom.messages.each do |message| %>
@@ -117,7 +122,7 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@event.chatroom.name}",
+    placeholder: "Message in #{@event.title}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
