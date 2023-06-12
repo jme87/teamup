@@ -7,13 +7,24 @@ class EventsController < ApplicationController
     #@events = @events.where(level: params[:level]) if params[:level].present?
 
 
+
     # The `geocoded` scope filters only events with coordinates
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { event: event }),
-        marker_html: render_to_string(partial: "marker", locals: { event: event })
+        info_window_html: render_to_string(partial: "info_window", formats: [:html], locals: { event: event }),
+        marker_html: render_to_string(partial: "marker", formats: [:html], locals: { event: event })
+      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          cards: render_to_string(partial: "shared/event_card_long", locals: {events: @events}, formats: [:html]),
+          map: render_to_string(partial: "shared/map_container", locals: {markers: @markers}, formats: :html)
+        }
       }
     end
   end
