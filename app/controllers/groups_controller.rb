@@ -1,7 +1,18 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.all
+
+    @groups = Group.where(private: [nil, false])
+    # @groups = Group.all
+
+    if params[:query].present?
+      query = "%#{params[:query].downcase}%"
+      @groups = @groups.where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?
+          OR LOWER(city) LIKE ?
+          OR LOWER(category) LIKE ?',
+          query, query, query, query)
+    end
+
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: "shared/groups_list", locals: {groups: @groups}, formats: [:html] }
