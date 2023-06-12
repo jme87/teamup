@@ -24,4 +24,20 @@ export default class extends Controller {
       // console.log(data)
     })
   };
+
+  // level(event) {
+  //   event.preventDefault();
+  //   console.log('level fired');
+  //   fetch(event.currentTarget.href, {
+  //     method: "GET",
+  //     headers: {"Accept": "application/json"}
+  //   })
+  //   .then(response => response.json())
+  //   .then(data=> {
+  //     this.cardsTarget.innerHTML = data.cards
+  //     this.mapContainerTarget.innerHTML = data.map
+  //     //this.levelTarget.innerHTML = data.level
+  //     // console.log(data)
+  //   })
+  // }
 }
