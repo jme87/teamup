@@ -8,7 +8,7 @@
 
 require 'faker'
 require 'open-uri'
-puts "Cleaning the database................................................"
+puts "Cleaning the database............................................"
 UserGroup.destroy_all
 Booking.destroy_all
 Chatroom.destroy_all
@@ -17,8 +17,10 @@ Group.destroy_all
 User.destroy_all
 puts "Seeding the database ............................................"
 
-#################### 5 hardcoded users ####################
-user1photo = URI.open("https://source.unsplash.com/DItYlc26zVI/600x300")
+
+puts "Seeding 10 hardcoded users ......................................"
+#################### 10 hardcoded users ####################
+user1photo = URI.open("https://source.unsplash.com/DItYlc26zVI/600x600")
 user1 = User.new(
   {
     email: "brandon@test.com",
@@ -33,7 +35,7 @@ user1 = User.new(
 user1.photo.attach(io: user1photo, filename: "user1.png", content_type: "image/png")
 user1.save!
 
-user2photo = URI.open("https://source.unsplash.com/YRJsMa72UDw/600x300")
+user2photo = URI.open("https://source.unsplash.com/YRJsMa72UDw/600x600")
 user2 = User.new(
   {
     email: "cindy@test.com",
@@ -48,7 +50,7 @@ user2 = User.new(
 user2.photo.attach(io: user2photo, filename: "user2.png", content_type: "image/png")
 user2.save!
 
-user3photo = URI.open("https://source.unsplash.com/YUu9UAcOKZ4/600x300")
+user3photo = URI.open("https://source.unsplash.com/YUu9UAcOKZ4/600x600")
 user3 = User.new(
   {
     email: "david@test.com",
@@ -63,7 +65,7 @@ user3 = User.new(
 user3.photo.attach(io: user3photo, filename: "user3.png", content_type: "image/png")
 user3.save!
 
-user4photo = URI.open("https://source.unsplash.com/zNWlX5Sw9a4/600x300")
+user4photo = URI.open("https://source.unsplash.com/zNWlX5Sw9a4/600x600")
 user4 = User.new(
   {
     email: "jessica@test.com",
@@ -71,14 +73,14 @@ user4 = User.new(
     last_name: Faker::Name.last_name,
     nickname: "jessica",
     bio: "Hello there! I'm Jessica, a driven and enthusiastic learner exploring the vast realms of web development through Ruby on Rails Fullstack Bootcamp at LeWagon. When not submerging myself in coding, you'll find me strumming my guitar or trying to master the art of baking sourdough bread. I love anything mint green or lilac - they give me peace of mind. My personal motto? Work hard, jam harder, and a little bit of extra yeast never hurts!",
-    city: "Paris",
+    city: "Berlin",
     password: "123456"
   }
 )
 user4.photo.attach(io: user4photo, filename: "user4.png", content_type: "image/png")
 user4.save!
 
-user5photo = URI.open("https://source.unsplash.com/hh3ViD0r0Rc/600x300")
+user5photo = URI.open("https://source.unsplash.com/hh3ViD0r0Rc/600x600")
 user5 = User.new(
   {
     email: "michael@test.com",
@@ -86,14 +88,14 @@ user5 = User.new(
     last_name: Faker::Name.last_name,
     nickname: "michael",
     bio: "Hey, I'm Michael, a 30-year-old self-proclaimed tech geek currently enrolled in LeWagon's Ruby on Rails Fullstack Web Development Bootcamp. When I'm not immersed in debugging or spinning up new web applications, I enjoy cycling through the city or experimenting with home-brewed coffee (with mixed success, I must admit!). I find inspiration in the colors of dawn and dusk - they spur my creativity. Remember, code passionately, cycle vigorously, and there's always time for a good coffee!",
-    city: "Paris",
+    city: "Berlin",
     password: "123456"
   }
 )
 user5.photo.attach(io: user5photo, filename: "user5.png", content_type: "image/png")
 user5.save!
 
-user6photo = URI.open("https://source.unsplash.com/n5aE6hOY6do/600x300")
+user6photo = URI.open("https://source.unsplash.com/n5aE6hOY6do/600x600")
 user6 = User.new(
   {
     email: "emily@test.com",
@@ -108,7 +110,7 @@ user6 = User.new(
 user6.photo.attach(io: user6photo, filename: "user6.png", content_type: "image/png")
 user6.save!
 
-user7photo = URI.open("https://source.unsplash.com/7YVZYZeITc8/600x300")
+user7photo = URI.open("https://source.unsplash.com/7YVZYZeITc8/600x600")
 user7 = User.new(
   {
     email: "luke@test.com",
@@ -123,7 +125,7 @@ user7 = User.new(
 user7.photo.attach(io: user7photo, filename: "user7.png", content_type: "image/png")
 user7.save!
 
-user8photo = URI.open("https://source.unsplash.com/W7b3eDUb_2I/600x300")
+user8photo = URI.open("https://source.unsplash.com/W7b3eDUb_2I/600x600")
 user8 = User.new(
   {
     email: "sophie@test.com",
@@ -159,7 +161,7 @@ user10 = User.new(
     email: "lucy@test.com",
     first_name: "Lucy",
     last_name: "Green",
-    nickname: "lucy",
+    nickname: "lucy-lou",
     city: "Berlin",
     bio: "Lucy here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
     password: "123456"
@@ -169,7 +171,9 @@ user10.photo.attach(io: user10photo, filename: "user10.png", content_type: "imag
 user10.save!
 
 
-################### 3 hardcoded groups ####################
+
+puts "Seeding 8 hardcoded groups ......................................"
+################### 8 hardcoded groups ####################
 
 group1photo = URI.open("https://source.unsplash.com/0NaQQsLWLkA/1200x600")
 group1 = Group.new(
@@ -185,10 +189,10 @@ group1 = Group.new(
 group1.photos.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
 group1.save!
 
-group2photo = URI.open("https://source.unsplash.com/RNiK93wcz-U/1200x600")
+group2photo = URI.open("https://source.unsplash.com/Z4Sxy1_3wdY/1200x600")
 group2 = Group.new(
   {
-    title: 'Tennis and beer',
+    title: 'Fierce Tennis and beer',
     description: "Calling all tennis enthusiasts who love the game. Join us for some fierce tennis matches and cold beers after!",
     city: "Berlin",
     category: "Tennis",
@@ -204,7 +208,7 @@ group3 = Group.new(
   {
     title: 'Goal Scoring Squad',
     description: "Unleash your inner goal-scoring machine and join our football frenzy.",
-    city: "Paris",
+    city: "Berlin",
     category: "Football",
     user_id: user3.id,
     private: false
@@ -213,7 +217,70 @@ group3 = Group.new(
 group3.photos.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
 group3.save!
 
-#################### 3 hardcoded events ####################
+group4photo = URI.open("https://source.unsplash.com/FHNgTEuxyJA/1200x600")
+group4 = Group.new(
+  {
+    title: 'Stairway to Heaven',
+    description: "Join our dynamic bouldering social sports group and ascend to new heights of camaraderie, challenge, and fun!",
+    city: "Berlin",
+    category: "Bouldering",
+    user_id: user1.id,
+    private: false
+  }
+)
+
+group5photo = URI.open("https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+group5 = Group.new(
+  {
+    title: 'Yoga in the Park',
+    description: "Join our group for meditation, relaxation and deep stretching in a park near you!",
+    city: "Berlin",
+    category: "Yoga",
+    user_id: user1.id,
+    private: false
+  }
+)
+
+group6photo = URI.open("https://www.info83.fr/wp-content/uploads/2023/02/Padel-tennis-Domaine-de-la-Tuiliere-Carnoules-Var..jpeg")
+group6 = Group.new(
+  {
+    title: 'Paddle Power',
+    description: "Serve up some smashing fun and make a racket with our vibrant paddle tennis social sports group.",
+    city: "Berlin",
+    category: "Paddle Tennis",
+    user_id: user1.id,
+    private: false
+  }
+)
+
+group7photo = URI.open("https://source.unsplash.com/nGt71kRwUOw/1200x600")
+group7 = Group.new(
+  {
+    title: 'Berlin Steel Horse Cycling',
+    description: "Pedal through picturesque landscapes and urban streets with our vibrant cycling group, exploring Berlin and Brandenburg on your steel horse.",
+    city: "Berlin",
+    category: "Cycling",
+    user_id: user1.id,
+    private: false
+  }
+)
+
+group8photo = URI.open("https://source.unsplash.com/IdrUEz0Tjxw/1200x600")
+group8 = Group.new(
+  {
+    title: 'Berlin Ballers United',
+    description: "Dribble, shoot, and soar with our passionate basketball group, bringing the love of the game to the courts of Berlin.",
+    city: "Berlin",
+    category: "Basketball",
+    user_id: user1.id,
+    private: false
+  }
+)
+
+
+
+puts "Seeding 15 hardcoded events ......................................"
+#################### 15 hardcoded events ####################
 event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
 event1 = Event.new(
   {
@@ -320,7 +387,9 @@ event5.save!
 event5.create_chatroom!(name: "Chatroom for #{event5.title}")
 
 
-#################### 7 hardcoded Bookings ####################
+
+puts "Seeding 8 hardcoded bookings ......................................"
+#################### 8 hardcoded Bookings ####################
 
 ##### Event 1
 
@@ -377,6 +446,9 @@ booking = Booking.create!(
   }
 )
 
+
+
+puts "Seeding 10 hardcoded users groups ......................................"
 #################### 3 hardcoded User_Groups ####################
 
 ##### User_Group 1
