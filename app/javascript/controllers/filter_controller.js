@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["filter", "cards", "mapContainer"];
+  static targets = ["filter", "cards", "mapContainer", "level"];
 
   connect() {
     console.log("Hello from filter s. controller");
@@ -20,6 +20,7 @@ export default class extends Controller {
     .then(data=> {
       this.cardsTarget.innerHTML = data.cards
       this.mapContainerTarget.innerHTML = data.map
+      //this.levelTarget.innerHTML = data.level
       // console.log(data)
     })
   };
