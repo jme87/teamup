@@ -3,7 +3,8 @@
 
     <div class ="left-side">
       <% if user_signed_in? %>
-        <%= link_to events_path do %>
+      <%# change back to events_path after presentation %>
+        <%= link_to root_path do %>
           <div class="navbar-brand d-flex">
             <%= image_tag "teamup_logo.png", alt: "TeamUp", width: 300 %>
           </div>
