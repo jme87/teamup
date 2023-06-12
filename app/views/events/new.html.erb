@@ -1,4 +1,7 @@
-<%= simple_form_for @event do |f| %>
+<div class="container">
+  <h2>Create an Event</h2>
+
+  <%= simple_form_for @event do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :start_date, as: :string, requiered: true, input_html: { data: { controller: "datepicker" } } %>
@@ -22,3 +25,10 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>
+
+  <div class="form-actions text-center mt-6">
+    <%= f.button :submit, class: "btn btn-primary text-center" %>
+  </div>
+  <% end %>
+
+</div>
