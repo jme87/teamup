@@ -21,9 +21,11 @@
 
 
   <div class="index-event-cards">
+    <% @events.each do |event| %>
     <div class="index-event-card">
-      <%= render "shared/event_card_long", events: @events %>
+      <%= render "shared/event_card_long", event: event %>
     </div>
+    <% end %>
   </div>
   <br>
   <%= link_to "All Events", events_path, class: "btn btn-primary btn-lg" %>

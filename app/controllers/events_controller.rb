@@ -22,7 +22,7 @@ class EventsController < ApplicationController
       format.html
       format.json {
         render json: {
-          cards: render_to_string(partial: "shared/event_card_long", locals: {events: @events}, formats: [:html]),
+          cards: render_to_string(partial: "shared/index_card_all", locals: {events: @events}, formats: [:html]),
           map: render_to_string(partial: "shared/map_container", locals: {markers: @markers}, formats: :html)
         }
       }
