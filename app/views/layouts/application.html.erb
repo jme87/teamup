@@ -3,7 +3,14 @@
   <head>
     <%= favicon_link_tag %>
     <title><%= meta_title %></title>
+    <!--  PWA stuff -->
     <meta name="description" content="<%= meta_description %>">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>">
