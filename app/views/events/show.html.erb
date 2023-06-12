@@ -75,7 +75,7 @@
   %>
   <br>
 <% end %>
-<% unless @user_has_bookings %>
+<% if @user_has_bookings == true && current_user.present? %>
   <%= link_to "Leave event",
     delete_booking_path(@event),
     data: {turbo_method: :delete, turbo_confirm: "Oh no! Do you really want to leave #{@event.title}"}
