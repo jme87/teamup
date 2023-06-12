@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_name: "TeamUp"
+meta_title: "Create and join sport events to find new friends"
+meta_description: "Sports Seeker helps people find casual sports events they can join in their area AND helps game organisers efficiently manage their sports groups"
+meta_image: "teamup_banner_for_twitter.jpg" # should exist in `app/assets/images/`
+twitter_account: "@your_twitter_account"   # required for Twitter Cards
