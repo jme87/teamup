@@ -12,12 +12,12 @@
   <%= f.input :category,
     collection: @categories,
     prompt: "Select a category",
-    requiered: true,
+    required: true,
     autofocus: true %>
   <%= f.input :level,
     collection: @level,
     prompt: "Select a level",
-    requiered: true,
+    required: true,
     autofocus: true %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
