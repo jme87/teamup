@@ -1,24 +1,32 @@
-<%= simple_form_for @event do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start_date, as: :datetime %>
-  <%= f.input :end_date, as: :datetime %>
-  <%= f.input :address,
-  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-  %>
-  <%= f.input :price %>
-  <%= f.input :spots_available, as: :integer %>
-  <%= f.input :category,
-    collection: @categories,
-    prompt: "Select a category",
-    requiered: true,
-    autofocus: true %>
-  <%= f.input :level,
-    collection: @level,
-    prompt: "Select a category",
-    requiered: true,
-    autofocus: true %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <h2>Create an Event</h2>
+
+  <%= simple_form_for @event do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start_date, as: :datetime %>
+    <%= f.input :end_date, as: :datetime %>
+    <%= f.input :address,
+    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+    %>
+    <%= f.input :price %>
+    <%= f.input :spots_available, as: :integer %>
+    <%= f.input :category,
+      collection: @categories,
+      prompt: "Select a category",
+      requiered: true,
+      autofocus: true %>
+    <%= f.input :level,
+      collection: @level,
+      prompt: "Select a category",
+      requiered: true,
+      autofocus: true %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+  <div class="form-actions text-center mt-6">
+    <%= f.button :submit, class: "btn btn-primary text-center" %>
+  </div>
+  <% end %>
+
+</div>
