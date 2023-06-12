@@ -1,19 +1,18 @@
 <% events.each do |event| %>
 
-<%= link_to event_path(event) do %>
-  <div class="event-card-long">
-    <% if event.photos.attached? %>
-      <%= cl_image_tag event.photos[0].key, height: 140, width: 120, crop: :fill, class: "event-card-long-image" %>
-    <% else %>
-      <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-card-long-image">
-    <% end %>
-    <div class="event-card-long-right">
-      <p class="event-card-long-date"><%= event.start_date.strftime('%a, %b %d %Y %H:%M') %></p>
-      <h5 class="event-card-long-title"><%= event.title %></h5>
-      <p class="event-card-long-attendance"> <%= pluralize(event.bookings.size, 'Attendee') %> | <%= pluralize(event.spots_left(event), 'Spot') %> Left</p>
-      <p class="event-card-long-location"><%= event.city(event) %></p>
+  <%= link_to event_path(event) do %>
+    <div class="event-card-long">
+      <% if event.photos.attached? %>
+        <%= cl_image_tag event.photos[0].key, height: 140, width: 120, crop: :fill, class: "event-card-long-image" %>
+      <% else %>
+        <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-card-long-image">
+      <% end %>
+      <div class="event-card-long-right">
+        <p class="event-card-long-date"><%= event.start_date.strftime('%a, %b %d %Y %H:%M') %></p>
+        <h5 class="event-card-long-title"><%= event.title %></h5>
+        <p class="event-card-long-attendance"> <%= pluralize(event.bookings.size, 'Attendee') %> | <%= pluralize(event.spots_left(event), 'Spot') %> Left</p>
+        <p class="event-card-long-location"><%= event.city(event) %></p>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<% end %>
+  <% end %>
+ <% end %>
