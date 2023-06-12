@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :nickname, presence: true, uniqueness: true
   validates :city, presence: true
+  validates :photo, presence: true
 
   has_one_attached :photo
 end
