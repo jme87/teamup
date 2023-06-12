@@ -62,7 +62,7 @@
     <%= cl_image_tag booking.user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
   <% end %>
   <% (@event.spots_available - @event.bookings.count).times do %>
-    <%= link_to event_bookings_path(@event), data: {turbo_method: :post, turbo_confirm: "Are you sure?"} do %>
+    <%= link_to event_bookings_path(@event), data: {turbo_method: :post, turbo_confirm: "Yeah! Confirm to join #{@event.title}"} do %>
       <%= image_tag "placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
     <% end %>
   <% end %>
@@ -71,14 +71,14 @@
 <% if @user_has_bookings %>
   <%= link_to "Join event",
     event_bookings_path(@event),
-    data: {turbo_method: :post, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :post, turbo_confirm: "Yeah! Confirm to join #{@event.title}"}
   %>
   <br>
 <% end %>
 <% unless @user_has_bookings %>
   <%= link_to "Leave event",
     delete_booking_path(@event),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :delete, turbo_confirm: "Oh no! Do you really want to leave #{@event.title}"}
   %>
   <br>
 <% end %>
@@ -87,7 +87,7 @@
   <br>
   <%= link_to "Delete event",
     event_path(@event),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title}?"}
   %>
 <% end %>
 
