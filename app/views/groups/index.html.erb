@@ -1,0 +1,15 @@
+<h1>Groups:</h1>
+
+<div data-controller="search-groups">
+  <%= form_with url: groups_path, method: :get, html: {class:
+    "mb-4", data: {search_groups_target: "form"}} do |f| %>
+    <%= f.text_field :query, class: "form-control", placeholder:
+                      "Type a group title", value: params[:query],
+                      data: {
+                          search_groups_target: "input",
+                          action: "keyup->search-groups#update"
+                        } %>
+    <% end %>
+
+  <%= render "shared/groups_list", groups: @groups %>
+</div>

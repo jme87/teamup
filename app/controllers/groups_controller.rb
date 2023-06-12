@@ -1,4 +1,13 @@
 class GroupsController < ApplicationController
+
+  def index
+    @groups = Group.all
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "shared/groups_list", locals: {groups: @groups}, formats: [:html] }
+    end
+  end
+
   def new
     @group = Group.new
     @categories = ApplicationRecord::CATEGORIES
