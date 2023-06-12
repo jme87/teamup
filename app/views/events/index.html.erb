@@ -14,11 +14,11 @@
 
       <h1><%# @event_city %></h1>
       <div class="index-event-cards" data-filter-target="cards">
-        <% @events.each do |event| %>
+        <%# <% @events.each do |event| %>
           <div class="index-event-card">
             <%= render "shared/event_card_long", events: @events %>
           </div>
-        <% end %>
+        <%# <% end %>
       </div>
     </div>
   </div>

@@ -1,3 +1,5 @@
+<% events.each do |event| %>
+
 <%= link_to event_path(event) do %>
   <div class="event-card-long">
     <% if event.photos.attached? %>
@@ -12,4 +14,6 @@
       <p class="event-card-long-location"><%= event.city(event) %></p>
     </div>
   </div>
+<% end %>
+
 <% end %>
