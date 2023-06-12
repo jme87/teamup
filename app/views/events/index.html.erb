@@ -5,6 +5,8 @@
   <div class="category-container">
     <%= render "shared/category_bar" %>
 
+    <%= render "shared/level_filter" %>
+
     <div class="results-card-container">
       <% if params[:query].present? %>
         <h2>Results for <%= @category %></h2>
