@@ -75,10 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_083215) do
     t.float "latitude"
     t.float "longitude"
     t.string "level"
-    t.string "splitwise_group_id"
-    t.boolean "is_even"
-    t.boolean "is_past"
-    t.boolean "is_full"
     t.string "city"
     t.index ["group_id"], name: "index_events_on_group_id"
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -140,9 +136,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_083215) do
     t.text "bio"
     t.string "city"
     t.string "nickname"
-    t.string "provider"
-    t.string "uid"
-    t.string "splitwise_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
