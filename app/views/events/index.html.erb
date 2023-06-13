@@ -1,22 +1,27 @@
-<div class="index-container">
-  <div class="map-container" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="index-container" data-controller="filter">
+  <div data-filter-target="mapContainer">
+    <%= render "shared/map_container", markers: @markers %>
+  </div>
+  <div class="category-container">
+    <%= render "shared/category_bar" %>
 
-  <%= render "shared/category_bar" %>
+    <%= render "shared/level_filter" %>
 
-  <div class="results-card-container">
-    <% if params[:query].present? %>
-      <h2>Results for <%= @category %></h2>
-    <% else %>
-      <h2>All events</h2>
-    <% end %>
-
-    <h1><%= @event_city %></h1>
-    <div class="index-event-cards">
-      <% @events.each do |event| %>
-        <div class="index-event-card">
-          <%= render "shared/event_card_long", event: event %>
-        </div>
+    <div class="results-card-container">
+      <% if params[:query].present? %>
+        <h2>Results for <%= @category %></h2>
+      <% else %>
+        <h2>All events</h2>
       <% end %>
+
+      <h1><%# @event_city %></h1>
+      <div class="index-event-cards" data-filter-target="cards">
+        <%# <% @events.each do |event| %>
+          <div class="index-event-card">
+            <%= render "shared/index_card_all", events: @events %>
+          </div>
+        <%# <% end %>
+      </div>
     </div>
   </div>
 </div>
