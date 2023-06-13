@@ -10,7 +10,9 @@ class PagesController < ApplicationController
     else
       @city = "Berlin"
     end
-    @events = Event.near(@city, 10)
+    @near_events = Event.near(@city, 10).sample(5)
+    @unique_citys = Event.pluck(:city).uniq
+
     # @events = Event.near("Tour Eiffel", 10)
   end
 end
