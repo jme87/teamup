@@ -4,12 +4,13 @@ class PagesController < ApplicationController
   def landing_page
     # All Categories
     @categories = Event.where(category: params[:query])
-    if request.location.city.present?
-      @city = request.location.city
-    else
-      @city = "Berlin"
-    end
+    # if request.location.city.present?
+    #   @city = request.location.city
+    # else
+    #   @city = "Berlin"
+    # end
+    @city = "Berlin"
     @near_events = Event.near(@city, 10).sample(5)
-    @unique_citys = Event.pluck(:city).compact.uniq.reject(&:empty?)
+    @unique_citys = Event.pluck(:city).compact.uniq.reject(&:empty?).sort
   end
 end
