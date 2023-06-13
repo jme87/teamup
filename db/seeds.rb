@@ -201,6 +201,78 @@ user10.save!
 
 print '*'
 STDOUT.flush
+
+user11photo = URI.open("https://media.licdn.com/dms/image/C4D03AQGU-XlmQNogxQ/profile-displayphoto-shrink_800_800/0/1524860667185?e=2147483647&v=beta&t=g4YPWlML1mCXc-iFhZ1Ae0p-RTEAue_EDz-0JSVGzkg")
+user11 = User.new(
+  {
+    email: "jamie@test.com",
+    first_name: "Jamie",
+    last_name: "Lord",
+    nickname: "jamie-james",
+    city: "Berlin",
+    bio: "Jamie here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user11.photo.attach(io: user10photo, filename: "user11.png", content_type: "image/png")
+user11.save!
+
+print '*'
+STDOUT.flush
+
+user12photo = URI.open("https://media.licdn.com/dms/image/C4E03AQFHEhWccAlAJQ/profile-displayphoto-shrink_200_200/0/1606921067352?e=1692230400&v=beta&t=1hdHXIgL8Fg3uIZFjNJaPpjVGSRDNttMpuVo363TmWA")
+user12 = User.new(
+  {
+    email: "marcela@test.com",
+    first_name: "Marcela",
+    last_name: "Morau",
+    nickname: "mighty-marcela",
+    city: "Berlin",
+    bio: "Marcela here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user12.photo.attach(io: user10photo, filename: "user12.png", content_type: "image/png")
+user12.save!
+
+print '*'
+STDOUT.flush
+
+user13photo = URI.open("https://media.licdn.com/dms/image/C4D03AQHQOgGbmMK_ag/profile-displayphoto-shrink_800_800/0/1555509383375?e=2147483647&v=beta&t=cdQtRuha86hggLvoa46bpc5jAAlIrYKl1F5LIllGWX8")
+user13 = User.new(
+  {
+    email: "loic@test.com",
+    first_name: "Loic",
+    last_name: "Khodarkovsky",
+    nickname: "loickho",
+    city: "Berlin",
+    bio: "Loic here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user13.photo.attach(io: user10photo, filename: "user13.png", content_type: "image/png")
+user13.save!
+
+print '*'
+STDOUT.flush
+
+user14photo = URI.open("https://media.licdn.com/dms/image/C4D03AQHQOgGbmMK_ag/profile-displayphoto-shrink_800_800/0/1555509383375?e=2147483647&v=beta&t=cdQtRuha86hggLvoa46bpc5jAAlIrYKl1F5LIllGWX8")
+user14 = User.new(
+  {
+    email: "patrick@test.com",
+    first_name: "Patrick",
+    last_name: "Prüßen",
+    nickname: "pa",
+    city: "Berlin",
+    bio: "Patrick here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user14photo.photo.attach(io: user10photo, filename: "user14.png", content_type: "image/png")
+user14.save!
+
+print '*'
+STDOUT.flush
 puts "Done"
 puts ""
 
@@ -452,7 +524,7 @@ STDOUT.flush
 event5photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw")
 event5 = Event.new(
   {
-    title: 'Morning Indoor Game',
+    title: 'Morning Game',
     description: "Join for a couple of hours of indoor volleyball and make friends.",
     start_date: DateTime.new(2023, 6, 30, 8, 0, 0),
     end_date: DateTime.new(2023, 6, 30, 10, 0, 0),
@@ -1005,6 +1077,27 @@ booking = Booking.create!(
   {
     user_id: user2.id,
     event_id: event1.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user12.id,
+    event_id: event4.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user13.id,
+    event_id: event4.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user14.id,
+    event_id: event4.id
   }
 )
 
