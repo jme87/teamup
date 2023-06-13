@@ -7,10 +7,9 @@
     <% end %>
     <div class="group-card-long-details">
       <h5 class="group-card-long-title"><%= group.title %></h5>
-      <ul>
-        <li><%= group.city %></li>
-        <li><%= group.category %></li>
-      </ul>
+      <p class="group-card-long-text">Location: <%= group.city %> </p>
+      <p class="group-card-long-text">Members: <%= @user_count %> </p>
+      <p class="group-card-long-text">Category: <%= group.category %> </p>
     </div>
   </div>
 <% end %>

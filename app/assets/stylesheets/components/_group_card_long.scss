@@ -10,12 +10,14 @@
   height: 250px;
   margin: 20px 0px 0px 0px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 2px 2px 8px #d4d4d4;
 }
 
 .group-card-long-title {
   font-weight: bold;
+  color: $blue;
 }
 
 a {
@@ -30,11 +32,16 @@ a {
 }
 
 .group-card-long-details {
-  padding: 10px;
+  padding: 15px 15px;
   margin: 5px 0;
-  font-size: 15px;
+
 }
 
 .event-card-long-name {
   margin-top: 0;
+}
+
+.event-card-long-text {
+  margin: 0px;
+  font-size: 15px;
 }
