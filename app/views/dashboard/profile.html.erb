@@ -1,8 +1,8 @@
 <div class="container mt-4">
   <div class="welcome-header">
-    <div class="user-img">
+    <div class="img">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "round-circle user-img", height: 300, width: 300, crop: :fill %>
+        <%= cl_image_tag current_user.photo.key, class: "user-img", crop: :fill %>
       <% else %>
         <%= image_tag "placeholder.png" %>
       <% end %>

@@ -21,7 +21,7 @@
     <div class ="right-side">
       <% if user_signed_in? %>
         <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, width: 50, height: 50, class: "avatar", crop: :thumb, gravity: :face %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar", crop: :thumb, gravity: :face %>
         <% else %>
           <%= image_tag "placeholder.png", class: "avatar" %>
         <% end %>
@@ -34,7 +34,7 @@
           <div class="offcanvas-header">
             <% if user_signed_in? %>
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, width: 50, height: 50, class: "avatar", crop: :thumb, gravity: :face %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", crop: :thumb, gravity: :face %>
                 <h3>Welcome, <%= current_user.first_name.capitalize %> 👋 </h3>
               <% else %>
                 <%= image_tag "placeholder.png", class: "avatar" %>

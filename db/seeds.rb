@@ -214,7 +214,7 @@ user11 = User.new(
     password: "123456"
   }
 )
-user11.photo.attach(io: user10photo, filename: "user11.png", content_type: "image/png")
+user11.photo.attach(io: user11photo, filename: "user11.png", content_type: "image/png")
 user11.save!
 
 print '*'
@@ -232,7 +232,7 @@ user12 = User.new(
     password: "123456"
   }
 )
-user12.photo.attach(io: user10photo, filename: "user12.png", content_type: "image/png")
+user12.photo.attach(io: user12photo, filename: "user12.png", content_type: "image/png")
 user12.save!
 
 print '*'
@@ -250,7 +250,7 @@ user13 = User.new(
     password: "123456"
   }
 )
-user13.photo.attach(io: user10photo, filename: "user13.png", content_type: "image/png")
+user13.photo.attach(io: user13photo, filename: "user13.png", content_type: "image/png")
 user13.save!
 
 print '*'
@@ -268,7 +268,7 @@ user14 = User.new(
     password: "123456"
   }
 )
-user14photo.photo.attach(io: user10photo, filename: "user14.png", content_type: "image/png")
+user14.photo.attach(io: user14photo, filename: "user14.png", content_type: "image/png")
 user14.save!
 
 print '*'
