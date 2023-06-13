@@ -7,8 +7,10 @@
     <% end %>
     <div class="group-card-long-details">
       <h5 class="group-card-long-title"><%= group.title %></h5>
-      <%# <p class="group-card-long-members"> < pluralize(users_count.size, 'Member') ></p> %>
-      <p class="group-card-long-location"><%= group.city %></p>
+      <ul>
+        <li><%= group.city %></li>
+        <li><%= group.category %></li>
+      </ul>
     </div>
   </div>
 <% end %>
