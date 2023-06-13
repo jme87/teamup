@@ -48,29 +48,22 @@
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item"><%= link_to "Your Profile", profile_path %></li>
                 <li class="nav-item"><%= link_to "Messages", profile_path %></li>
-                <hr>
-                <li class="nav-item"><%= link_to "Find an Event", events_path %></li>
-                <li class="nav-item"><%= link_to "Create an Event", new_event_path %></li>
                 <li class="nav-item"><%= link_to "Your Events", user_events_path %></li>
                 <li class="nav-item"><%= link_to "Your Groups", user_groups_path %></li>
+                <hr>
+                <li class="nav-item"><%= link_to "Find a Group", groups_path %></li>
+                <li class="nav-item"><%= link_to "Find an Event", events_path %></li>
+                <li class="nav-item"><%= link_to "Create an Event", new_event_path %></li>
                 <hr>
                 <li class="nav-item"><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" } %></li>
               </ul>
-              <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Find an event..." aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
-              </form>
             <% else %>
               <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
                 <br>
                 <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
               </div>
-              <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Find an event..." aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
-              </form>
             <% end %>
           </div>
         </div>
