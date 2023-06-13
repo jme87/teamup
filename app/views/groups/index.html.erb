@@ -1,15 +1,17 @@
-<h1>Public Groups:</h1>
+<div class="container mt-4">
+  <h2 class="mb-4">Public Groups:</h2>
 
-<div data-controller="search-groups">
-  <%= form_with url: groups_path, method: :get, html: {class:
-    "mb-4", data: {search_groups_target: "form"}} do |f| %>
-    <%= f.text_field :query, class: "form-control", placeholder:
-                      "Search in Groups", value: params[:query],
-                      data: {
-                          search_groups_target: "input",
-                          action: "keyup->search-groups#update"
-                        } %>
-    <% end %>
+  <div data-controller="search-groups">
+    <%= form_with url: groups_path, method: :get, html: {class:
+      "mb-4", data: {search_groups_target: "form"}} do |f| %>
+      <%= f.text_field :query, class: "form-control", placeholder:
+                        "Search in Groups", value: params[:query],
+                        data: {
+                            search_groups_target: "input",
+                            action: "keyup->search-groups#update"
+                          } %>
+      <% end %>
 
-  <%= render "shared/groups_list", groups: @groups %>
+    <%= render "shared/groups_list", groups: @groups %>
+  </div>
 </div>
