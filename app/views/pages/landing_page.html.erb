@@ -3,13 +3,13 @@
 <%= render "shared/category_bar" %>
 <div class="results-card-container">
   <div class="d-flex align-items-center gap-2">
-    <h2> Top events in </h2>
+    <h2> Top 5 events in </h2>
     <div class="city-dropdown" style="margin-bottom:5px; background-color:#fff">
       <button style="border-width:0;" class=" dropdown-toggle m-0"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false">
-        <span style="font-size:1.8em; color:orange; "> Berlin</span>
+        <span style="font-size:1.8em; color:orange; "> <%= @city %></span>
       </button>
       <ul class="dropdown-menu">
       <% @unique_citys.each do |city| %>

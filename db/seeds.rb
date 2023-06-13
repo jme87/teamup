@@ -19,7 +19,7 @@ User.destroy_all
 puts "Seeding the database ............................................"
 
 
-puts "Seeding 10 hardcoded users ......................................"
+puts "Seeding 10 hardcoded users "
 #################### 10 hardcoded users ####################
 
 user1photo = URI.open("https://source.unsplash.com/DItYlc26zVI/600x600")
@@ -37,6 +37,9 @@ user1 = User.new(
 user1.photo.attach(io: user1photo, filename: "user1.png", content_type: "image/png")
 user1.save!
 
+print '*'
+STDOUT.flush
+
 user2photo = URI.open("https://source.unsplash.com/YRJsMa72UDw/600x600")
 user2 = User.new(
   {
@@ -51,6 +54,9 @@ user2 = User.new(
 )
 user2.photo.attach(io: user2photo, filename: "user2.png", content_type: "image/png")
 user2.save!
+
+print '*'
+STDOUT.flush
 
 user3photo = URI.open("https://source.unsplash.com/YUu9UAcOKZ4/600x600")
 user3 = User.new(
@@ -67,6 +73,9 @@ user3 = User.new(
 user3.photo.attach(io: user3photo, filename: "user3.png", content_type: "image/png")
 user3.save!
 
+print '*'
+STDOUT.flush
+
 user4photo = URI.open("https://source.unsplash.com/zNWlX5Sw9a4/600x600")
 user4 = User.new(
   {
@@ -81,6 +90,9 @@ user4 = User.new(
 )
 user4.photo.attach(io: user4photo, filename: "user4.png", content_type: "image/png")
 user4.save!
+
+print '*'
+STDOUT.flush
 
 user5photo = URI.open("https://source.unsplash.com/hh3ViD0r0Rc/600x600")
 user5 = User.new(
@@ -97,6 +109,9 @@ user5 = User.new(
 user5.photo.attach(io: user5photo, filename: "user5.png", content_type: "image/png")
 user5.save!
 
+print '*'
+STDOUT.flush
+
 user6photo = URI.open("https://source.unsplash.com/n5aE6hOY6do/600x600")
 user6 = User.new(
   {
@@ -111,6 +126,9 @@ user6 = User.new(
 )
 user6.photo.attach(io: user6photo, filename: "user6.png", content_type: "image/png")
 user6.save!
+
+print '*'
+STDOUT.flush
 
 user7photo = URI.open("https://source.unsplash.com/7YVZYZeITc8/600x600")
 user7 = User.new(
@@ -127,6 +145,9 @@ user7 = User.new(
 user7.photo.attach(io: user7photo, filename: "user7.png", content_type: "image/png")
 user7.save!
 
+print '*'
+STDOUT.flush
+
 user8photo = URI.open("https://source.unsplash.com/W7b3eDUb_2I/600x600")
 user8 = User.new(
   {
@@ -141,6 +162,9 @@ user8 = User.new(
 )
 user8.photo.attach(io: user8photo, filename: "user8.png", content_type: "image/png")
 user8.save!
+
+print '*'
+STDOUT.flush
 
 user9photo = URI.open("https://source.unsplash.com/sibVwORYqs0/600x300")
 user9 = User.new(
@@ -157,6 +181,9 @@ user9 = User.new(
 user9.photo.attach(io: user9photo, filename: "user9.png", content_type: "image/png")
 user9.save!
 
+print '*'
+STDOUT.flush
+
 user10photo = URI.open("https://source.unsplash.com/rDEOVtE7vOs/600x300")
 user10 = User.new(
   {
@@ -172,9 +199,12 @@ user10 = User.new(
 user10.photo.attach(io: user10photo, filename: "user10.png", content_type: "image/png")
 user10.save!
 
+print '*'
+STDOUT.flush
+puts "Done"
+puts ""
 
-
-puts "Seeding 8 hardcoded groups ......................................"
+puts "Seeding 8 hardcoded groups "
 ################### 8 hardcoded groups ####################
 
 group1photo = URI.open("https://source.unsplash.com/0NaQQsLWLkA/1200x600")
@@ -191,6 +221,9 @@ group1 = Group.new(
 group1.photos.attach(io: group1photo, filename: "group1.png", content_type: "image/png")
 group1.save!
 
+print '*'
+STDOUT.flush
+
 group2photo = URI.open("https://source.unsplash.com/Z4Sxy1_3wdY/1200x600")
 group2 = Group.new(
   {
@@ -204,6 +237,9 @@ group2 = Group.new(
 )
 group2.photos.attach(io: group2photo, filename: "group2.png", content_type: "image/png")
 group2.save!
+
+print '*'
+STDOUT.flush
 
 group3photo = URI.open("https://source.unsplash.com/Wt9IRghaLN0/1200x600")
 group3 = Group.new(
@@ -219,6 +255,9 @@ group3 = Group.new(
 group3.photos.attach(io: group3photo, filename: "group3.png", content_type: "image/png")
 group3.save!
 
+print '*'
+STDOUT.flush
+
 group4photo = URI.open("https://source.unsplash.com/FHNgTEuxyJA/1200x600")
 group4 = Group.new(
   {
@@ -232,6 +271,9 @@ group4 = Group.new(
 )
 group4.photos.attach(io: group4photo, filename: "group4.png", content_type: "image/png")
 group4.save!
+
+print '*'
+STDOUT.flush
 
 group5photo = URI.open("https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 group5 = Group.new(
@@ -247,6 +289,9 @@ group5 = Group.new(
 group5.photos.attach(io: group5photo, filename: "group5.png", content_type: "image/png")
 group5.save!
 
+print '*'
+STDOUT.flush
+
 group6photo = URI.open("https://www.info83.fr/wp-content/uploads/2023/02/Padel-tennis-Domaine-de-la-Tuiliere-Carnoules-Var..jpeg")
 group6 = Group.new(
   {
@@ -260,6 +305,9 @@ group6 = Group.new(
 )
 group6.photos.attach(io: group6photo, filename: "group6.png", content_type: "image/png")
 group6.save!
+
+print '*'
+STDOUT.flush
 
 group7photo = URI.open("https://source.unsplash.com/nGt71kRwUOw/1200x600")
 group7 = Group.new(
@@ -275,6 +323,9 @@ group7 = Group.new(
 group7.photos.attach(io: group7photo, filename: "group7.png", content_type: "image/png")
 group7.save!
 
+print '*'
+STDOUT.flush
+
 group8photo = URI.open("https://source.unsplash.com/IdrUEz0Tjxw/1200x600")
 group8 = Group.new(
   {
@@ -289,8 +340,13 @@ group8 = Group.new(
 group8.photos.attach(io: group8photo, filename: "group8.png", content_type: "image/png")
 group8.save!
 
+print '*'
+STDOUT.flush
+puts "Done"
+puts ""
 
-puts "Seeding 15 hardcoded events ......................................"
+
+puts "Seeding 30 hardcoded events "
 #################### 15 hardcoded events ####################
 
 event1photo = URI.open("https://source.unsplash.com/10QkXxk0mVA")
@@ -315,6 +371,9 @@ event1.photos.attach(io: event1photo, filename: "event1.png", content_type: "ima
 event1.save!
 event1.create_chatroom!(name: "Chatroom for #{event1.title}")
 
+print '*'
+STDOUT.flush
+
 event2photo = URI.open("https://source.unsplash.com/WkY8KhEFXak/400x300")
 event2 = Event.new(
   {
@@ -337,7 +396,8 @@ event2.photos.attach(io: event2photo, filename: "event2.png", content_type: "ima
 event2.save!
 event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 
-
+print '*'
+STDOUT.flush
 
 event3photo = URI.open("https://source.unsplash.com/XUsMIX04wvc")
 event3 = Event.new(
@@ -361,7 +421,8 @@ event3.photos.attach(io: event3photo, filename: "event3.png", content_type: "ima
 event3.save!
 event3.create_chatroom!(name: "Chatroom for #{event3.title}")
 
-
+print '*'
+STDOUT.flush
 
 event4photo = URI.open("https://source.unsplash.com/1v7axvhwnOU")
 event4 = Event.new(
@@ -385,7 +446,8 @@ event4.photos.attach(io: event4photo, filename: "event4.png", content_type: "ima
 event4.save!
 event4.create_chatroom!(name: "Chatroom for #{event4.title}")
 
-
+print '*'
+STDOUT.flush
 
 event5photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw")
 event5 = Event.new(
@@ -409,6 +471,8 @@ event5.photos.attach(io: event5photo, filename: "event5.png", content_type: "ima
 event5.save!
 event5.create_chatroom!(name: "Chatroom for #{event5.title}")
 
+print '*'
+STDOUT.flush
 
 
 event6photo = URI.open("https://source.unsplash.com/8YUNBQwvn0o")
@@ -433,7 +497,8 @@ event6.photos.attach(io: event6photo, filename: "event6.png", content_type: "ima
 event6.save!
 event6.create_chatroom!(name: "Chatroom for #{event6.title}")
 
-
+print '*'
+STDOUT.flush
 
 event7photo = URI.open("https://source.unsplash.com/xwaaqLHL1VM")
 event7 = Event.new(
@@ -457,7 +522,8 @@ event7.photos.attach(io: event7photo, filename: "event7.png", content_type: "ima
 event7.save!
 event7.create_chatroom!(name: "Chatroom for #{event7.title}")
 
-
+print '*'
+STDOUT.flush
 
 event8photo = URI.open("https://source.unsplash.com/obZcpYkjFhk")
 event8 = Event.new(
@@ -481,7 +547,8 @@ event8.photos.attach(io: event8photo, filename: "event8.png", content_type: "ima
 event8.save!
 event8.create_chatroom!(name: "Chatroom for #{event8.title}")
 
-
+print '*'
+STDOUT.flush
 
 event9photo = URI.open("https://source.unsplash.com/M2x3A8Q4JbY")
 event9 = Event.new(
@@ -505,7 +572,8 @@ event9.photos.attach(io: event9photo, filename: "event9.png", content_type: "ima
 event9.save!
 event9.create_chatroom!(name: "Chatroom for #{event9.title}")
 
-
+print '*'
+STDOUT.flush
 
 event10photo = URI.open("https://source.unsplash.com/nGt71kRwUOw")
 event10 = Event.new(
@@ -529,7 +597,8 @@ event10.photos.attach(io: event10photo, filename: "event10.png", content_type: "
 event10.save!
 event10.create_chatroom!(name: "Chatroom for #{event10.title}")
 
-
+print '*'
+STDOUT.flush
 
 event11photo = URI.open("https://source.unsplash.com/QiYZCKJQMck")
 event11 = Event.new(
@@ -553,7 +622,8 @@ event11.photos.attach(io: event11photo, filename: "event11.png", content_type: "
 event11.save!
 event11.create_chatroom!(name: "Chatroom for #{event11.title}")
 
-
+print '*'
+STDOUT.flush
 
 event12photo = URI.open("https://source.unsplash.com/FHNgTEuxyJA/")
 event12 = Event.new(
@@ -577,8 +647,347 @@ event12.photos.attach(io: event12photo, filename: "event12.png", content_type: "
 event12.save!
 event12.create_chatroom!(name: "Chatroom for #{event12.title}")
 
+print '*'
+STDOUT.flush
 
-puts "Seeding 8 hardcoded bookings ......................................"
+event14photo = URI.open("https://source.unsplash.com/1v7axvhwnOU")
+event14 = Event.new(
+  {
+    title: 'Beach Volleyball at Munich Olympic Park',
+    description: "Join us for a fun and friendly game of beach volleyball at the beautiful Olympic Park.",
+    start_date: DateTime.new(2023, 7, 1, 10, 0, 0),
+    end_date: DateTime.new(2023, 7, 1, 12, 0, 0),
+    address: 'Olympiapark München, 80809 München, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 8,
+    category: 'Volleyball',
+    level: "Intermediate",
+    duration: 2.0,
+    group_id: group2.id,
+    user_id: user3.id
+  }
+)
+event14.photos.attach(io: event14photo, filename: "event14.png", content_type: "image/png")
+event14.save!
+event14.create_chatroom!(name: "Chatroom for #{event14.title}")
+
+print '*'
+STDOUT.flush
+
+event15photo = URI.open("https://source.unsplash.com/aZVpxRydiJk")
+event15 = Event.new(
+  {
+    title: 'Indoor Volleyball at Riem Arcaden',
+    description: "Let's play some volleyball indoors at Riem Arcaden. All skill levels are welcome.",
+    start_date: DateTime.new(2023, 7, 2, 15, 0, 0),
+    end_date: DateTime.new(2023, 7, 2, 17, 0, 0),
+    address: 'Willy-Brandt-Platz 5, 81829 München, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 12,
+    category: 'Volleyball',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group3.id,
+    user_id: user4.id
+  }
+)
+event15.photos.attach(io: event15photo, filename: "event15.png", content_type: "image/png")
+event15.save!
+event15.create_chatroom!(name: "Chatroom for #{event15.title}")
+
+print '*'
+STDOUT.flush
+
+event16photo = URI.open("https://source.unsplash.com/6E6oMx-69Ns")
+event16 = Event.new(
+  {
+    title: 'Group Hiking in Munich',
+    description: "Join us for a group hike around the beautiful trails of Munich. Suitable for all fitness levels.",
+    start_date: DateTime.new(2023, 7, 3, 9, 0, 0),
+    end_date: DateTime.new(2023, 7, 3, 13, 0, 0),
+    address: 'English Garden, 80538 Munich, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Hiking',
+    level: "Beginner",
+    duration: 4.0,
+    group_id: group1.id,
+    user_id: user2.id
+  }
+)
+event16.photos.attach(io: event16photo, filename: "event16.png", content_type: "image/png")
+event16.save!
+event16.create_chatroom!(name: "Chatroom for #{event16.title}")
+
+print '*'
+STDOUT.flush
+
+# Erstes Event: Volleyball
+event18photo = URI.open("https://source.unsplash.com/sVH6eo-u1mM")
+event18 = Event.new(
+  {
+    title: 'Volleyball Match in Munich',
+    description: "Join us for a friendly volleyball match in the heart of Munich. All skill levels are welcome!",
+    start_date: DateTime.new(2023, 7, 7, 10, 0, 0),
+    end_date: DateTime.new(2023, 7, 7, 12, 0, 0),
+    address: 'Theresienwiese, 80336 Munich, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Volleyball',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group2.id,
+    user_id: user3.id
+  }
+)
+event18.photos.attach(io: event18photo, filename: "event18.png", content_type: "image/png")
+event18.save!
+event18.create_chatroom!(name: "Chatroom for #{event18.title}")
+
+print '*'
+STDOUT.flush
+
+# Zweites Event: Football
+event19photo = URI.open("https://source.unsplash.com/mY2ZHBU6GRk")
+event19 = Event.new(
+  {
+    title: 'Football Training in Munich',
+    description: "Join us for a football training session. Suitable for all fitness levels.",
+    start_date: DateTime.new(2023, 7, 8, 15, 0, 0),
+    end_date: DateTime.new(2023, 7, 8, 17, 0, 0),
+    address: 'Olympiapark, 80809 Munich, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 15,
+    category: 'Football',
+    level: "Intermediate",
+    duration: 2.0,
+    group_id: group3.id,
+    user_id: user4.id
+  }
+)
+
+print '*'
+STDOUT.flush
+
+event19.photos.attach(io: event19photo, filename: "event19.png", content_type: "image/png")
+event19.save!
+event19.create_chatroom!(name: "Chatroom for #{event19.title}")
+
+# Erstes Event: Bouldering
+event20photo = URI.open("https://source.unsplash.com/NY1D4Zni7fc")
+event20 = Event.new(
+  {
+    title: 'Bouldering Adventure in Munich',
+    description: "Join us for an adventurous bouldering session in Munich. Suitable for all skill levels.",
+    start_date: DateTime.new(2023, 7, 9, 10, 0, 0),
+    end_date: DateTime.new(2023, 7, 9, 12, 0, 0),
+    address: 'Thalkirchner Str. 207, 81371 München, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 10,
+    category: 'Bouldering',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group2.id,
+    user_id: user3.id
+  }
+)
+event20.photos.attach(io: event20photo, filename: "event20.png", content_type: "image/png")
+event20.save!
+event20.create_chatroom!(name: "Chatroom for #{event20.title}")
+
+print '*'
+STDOUT.flush
+
+# Zweites Event: Yoga
+event21photo = URI.open("https://source.unsplash.com/F2qh3yjz6Jk")
+event21 = Event.new(
+  {
+    title: 'Yoga in the Park Munich',
+    description: "Join us for a relaxing yoga session in the park. Suitable for all fitness levels.",
+    start_date: DateTime.new(2023, 7, 10, 15, 0, 0),
+    end_date: DateTime.new(2023, 7, 10, 17, 0, 0),
+    address: 'Englischer Garten, 80538 Munich, Germany',
+    city: "München",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Yoga',
+    level: "Intermediate",
+    duration: 2.0,
+    group_id: group3.id,
+    user_id: user4.id
+  }
+)
+event21.photos.attach(io: event21photo, filename: "event21.png", content_type: "image/png")
+event21.save!
+event21.create_chatroom!(name: "Chatroom for #{event21.title}")
+
+print '*'
+STDOUT.flush
+
+# Event in Frankfurt: Paddle Tennis
+event22photo = URI.open("https://source.unsplash.com/M2x3A8Q4JbY")
+event22 = Event.new(
+  {
+    title: 'Paddle Tennis in Frankfurt',
+    description: "Join us for a fun paddle tennis match in Frankfurt. Suitable for all skill levels.",
+    start_date: DateTime.new(2023, 7, 11, 13, 0, 0),
+    end_date: DateTime.new(2023, 7, 11, 15, 0, 0),
+    address: 'Hahnstraße 75, 60528 Frankfurt am Main, Germany',
+    city: "Frankfurt am Main",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 8,
+    category: 'Paddle Tennis',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group1.id,
+    user_id: user5.id
+  }
+)
+event22.photos.attach(io: event22photo, filename: "event22.png", content_type: "image/png")
+event22.save!
+event22.create_chatroom!(name: "Chatroom for #{event22.title}")
+
+print '*'
+STDOUT.flush
+
+# Event in Hamburg: Yoga
+event23photo = URI.open("https://source.unsplash.com/YJdCZba0TYE")
+event23 = Event.new(
+  {
+    title: 'Yoga in the Park Hamburg',
+    description: "Join us for a relaxing yoga session in the park. Suitable for all fitness levels.",
+    start_date: DateTime.new(2023, 7, 12, 10, 0, 0),
+    end_date: DateTime.new(2023, 7, 12, 12, 0, 0),
+    address: 'Stadtpark Hamburg, 22303 Hamburg, Germany',
+    city: "Hamburg",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 15,
+    category: 'Yoga',
+    level: "Intermediate",
+    duration: 2.0,
+    group_id: group2.id,
+    user_id: user6.id
+  }
+)
+event23.photos.attach(io: event23photo, filename: "event23.png", content_type: "image/png")
+event23.save!
+event23.create_chatroom!(name: "Chatroom for #{event23.title}")
+
+print '*'
+STDOUT.flush
+
+# Event in Hannover: Basketball
+event24photo = URI.open("https://source.unsplash.com/BfphcCvhl6E")
+event24 = Event.new(
+  {
+    title: 'Basketball Match in Hannover',
+    description: "Join us for a friendly basketball match in Hannover. Suitable for all skill levels.",
+    start_date: DateTime.new(2023, 7, 13, 16, 0, 0),
+    end_date: DateTime.new(2023, 7, 13, 18, 0, 0),
+    address: 'Am Sportpark 5, 30625 Hannover, Germany',
+    city: "Hannover",
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 10,
+    category: 'Basketball',
+    level: "Professional",
+    duration: 2.0,
+    group_id: group3.id,
+    user_id: user7.id
+  }
+)
+event24.photos.attach(io: event24photo, filename: "event24.png", content_type: "image/png")
+event24.save!
+event24.create_chatroom!(name: "Chatroom for #{event24.title}")
+
+print '*'
+STDOUT.flush
+
+  # Event in Köln: Football
+  event25photo = URI.open("https://source.unsplash.com/6k0VD3xNw6U")
+  event25 = Event.new(
+    {
+      title: 'Football in Köln',
+      description: "Join us for a fun football match in Köln. Suitable for all skill levels.",
+      start_date: DateTime.new(2023, 7, 14, 13, 0, 0),
+      end_date: DateTime.new(2023, 7, 14, 15, 0, 0),
+      address: 'Sporthafen Köln, 51063 Köln, Germany',
+      city: "Köln",
+      price: Faker::Number.within(range: 0..10),
+      spots_available: 22,
+      category: 'Football',
+      level: "Beginner",
+      duration: 2.0,
+      group_id: group4.id,
+      user_id: user8.id
+    }
+  )
+  event25.photos.attach(io: event25photo, filename: "event25.png", content_type: "image/png")
+  event25.save!
+  event25.create_chatroom!(name: "Chatroom for #{event25.title}")
+
+  print '*'
+  STDOUT.flush
+
+  # Event in Potsdam: Tennis
+  event26photo = URI.open("https://source.unsplash.com/Z4Sxy1_3wdY")
+  event26 = Event.new(
+    {
+      title: 'Tennis in Potsdam',
+      description: "Join us for a friendly tennis match in Potsdam. Suitable for all skill levels.",
+      start_date: DateTime.new(2023, 7, 15, 10, 0, 0),
+      end_date: DateTime.new(2023, 7, 15, 12, 0, 0),
+      address: 'Am Luftschiffhafen 2, 14471 Potsdam, Germany',
+      city: "Potsdam",
+      price: Faker::Number.within(range: 0..10),
+      spots_available: 8,
+      category: 'Tennis',
+      level: "Intermediate",
+      duration: 2.0,
+      group_id: group5.id,
+      user_id: user9.id
+    }
+  )
+  event26.photos.attach(io: event26photo, filename: "event26.png", content_type: "image/png")
+  event26.save!
+  event26.create_chatroom!(name: "Chatroom for #{event26.title}")
+
+  print '*'
+  STDOUT.flush
+  # Event in Kiel: Cycling
+  event27photo = URI.open("https://source.unsplash.com/Z4Sxy1_3wdY")
+  event27 = Event.new(
+    {
+      title: 'Cycling Tour in Kiel',
+      description: "Join us for a scenic cycling tour in Kiel. Suitable for all fitness levels.",
+      start_date: DateTime.new(2023, 7, 16, 16, 0, 0),
+      end_date: DateTime.new(2023, 7, 16, 18, 0, 0),
+      address: 'Kleiner Kiel 1, 24103 Kiel, Germany',
+      city: "Kiel",
+      price: Faker::Number.within(range: 0..10),
+      spots_available: 15,
+      category: 'Cycling',
+      level: "Professional",
+      duration: 2.0,
+      group_id: group6.id,
+      user_id: user10.id
+    }
+  )
+  event27.photos.attach(io: event27photo, filename: "event27.png", content_type: "image/png")
+  event27.save!
+  event27.create_chatroom!(name: "Chatroom for #{event27.title}")
+
+  print '*'
+  STDOUT.flush
+  puts "Done"
+  puts ""
+
+puts "Seeding 8 hardcoded bookings "
 #################### 8 hardcoded Bookings ####################
 
 ##### Event 1 Summer Volleyball Tournament
@@ -589,12 +998,18 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user2.id,
     event_id: event1.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 booking = Booking.create!(
   {
@@ -603,6 +1018,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 2 Women double
 booking = Booking.create!(
@@ -612,6 +1029,9 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user6.id,
@@ -619,6 +1039,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 3 Casual Womens Football
 booking = Booking.create!(
@@ -628,6 +1050,9 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user6.id,
@@ -635,6 +1060,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 4 Skill Building Volleyball
 booking = Booking.create!(
@@ -644,6 +1071,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 5 Morning Indoor Game
 booking = Booking.create!(
@@ -653,6 +1082,9 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user5.id,
@@ -660,6 +1092,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 6 Summer Volleyball Tournament
 booking = Booking.create!(
@@ -669,6 +1103,9 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user5.id,
@@ -676,6 +1113,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 7 Basketball Street-Jam
 booking = Booking.create!(
@@ -685,12 +1124,18 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user5.id,
     event_id: event7.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 
 booking = Booking.create!(
@@ -700,6 +1145,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 8 Yoga in Park am Gleisdreieck
 booking = Booking.create!(
@@ -709,6 +1156,9 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user9.id,
@@ -716,6 +1166,8 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### Event 9 NEW Mixed Paddle Tennis
 booking = Booking.create!(
@@ -725,12 +1177,18 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user9.id,
     event_id: event9.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 ##### Event 10 Sunday Mens Cycle Tour
 booking = Booking.create!(
@@ -740,12 +1198,18 @@ booking = Booking.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 booking = Booking.create!(
   {
     user_id: user7.id,
     event_id: event10.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 booking = Booking.create!(
   {
@@ -754,7 +1218,12 @@ booking = Booking.create!(
   }
 )
 
-puts "Seeding 10 hardcoded users groups ......................................"
+print '*'
+STDOUT.flush
+puts "Done"
+puts ""
+
+puts "Seeding 10 hardcoded users groups "
 #################### 3 hardcoded User_Groups ####################
 
 ##### User_Group 1
@@ -765,48 +1234,79 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user2.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user6.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user7.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user8.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user9.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user3.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user4.id,
     group_id: group1.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 ##### User_Group 2
 usergroup = UserGroup.create!(
   {
@@ -814,6 +1314,10 @@ usergroup = UserGroup.create!(
     group_id: group2.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user6.id,
@@ -821,18 +1325,28 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user8.id,
     group_id: group2.id
   }
 )
+
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user10.id,
     group_id: group2.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 ##### User_Group 3
 usergroup = UserGroup.create!(
@@ -842,6 +1356,9 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user5.id,
@@ -849,6 +1366,8 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### User_Group 4
 usergroup = UserGroup.create!(
@@ -858,12 +1377,18 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user5.id,
     group_id: group4.id
   }
 )
+
+print '*'
+STDOUT.flush
 
 
 ##### User_Group 5
@@ -874,6 +1399,9 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user5.id,
@@ -881,6 +1409,8 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### User_Group 6
 usergroup = UserGroup.create!(
@@ -890,6 +1420,9 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user5.id,
@@ -897,6 +1430,8 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
 
 ##### User_Group 8
 usergroup = UserGroup.create!(
@@ -906,9 +1441,18 @@ usergroup = UserGroup.create!(
   }
 )
 
+print '*'
+STDOUT.flush
+
 usergroup = UserGroup.create!(
   {
     user_id: user5.id,
     group_id: group8.id
   }
 )
+
+print '*'
+STDOUT.flush
+puts "Done"
+
+puts "Congratulations - You now have wonderful SEEDS"
