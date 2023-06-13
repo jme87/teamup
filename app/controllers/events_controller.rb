@@ -5,6 +5,8 @@ class EventsController < ApplicationController
     @events = @events.where(category: params[:query]) if params[:query].present?
     @category = params[:query].capitalize if params[:query].present? # Assuming query parameter contains the city name
     @events = @events.where(level: params[:level].capitalize) if params[:level].present?
+    @events = @events.where(city: params[:city].capitalize) if params[:city].present?
+
 # raise
     # The `geocoded` scope filters only events with coordinates
     @markers = @events.geocoded.map do |event|
