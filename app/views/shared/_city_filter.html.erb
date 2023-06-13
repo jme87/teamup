@@ -1,0 +1,22 @@
+
+<div class="city-filter">
+      <div class="city-dropdown" style="margin-bottom:5px; background-color:#fff">
+        <button style="border-width:0;" class=" dropdown-toggle m-0"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+          <span style="font-size:1.8em; color:orange; ">City</span>
+        </button>
+        <ul class="dropdown-menu">
+          <% cities = Event.pluck(:city).uniq %>
+          <% cities.each do |city| %>
+              <li><a data-filter-target="city"
+                    data-target="<%=city%>"
+                    data-action="click->filter#city"
+                    class="dropdown-item">
+                    <%= city %> </a></li>
+          <% end %>
+        </ul>
+  </div>
+
+</div>
