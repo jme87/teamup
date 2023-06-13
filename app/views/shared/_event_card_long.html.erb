@@ -1,7 +1,7 @@
 <%= link_to event_path(event) do %>
   <div class="event-card-long">
     <% if event.photos.attached? %>
-      <%= cl_image_tag event.photos[0].key, height: 140, width: 120, crop: :fill, class: "event-card-long-image" %>
+      <%= cl_image_tag event.photos[0].key, width: 400, crop: :fill, class: "event-card-long-image" %>
     <% else %>
       <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-card-long-image">
     <% end %>

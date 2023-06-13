@@ -9,6 +9,7 @@
 require 'faker'
 require 'open-uri'
 puts "Cleaning the database............................................"
+Post.destroy_all
 UserGroup.destroy_all
 Booking.destroy_all
 Chatroom.destroy_all
@@ -20,6 +21,7 @@ puts "Seeding the database ............................................"
 
 puts "Seeding 10 hardcoded users ......................................"
 #################### 10 hardcoded users ####################
+
 user1photo = URI.open("https://source.unsplash.com/DItYlc26zVI/600x600")
 user1 = User.new(
   {
@@ -224,10 +226,12 @@ group4 = Group.new(
     description: "Join our dynamic bouldering social sports group and ascend to new heights of camaraderie, challenge, and fun!",
     city: "Berlin",
     category: "Bouldering",
-    user_id: user1.id,
+    user_id: user4.id,
     private: false
   }
 )
+group4.photos.attach(io: group4photo, filename: "group4.png", content_type: "image/png")
+group4.save!
 
 group5photo = URI.open("https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 group5 = Group.new(
@@ -236,10 +240,12 @@ group5 = Group.new(
     description: "Join our group for meditation, relaxation and deep stretching in a park near you!",
     city: "Berlin",
     category: "Yoga",
-    user_id: user1.id,
+    user_id: user5.id,
     private: false
   }
 )
+group5.photos.attach(io: group5photo, filename: "group5.png", content_type: "image/png")
+group5.save!
 
 group6photo = URI.open("https://www.info83.fr/wp-content/uploads/2023/02/Padel-tennis-Domaine-de-la-Tuiliere-Carnoules-Var..jpeg")
 group6 = Group.new(
@@ -248,10 +254,12 @@ group6 = Group.new(
     description: "Serve up some smashing fun and make a racket with our vibrant paddle tennis social sports group.",
     city: "Berlin",
     category: "Paddle Tennis",
-    user_id: user1.id,
+    user_id: user6.id,
     private: false
   }
 )
+group6.photos.attach(io: group6photo, filename: "group6.png", content_type: "image/png")
+group6.save!
 
 group7photo = URI.open("https://source.unsplash.com/nGt71kRwUOw/1200x600")
 group7 = Group.new(
@@ -260,10 +268,12 @@ group7 = Group.new(
     description: "Pedal through picturesque landscapes and urban streets with our vibrant cycling group, exploring Berlin and Brandenburg on your steel horse.",
     city: "Berlin",
     category: "Cycling",
-    user_id: user1.id,
+    user_id: user7.id,
     private: false
   }
 )
+group7.photos.attach(io: group7photo, filename: "group7.png", content_type: "image/png")
+group7.save!
 
 group8photo = URI.open("https://source.unsplash.com/IdrUEz0Tjxw/1200x600")
 group8 = Group.new(
@@ -272,25 +282,27 @@ group8 = Group.new(
     description: "Dribble, shoot, and soar with our passionate basketball group, bringing the love of the game to the courts of Berlin.",
     city: "Berlin",
     category: "Basketball",
-    user_id: user1.id,
+    user_id: user8.id,
     private: false
   }
 )
-
+group8.photos.attach(io: group8photo, filename: "group8.png", content_type: "image/png")
+group8.save!
 
 
 puts "Seeding 15 hardcoded events ......................................"
 #################### 15 hardcoded events ####################
-event1photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
+
+event1photo = URI.open("https://source.unsplash.com/10QkXxk0mVA")
 event1 = Event.new(
   {
     title: 'Summer Volleyball Tournament',
     description: "Get ready for a hilarious volleyball tournament filled with laughter and friendly competition!",
-    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
-    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
-    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
+    start_date: DateTime.new(2023, 6, 18, 13, 0, 0),
+    end_date: DateTime.new(2023, 6, 18, 17, 0, 0),
+    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin, Germany',
     price: Faker::Number.within(range: 0..10),
-    spots_available: 20,
+    spots_available: 8,
     category: 'Volleyball',
     level: "Beginner",
     duration: 4.0,
@@ -307,11 +319,11 @@ event2 = Event.new(
   {
     title: "Women Doubles",
     description: "Calling all tennis enthusiasts! Join our Doubles with your bestie or find a partner here!",
-    start_date: DateTime.new(2023, 6, 20, 8, 0, 0),
-    end_date: DateTime.new(2023, 6, 20, 10, 0, 0),
-    address: "Am Friedrichshain 15, 10407 Berlin",
+    start_date: DateTime.new(2023, 6, 20, 18, 0, 0),
+    end_date: DateTime.new(2023, 6, 20, 20, 0, 0),
+    address: "Vorarlberger Damm 37, 14195 Berlin, Germany",
     price: Faker::Number.within(range: 0..10),
-    spots_available: 12,
+    spots_available: 8,
     category: "Tennis",
     level: "Intermediate",
     duration: 2.0,
@@ -323,14 +335,16 @@ event2.photos.attach(io: event2photo, filename: "event2.png", content_type: "ima
 event2.save!
 event2.create_chatroom!(name: "Chatroom for #{event2.title}")
 
-event3photo = URI.open("https://source.unsplash.com/PxWYtbARH9s/400x300")
+
+
+event3photo = URI.open("https://source.unsplash.com/XUsMIX04wvc")
 event3 = Event.new(
   {
-    title: "Casual Football",
-    description: "Join our evening Football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
+    title: "Casual Womens Football",
+    description: "Join our evening womens football event. Experience the camaraderie and the joy of scoring goals. Lace up your boots and get ready for some thrilling football action!",
     start_date: DateTime.new(2023, 6, 20, 19, 0, 0),
     end_date: DateTime.new(2023, 6, 20, 21, 0, 0),
-    address: "5/7 Rue Neuve Saint-Pierre, 75004 Paris",
+    address: "Friedenstraße 101, 10249 Berlin, Germany",
     price: Faker::Number.within(range: 0..10),
     spots_available: 12,
     category: "Football",
@@ -344,16 +358,18 @@ event3.photos.attach(io: event3photo, filename: "event3.png", content_type: "ima
 event3.save!
 event3.create_chatroom!(name: "Chatroom for #{event3.title}")
 
-event4photo = URI.open("https://source.unsplash.com/1v7axvhwnOU/400x300")
+
+
+event4photo = URI.open("https://source.unsplash.com/1v7axvhwnOU")
 event4 = Event.new(
   {
-    title: 'Casual Match',
-    description: "Join for a couple of hours of volleyball and make friendls!",
+    title: 'Skill building Volleyball',
+    description: "Join us for a thrilling evening of volleyball where genders unite, spiking, setting, and diving together, creating an atmosphere of inclusivity and friendly competition.",
     start_date: DateTime.new(2023, 6, 30, 14, 0, 0),
     end_date: DateTime.new(2023, 6, 30, 16, 0, 0),
-    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin',
+    address: 'Wilhelm-Kabus-Straße 42, 10829 Berlin, Germany',
     price: Faker::Number.within(range: 0..10),
-    spots_available: 10,
+    spots_available: 6,
     category: 'Volleyball',
     level: "Intermediate",
     duration: 2.0,
@@ -365,19 +381,21 @@ event4.photos.attach(io: event4photo, filename: "event4.png", content_type: "ima
 event4.save!
 event4.create_chatroom!(name: "Chatroom for #{event4.title}")
 
-event5photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw/400x300")
+
+
+event5photo = URI.open("https://source.unsplash.com/UPjZWkyZ6aw")
 event5 = Event.new(
   {
-    title: 'Morning Game',
-    description: "Join for a couple of hours of volleyball and make friendls!",
+    title: 'Morning Indoor Game',
+    description: "Join for a couple of hours of indoor volleyball and make friends.",
     start_date: DateTime.new(2023, 6, 30, 8, 0, 0),
-    end_date: DateTime.new(2023, 6, 30, 9, 0, 0),
-    address: 'Wolliner Str. 39, 13355 Berlin',
+    end_date: DateTime.new(2023, 6, 30, 10, 0, 0),
+    address: 'Stralauer Pl. 34, 10243 Berlin, Germany',
     price: Faker::Number.within(range: 0..10),
-    spots_available: 10,
+    spots_available: 8,
     category: 'Volleyball',
     level: "Beginner",
-    duration: 1.0,
+    duration: 2.0,
     group_id: group1.id,
     user_id: user1.id
   }
@@ -388,11 +406,170 @@ event5.create_chatroom!(name: "Chatroom for #{event5.title}")
 
 
 
+event6photo = URI.open("https://source.unsplash.com/8YUNBQwvn0o")
+event6 = Event.new(
+  {
+    title: 'Summer Volleyball Tournament',
+    description: "Get ready for a hot n' sweaty volleyball tournament filled with fun, music and spirtit!",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 18,
+    category: 'Volleyball',
+    level: "Intermediate",
+    duration: 4.0,
+    group_id: group1.id,
+    user_id: user1.id
+  }
+)
+event6.photos.attach(io: event6photo, filename: "event6.png", content_type: "image/png")
+event6.save!
+event6.create_chatroom!(name: "Chatroom for #{event6.title}")
+
+
+
+event7photo = URI.open("https://source.unsplash.com/xwaaqLHL1VM")
+event7 = Event.new(
+  {
+    title: 'Basketball Street-Jam',
+    description: "Take your skills to the asphalt playground, join our vibrant basketball street group, and experience the electrifying atmosphere of fast-paced hoops under the open sky",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Sebastianstraße 37, 10179 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 10,
+    category: 'Basketball',
+    level: "Beginner",
+    duration: 4.0,
+    group_id: group8.id,
+    user_id: user10.id
+  }
+)
+event7.photos.attach(io: event7photo, filename: "event7.png", content_type: "image/png")
+event7.save!
+event7.create_chatroom!(name: "Chatroom for #{event7.title}")
+
+
+
+event8photo = URI.open("https://source.unsplash.com/obZcpYkjFhk")
+event8 = Event.new(
+  {
+    title: 'Yoga in Park am Gleisdreieck',
+    description: "Unwind, rejuvenate, and connect with nature in our serene yoga in the park.",
+    start_date: DateTime.new(2023, 6, 25, 15, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 16, 0, 0),
+    address: 'Dennewitzstraße 37, 10785 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Yoga',
+    level: "Beginner",
+    duration: 1.0,
+    group_id: group5.id,
+    user_id: user7.id
+  }
+)
+event8.photos.attach(io: event8photo, filename: "event8.png", content_type: "image/png")
+event8.save!
+event8.create_chatroom!(name: "Chatroom for #{event8.title}")
+
+
+
+event9photo = URI.open("https://source.unsplash.com/M2x3A8Q4JbY")
+event9 = Event.new(
+  {
+    title: 'NEW Mixed Paddle Tennis',
+    description: "Ty out the new paddle tennis craze to hit Berlin, mixed teams, casual game.",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Caroline-Michaelis-Straße 8, 10115 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 8,
+    category: 'Paddle Tennis',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group6.id,
+    user_id: user6.id
+  }
+)
+event9.photos.attach(io: event9photo, filename: "event9.png", content_type: "image/png")
+event9.save!
+event9.create_chatroom!(name: "Chatroom for #{event9.title}")
+
+
+
+event10photo = URI.open("https://source.unsplash.com/nGt71kRwUOw")
+event10 = Event.new(
+  {
+    title: 'Sunday Mens Cycle Tour',
+    description: "A nice way to see some of Brandenburgs captivating landscapes. Meeting point is Ostkreuz Station traveling to Müggelsee and surrounding areas.",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Koppenstraße 3, 10243 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 6,
+    category: 'Cycling',
+    level: "Intermediate",
+    duration: 7.0,
+    group_id: group7.id,
+    user_id: user3.id
+  }
+)
+event10.photos.attach(io: event10photo, filename: "event10.png", content_type: "image/png")
+event10.save!
+event10.create_chatroom!(name: "Chatroom for #{event10.title}")
+
+
+
+event11photo = URI.open("https://source.unsplash.com/QiYZCKJQMck")
+event11 = Event.new(
+  {
+    title: 'Yoga in Mauer Park',
+    description: "Unwind, rejuvenate, and connect with nature in our serene yoga in the park.",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Gleimstraße 55, 10437 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Yoga',
+    level: "Beginner",
+    duration: 1.0,
+    group_id: group5.id,
+    user_id: user7.id
+  }
+)
+event11.photos.attach(io: event11photo, filename: "event11.png", content_type: "image/png")
+event11.save!
+event11.create_chatroom!(name: "Chatroom for #{event11.title}")
+
+
+
+event12photo = URI.open("https://source.unsplash.com/FHNgTEuxyJA/")
+event12 = Event.new(
+  {
+    title: 'Climb High Bouldering',
+    description: "Conquer the rocks, push your limits, and join our bouldering event.",
+    start_date: DateTime.new(2023, 6, 25, 10, 0, 0),
+    end_date: DateTime.new(2023, 6, 25, 14, 0, 0),
+    address: 'Revaler Str. 99, 10245 Berlin, Germany',
+    price: Faker::Number.within(range: 0..10),
+    spots_available: 20,
+    category: 'Bouldering',
+    level: "Beginner",
+    duration: 2.0,
+    group_id: group4.id,
+    user_id: user9.id
+  }
+)
+event12.photos.attach(io: event12photo, filename: "event12.png", content_type: "image/png")
+event12.save!
+event12.create_chatroom!(name: "Chatroom for #{event12.title}")
+
+
 puts "Seeding 8 hardcoded bookings ......................................"
 #################### 8 hardcoded Bookings ####################
 
-##### Event 1
-
+##### Event 1 Summer Volleyball Tournament
 booking = Booking.create!(
   {
     user_id: user1.id,
@@ -414,8 +591,8 @@ booking = Booking.create!(
   }
 )
 
-##### Event 2 Women double
 
+##### Event 2 Women double
 booking = Booking.create!(
   {
     user_id: user2.id,
@@ -430,8 +607,8 @@ booking = Booking.create!(
   }
 )
 
-##### Event 3
 
+##### Event 3 Casual Womens Football
 booking = Booking.create!(
   {
     user_id: user4.id,
@@ -441,12 +618,129 @@ booking = Booking.create!(
 
 booking = Booking.create!(
   {
-    user_id: user5.id,
+    user_id: user6.id,
     event_id: event3.id
   }
 )
 
 
+##### Event 4 Skill Building Volleyball
+booking = Booking.create!(
+  {
+    user_id: user6.id,
+    event_id: event4.id
+  }
+)
+
+
+##### Event 5 Morning Indoor Game
+booking = Booking.create!(
+  {
+    user_id: user4.id,
+    event_id: event5.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user5.id,
+    event_id: event5.id
+  }
+)
+
+
+##### Event 6 Summer Volleyball Tournament
+booking = Booking.create!(
+  {
+    user_id: user4.id,
+    event_id: event6.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user5.id,
+    event_id: event6.id
+  }
+)
+
+
+##### Event 7 Basketball Street-Jam
+booking = Booking.create!(
+  {
+    user_id: user4.id,
+    event_id: event7.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user5.id,
+    event_id: event7.id
+  }
+)
+
+
+booking = Booking.create!(
+  {
+    user_id: user7.id,
+    event_id: event7.id
+  }
+)
+
+
+##### Event 8 Yoga in Park am Gleisdreieck
+booking = Booking.create!(
+  {
+    user_id: user8.id,
+    event_id: event8.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user9.id,
+    event_id: event8.id
+  }
+)
+
+
+##### Event 9 NEW Mixed Paddle Tennis
+booking = Booking.create!(
+  {
+    user_id: user8.id,
+    event_id: event9.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user9.id,
+    event_id: event9.id
+  }
+)
+
+##### Event 10 Sunday Mens Cycle Tour
+booking = Booking.create!(
+  {
+    user_id: user1.id,
+    event_id: event10.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user7.id,
+    event_id: event10.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user3.id,
+    event_id: event10.id
+  }
+)
 
 puts "Seeding 10 hardcoded users groups ......................................"
 #################### 3 hardcoded User_Groups ####################
@@ -540,5 +834,69 @@ usergroup = UserGroup.create!(
   {
     user_id: user5.id,
     group_id: group3.id
+  }
+)
+
+
+##### User_Group 4
+usergroup = UserGroup.create!(
+  {
+    user_id: user4.id,
+    group_id: group4.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user5.id,
+    group_id: group4.id
+  }
+)
+
+
+##### User_Group 5
+usergroup = UserGroup.create!(
+  {
+    user_id: user4.id,
+    group_id: group5.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user5.id,
+    group_id: group5.id
+  }
+)
+
+
+##### User_Group 6
+usergroup = UserGroup.create!(
+  {
+    user_id: user4.id,
+    group_id: group6.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user5.id,
+    group_id: group6.id
+  }
+)
+
+
+##### User_Group 8
+usergroup = UserGroup.create!(
+  {
+    user_id: user4.id,
+    group_id: group8.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user5.id,
+    group_id: group8.id
   }
 )
