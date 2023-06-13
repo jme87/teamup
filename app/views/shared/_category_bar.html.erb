@@ -10,7 +10,6 @@
       <% categories = Event.pluck(:category).uniq %>
       <% categories.each do |category| %>
         <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
-         <%# data-filter-target="filter" %>
           <div id="<%= category %>" class="item">
             <h1><%= category %></h1>
           </div>
