@@ -13,7 +13,7 @@
       </button>
       <ul class="dropdown-menu">
       <% @unique_citys.each do |city| %>
-        <li><%= link_to "#{city}", events_path(query: "#{city}") %></li>
+        <li class="dropdown-item"><%= link_to "#{city}", events_path(query: "#{city}") %></li>
       <% end %>
       </ul>
     </div>
@@ -28,5 +28,5 @@
     <% end %>
   </div>
   <br>
-  <%= link_to "See all Events in #{@city}", events_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "See all Events in #{@city}", events_path(query: "#{@city}"), class: "btn btn-primary btn-lg" %>
 </div>
