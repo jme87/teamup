@@ -53,6 +53,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
+    @event.city = @event.address.split[-2].gsub(',', '')
     if @event.save
       @event.create_chatroom!(name: "Chatroom for #{@event.title}")
       redirect_to event_path(@event)
@@ -80,6 +81,7 @@ class EventsController < ApplicationController
     @event.update(params)
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
+    @event.city = @event.address.split[-2].gsub(',', '')
     if @event.save
       redirect_to event_path(@event)
     else
