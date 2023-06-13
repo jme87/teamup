@@ -2,19 +2,28 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["filter", "cards", "mapContainer", "level"];
-  catChoice = "";
+  static targets = ["filter", "cards", "mapContainer", "level", "city"];
+  url = "events";
+  cat = "";
+  cityChoice = "";
+  levelChoice = "";
 
   connect() {
     console.log("Hello from filter s. controller");
     // console.log(this.filterTargets)
   }
 
+  createURL() {
+    const url = `events?query=${this.cat}&level=${this.levelChoice}&city=${this.cityChoice}`;
+    console.log(url);
+    return url;
+  };
+
   fire(event) {
     event.preventDefault();
-    console.log('fired');
-    this.catChoice = event.currentTarget.href
-    fetch(event.currentTarget.href, {
+    this.cat = event.currentTarget.children[0].id
+
+    fetch(this.createURL(), {
       method: "GET",
       headers: {"Accept": "application/json"}
     })
@@ -27,13 +36,9 @@ export default class extends Controller {
 
   level(event) {
     event.preventDefault();
-    console.log('level fired');
-    const level = event.currentTarget.dataset.target;
-    const url = this.catChoice ? `${this.catChoice}&level=${level}` : `?level=${level}`;
-    console.log(url)
+    this.levelChoice = event.currentTarget.dataset.target;
 
-
-    fetch(url, {
+    fetch(this.createURL(), {
       method: "GET",
       headers: {"Accept": "application/json"}
     })
@@ -41,8 +46,46 @@ export default class extends Controller {
     .then(data=> {
       this.cardsTarget.innerHTML = data.cards
       this.mapContainerTarget.innerHTML = data.map
-      //this.levelTarget.innerHTML = data.level
-      // console.log(data)
     })
   }
+
+  city(event) {
+    event.preventDefault();
+    this.cityChoice = event.currentTarget.dataset.target;
+
+    fetch(this.createURL(), {
+      method: "GET",
+      headers: {"Accept": "application/json"}
+    })
+    .then(response => response.json())
+    .then(data=> {
+      this.cardsTarget.innerHTML = data.cards
+      this.mapContainerTarget.innerHTML = data.map
+    })
+  }
+
 }
+
+    // switch (this.catChoice) {
+    //   case "cat":
+    //     url = this.catChoice;
+    //     break;
+    //   case "level":
+    //     url = this.levelChoice;
+    //     break;
+    //   case "city":
+    //     url = this.cityChoice;
+    //     break;
+    //   case "cat+level":
+    //     url = `${this.catChoice}&level=${this.levelChoice}`;
+    //     break;
+    //   case "cat+city":
+    //     url = `${this.catChoice}&city=${this.cityChoice}`;
+    //     break;
+    //   case "level+city":
+    //     url = `${this.levelChoice}&city=${this.cityChoice}`;
+    //     break;
+    //   case "cat+level+city":
+    //     url = `${this.catChoice}&level=${this.levelChoice}&city=${this.cityChoice}`;
+    //     break;
+    // }
