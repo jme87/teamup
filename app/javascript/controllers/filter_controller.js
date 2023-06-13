@@ -65,27 +65,3 @@ export default class extends Controller {
   }
 
 }
-
-    // switch (this.catChoice) {
-    //   case "cat":
-    //     url = this.catChoice;
-    //     break;
-    //   case "level":
-    //     url = this.levelChoice;
-    //     break;
-    //   case "city":
-    //     url = this.cityChoice;
-    //     break;
-    //   case "cat+level":
-    //     url = `${this.catChoice}&level=${this.levelChoice}`;
-    //     break;
-    //   case "cat+city":
-    //     url = `${this.catChoice}&city=${this.cityChoice}`;
-    //     break;
-    //   case "level+city":
-    //     url = `${this.levelChoice}&city=${this.cityChoice}`;
-    //     break;
-    //   case "cat+level+city":
-    //     url = `${this.catChoice}&level=${this.levelChoice}&city=${this.cityChoice}`;
-    //     break;
-    // }
