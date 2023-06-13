@@ -7,14 +7,14 @@
 .group-card-long {
   background-color: #FFFFFF;
   width: 360px;
-  height: 180px;
+  height: 250px;
   margin: 20px 0px 0px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
 }
 
-h5 {
+.group-card-long-title {
   font-weight: bold;
 }
 
@@ -24,21 +24,17 @@ a {
 }
 
 .group-card-long-image {
-  height: 100px;
+  height: 120px;
   width: 100%;
   object-fit: cover;
 }
 
 .group-card-long-details {
   padding: 10px;
+  margin: 5px 0;
+  font-size: 15px;
 }
 
 .event-card-long-name {
   margin-top: 0;
-}
-
-.event-card-long-location,
-.event-card-long-members {
-  margin: 5px 0;
-  font-size: 15px;
 }
