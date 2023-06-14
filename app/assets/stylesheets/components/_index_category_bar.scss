@@ -32,6 +32,17 @@ h1{
   // background-color: $orange;
   border-radius: 0px;
 }
+/* Versteckt die Scrollbar für Chrome, Safari und Opera */
+.index-category-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Versteckt die Scrollbar für IE und Edge */
+.index-category-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Für Firefox */
+}
+
 
 .item {
   display: inline-block;
