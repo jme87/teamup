@@ -6,11 +6,10 @@
   <% end %>
 </div>
 
-<div class="container">
+<div class="container pb-5">
   <h1 class="mt-3"><strong><%= @event.title %></strong></h1>
   <%# Details section %>
-  <div class="container p-5 group-info">
-    <h3 >Details</h3>
+  <div class="container px-3 pt-4 pb-2 group-info">
     <ul class="fa-ul">
       <li>
         <div class="d-flex flex-column">
@@ -21,27 +20,25 @@
       <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <%= @event.address %></li>
       <li><span class="fa-li"><i class="fa-solid fa-arrow-up-short-wide"></i></span> <%= @event.level %></li>
     </ul>
-
-    <div class="d-flex align-items-center mb-3">
-      <% if @event.group.present? %>
-        <%= link_to group_path(@event.group) do %>
-          <% if @event.group.photos.attached? %>
-            <div class="m-3">
-              <%= cl_image_tag @event.group.photos[0].key, :width => 100, :height => 100, crop: :fill %>
-            </div>
+    <hr>
+    <% if @event.group.present? %>
+      <%= link_to group_path(@event.group), class: "d-flex m-3" do %>
+        <% if @event.group.photos.attached? %>
+          <div class="">
+            <%= cl_image_tag @event.group.photos[0].key, class: "round-image", :width => 80, :height => 80, crop: :fill %>
+          </div>
         <% end %>
-        <div class="m-3">
-          <h4><%= @event.group.title %></h4>
+        <div class="ms-3 align-self-center">
+          <h6 class="fw-bold"><%= @event.group.title %></h6>
           <%= @event.group.private ? "Private Group" : "Public Group" %>
         </div>
       <% end %>
     <% end %>
-    </div>
   </div>
 
 
   <div data-controller="show-map">
-    <div data-show-map-target="mymap" class="">
+    <div data-show-map-target="mymap" class="pt-3">
       <div data-post-target="map">
         <div style="width: 100%; height: 300px;"
           data-controller="map"
@@ -50,7 +47,7 @@
         </div>
       </div>
     </div>
-    <button data-action="click->show-map#show">Hide/Show Map</button>
+    <button data-action="click->show-map#show" class="btn rounded-pill mt-2 d-flex justify-content-center" id="map-btn">Hide/Show Map</button>
   </div>
 
   <h5 class="mt-3"><strong>Members that joined</strong></h5>
@@ -63,33 +60,32 @@
         <%= image_tag "placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
       <% end %>
     <% end %>
+    <br>
+    <% unless current_user && @event.user_id == current_user.id %>
+      <% if current_user.events.include?(@event) %>
+        <%= link_to "Leave event",
+          delete_booking_path(@event),
+          class: "btn btn-warning rounded-pill mt-2",
+          data: {turbo_method: :delete, turbo_confirm: "Oh no! Do you really want to leave #{@event.title}"}
+          %>
+        <br>
+      <% end %>
+    <% end %>
   </div>
 
-  <% if @user_has_bookings %>
-    <%= link_to "Join event",
-      event_bookings_path(@event),
-      data: {turbo_method: :post, turbo_confirm: "Yeah! Confirm to join #{@event.title}"}
-    %>
-    <br>
-  <% end %>
-  <% if @user_has_bookings == true && current_user.present? %>
-    <%= link_to "Leave event",
-      delete_booking_path(@event),
-      data: {turbo_method: :delete, turbo_confirm: "Oh no! Do you really want to leave #{@event.title}"}
-    %>
-    <br>
-  <% end %>
-  <% if current_user && @event.user_id == current_user.id %>
-    <%= link_to 'Edit event', edit_event_path(@event) %>
-    <br>
-    <%= link_to "Delete event",
-      event_path(@event),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title}?"}
-    %>
-  <% end %>
+  <div class="d-flex mt-2 gap-1">
+    <% if current_user && @event.user_id == current_user.id %>
+      <%= link_to 'Edit event', edit_event_path(@event), class: "btn btn-warning rounded-pill" %>
+      <br>
+      <%= link_to "Delete event",
+        event_path(@event), class: "btn btn-warning rounded-pill",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@event.title}?"}
+      %>
+    <% end %>
+  </div>
 
   <br>
-  <div class="container p-5 group-info">
+  <div class="container p-3 group-info">
     <h3>Description</h3>
     <%= @event.description %>
   </div>
@@ -97,8 +93,8 @@
 
 
   <%# ############# Chatroom ##############%>
-  <% if current_user %>
-    <div class="container chatroom"
+  <% if current_user.events.include?(@event) %>
+  <div class="container chatroom"
       data-controller="chatroom-subscription"
       data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
@@ -125,5 +121,17 @@
       %>
       <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
+  <% end %>
+  </div>
+</div>
+
+<div class="join-event text-align-center">
+  <% if current_user.events.exclude?(@event) %>
+    <%= link_to "Join event",
+      event_bookings_path(@event),
+      class: "btn btn-primary col-8 offset-2 p-3 justify-content-center rounded-pill",
+      data: {turbo_method: :post, turbo_confirm: "Yeah! Confirm to join #{@event.title}"}
+    %>
+    <br>
   <% end %>
 </div>
