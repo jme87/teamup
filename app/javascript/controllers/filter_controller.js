@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["filter", "cards", "mapContainer", "level", "city", "selectedlevel", "selectedcity"];
+  static targets = ["filter", "cards", "mapContainer", "level", "city", "selectedlevel", "selectedcity", "title"];
   url = "events";
   cat = "";
   cityChoice = "";
@@ -21,7 +21,8 @@ export default class extends Controller {
 
   fire(event) {
     event.preventDefault();
-    this.cat = event.currentTarget.children[0].id
+    this.cat = event.currentTarget.children[0].id;
+    this.titleTarget.innerHTML = `Results for ${this.cat}`;
 
     fetch(this.createURL(), {
       method: "GET",
