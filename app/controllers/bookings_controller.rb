@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @booking.event_id = @event.id
     if @booking.save
       redirect_to event_path(@event)
+      flash[:notice] = "You joined the Event \"#{@event.title}\"."
     else
       #code
       redirect_to event_path(@event)
@@ -18,6 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by("user_id = ? AND event_id = ?", current_user.id, @event.id)
     @booking.destroy
     redirect_to event_path(@event), status: :see_other
+    flash[:notice] = "You left the Event \"#{@event.title}\"."
   end
 
   private
