@@ -1,5 +1,7 @@
-<h5><strong>Upcoming Events</strong></h5><%# render up to 3 cards with upcoming events here %>
+<div class="mt-4">
+  <h5 class="mb-4">Upcoming Events</h5><%# render up to 3 cards with upcoming events here %>
 
-<% @group.events.each do |event| %>
-  <%= render "shared/event_card_long", event: event %>
-<% end %>
+  <% @group.events.each do |event| %>
+    <%= render "shared/event_card_long", event: event %>
+  <% end %>
+</div>

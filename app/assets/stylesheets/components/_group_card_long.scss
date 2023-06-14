@@ -17,7 +17,7 @@
 
 .group-card-long-title {
   font-weight: bold;
-  color: $blue;
+  color: $gray;
 }
 
 a {
@@ -26,15 +26,14 @@ a {
 }
 
 .group-card-long-image {
-  height: 120px;
+  height: 130px;
   width: 100%;
   object-fit: cover;
 }
 
-.group-card-long-details {
+.group-card-long-bottom {
   padding: 15px 15px;
   margin: 5px 0;
-
 }
 
 .event-card-long-name {
@@ -44,4 +43,5 @@ a {
 .event-card-long-text {
   margin: 0px;
   font-size: 15px;
+  color: #3d3d3d;
 }

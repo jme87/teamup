@@ -1,14 +1,22 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="alert alert-info fade show m-1 flash-messages d-flex flex-column justify-content-around align-items-center text-align-center" role="alert">
+  <div class="outer-flash-heading d-flex justify-content-center align-items-center">
+    <i class="fa-solid fa-heart fa-beat fa-4x"></i>
+  </div>
+  <div class="flash-notice">
+    <h2><%= notice %></h2>
+  </div>
+    <button class="btn btn-primary mt-3 col-6 rounded-pill flash-btn" data-bs-dismiss="alert" aria-label="Close">Cool!</button>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="alert alert-info fade show m-1 flash-messages d-flex flex-column justify-content-around align-items-center text-align-center" role="alert">
+  <div class="outer-flash-heading d-flex justify-content-center align-items-center">
+    <i class="fa-solid fa-heart-crack fa-beat-fade fa-4x"></i>
+  </div>
+  <div class="flash-notice">
+    <h2><%= alert %></h2>
+  </div>
+    <button class="btn btn-primary mt-3 col-6 rounded-pill flash-btn" data-bs-dismiss="alert" aria-label="Close">Okay</button>
   </div>
 <% end %>

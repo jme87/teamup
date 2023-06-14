@@ -67,6 +67,7 @@ class EventsController < ApplicationController
     if @event.save
       @event.create_chatroom!(name: "Chatroom for #{@event.title}")
       redirect_to event_path(@event)
+      flash[:notice] = "Your Event \"#{@event.title}\" has been created."
     else
       @categories = ApplicationRecord::CATEGORIES
       @level = ApplicationRecord::LEVEL
@@ -94,6 +95,7 @@ class EventsController < ApplicationController
     @event.city = @event.address.split[-2].gsub(',', '')
     if @event.save
       redirect_to event_path(@event)
+      flash[:notice] = "Your Event \"#{@event.title}\" has been updated."
     else
       @categories = ApplicationRecord::CATEGORIES
       @level = ApplicationRecord::LEVEL
@@ -105,6 +107,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path, status: :see_other
+    flash[:alert] = "Your Event \"#{@event.title}\" has been deleted."
   end
 
   private
