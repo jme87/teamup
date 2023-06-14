@@ -5,15 +5,16 @@
 <%# </div> %>
 
 
-  <div class="category-container">
-    <div class="index-category-bar">
-      <% categories = Event.pluck(:category).uniq %>
-      <% categories.each do |category| %>
-        <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
-          <div id="<%= category %>" class="item">
-            <h1><%= category %></h1>
-          </div>
-        <% end %>
+<div class="category-container">
+  <div class="index-category-bar">
+    <% categories = Event.pluck(:category).uniq %>
+    <% categories.each do |category| %>
+      <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
+        <div id="<%= category %>" class="item">
+          <%= check_box_tag "categories[]", category, false, class: "category-checkbox visually-hidden", id: "category-#{category.parameterize}" %>
+          <%= label_tag "category-#{category.parameterize}", category, class: "category-label" %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
