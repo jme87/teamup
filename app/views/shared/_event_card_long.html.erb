@@ -6,7 +6,7 @@
       <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-card-long-image">
     <% end %>
     <div class="event-card-long-right">
-      <p class="event-card-long-text"><%= event.start_date.strftime('%a, %b %d %Y %H:%M') %></p>
+      <p class="event-card-long-text"><%= event.start_date.strftime('%a, %d %b - %H:%M') %></p>
       <h5 class="event-card-long-title"><%= event.title %></h5>
       <p class="event-card-long-text"> <%= pluralize(event.bookings.size, 'Attendee') %> | <%= pluralize(event.spots_left(event), 'Spot') %> Left</p>
       <p class="event-card-long-text"><%= event.city %></p>
