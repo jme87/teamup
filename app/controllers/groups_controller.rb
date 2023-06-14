@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
     redirect_to groups_path
-    flash[:notice] = "Your Group \"#{@group.title}\" has been deleted."
+    flash[:alert] = "Your Group \"#{@group.title}\" has been deleted."
   end
 
   private

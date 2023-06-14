@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by("user_id = ? AND event_id = ?", current_user.id, @event.id)
     @booking.destroy
     redirect_to event_path(@event), status: :see_other
-    flash[:notice] = "You left the Event \"#{@event.title}\"."
+    flash[:alert] = "You left the Event \"#{@event.title}\"."
   end
 
   private

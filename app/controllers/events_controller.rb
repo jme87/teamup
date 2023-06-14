@@ -100,7 +100,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path, status: :see_other
-    flash[:notice] = "Your Event \"#{@event.title}\" has been deleted."
+    flash[:alert] = "Your Event \"#{@event.title}\" has been deleted."
   end
 
   private
