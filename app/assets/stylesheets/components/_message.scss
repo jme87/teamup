@@ -14,9 +14,10 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: $blue;
+  color: white;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: $light-gray;
 }

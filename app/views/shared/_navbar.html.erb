@@ -51,18 +51,25 @@
                 <li class="nav-item"><%= link_to "Your Events", user_events_path %></li>
                 <li class="nav-item"><%= link_to "Your Groups", user_groups_path %></li>
                 <hr>
-                <li class="nav-item"><%= link_to "Find a Group", groups_path %></li>
                 <li class="nav-item"><%= link_to "Find an Event", events_path %></li>
                 <li class="nav-item"><%= link_to "Create an Event", new_event_path %></li>
+                <li class="nav-item"><%= link_to "Find a Group", groups_path %></li>
+                <li class="nav-item"><%= link_to "Create a Group", new_group_path %></li>
                 <hr>
                 <li class="nav-item"><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" } %></li>
               </ul>
             <% else %>
               <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
-                <br>
-                <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+                <div class="text-center">
+                  <h5>Not yet a member?</h5>
+                  <p>Sign-up & TeamUp!</p>
+                  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary col-8 mt-3 rounded-pill" %>
+                  <br><br><hr><br>
+                  <h5>Already have an account?</h5>
+                  <p>Welcome back!</p>
+                  <%= link_to "Log in", new_user_session_path, class: "btn btn-primary col-8 mt-3 rounded-pill" %>
+                </div>
               </div>
             <% end %>
           </div>
