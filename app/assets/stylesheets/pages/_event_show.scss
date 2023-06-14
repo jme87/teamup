@@ -1,3 +1,25 @@
 .fa-solid, .fas {
   color: $blue;
 }
+
+
+.join-event {
+  position: fixed;
+  height: 70px;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+
+.round-image {
+  border-radius: 50%;
+}
+
+.event-group {
+  display: flex;
+}
+
+#map-btn {
+  border: 1px solid black;
+}
