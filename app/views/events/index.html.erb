@@ -9,9 +9,9 @@
 
     <div class="results-card-container">
       <% if params[:query].present? %>
-        <h2>Results for <%= @category %> </h2>
+        <h2 data-filter-target="title">Results for <%= @category %> </h2>
       <% else %>
-        <h2>All events </h2>
+        <h2 data-filter-target="title">All events </h2>
       <% end %>
 
           <div class="filter-container d-flex">
