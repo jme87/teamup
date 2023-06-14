@@ -28,6 +28,8 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = current_user
     if @group.save
+      UserGroup.create(user_id: current_user.id, group_id: @group.id)
+      flash[:notice] = "Your Group \"#{@group.title}\" has been created."
       redirect_to group_path(@group)
     else
       @categories = ApplicationRecord::CATEGORIES
@@ -51,13 +53,20 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    @group.update (group_params)
-    redirect_to group_path(@group)
+    if @group.update (group_params)
+      flash[:notice] = "Your Group \"#{@group.title}\" has been updated."
+      redirect_to group_path(@group)
+    else
+      @categories = ApplicationRecord::CATEGORIES
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
+    redirect_to groups_path
+    flash[:notice] = "Your Group \"#{@group.title}\" has been deleted."
   end
 
   private
