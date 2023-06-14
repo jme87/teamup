@@ -29,7 +29,7 @@
       <div data-post-target="editForm" class="d-none mt-5">
         <%= simple_form_for [@group, post] do |f| %>
           <%= f.input :message %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-primary mt-3 col-6 rounded-pill" %>
         <% end %>
       </div>
 
@@ -37,7 +37,7 @@
         <%= simple_form_for [@group, @post] do |f| %>
           <%= f.input :message %>
           <%= f.input :post_id, as: :hidden, input_html: { value: post.id } %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-primary mt-3 col-6 rounded-pill" %>
         <% end %>
       </div>
 
@@ -67,7 +67,7 @@
           <div data-post-target="editAnswerForm" class="d-none mt-5b">
             <%= simple_form_for [related_post] do |f| %>
               <%= f.input :message %>
-              <%= f.button :submit %>
+              <%= f.button :submit, class: "btn btn-primary mt-3 col-6 rounded-pill" %>
             <% end %>
           </div>
         <% end %>
@@ -76,6 +76,8 @@
   <% end %>
   <%= simple_form_for [@group, @post] do |f| %>
     <%= f.input :message %>
-    <%= f.button :submit %>
+    <div class="text-center">
+      <%= f.button :submit, class: "btn btn-primary mt-3 col-6 rounded-pill" %>
+    </div>
   <% end %>
 </div>
