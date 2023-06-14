@@ -2,12 +2,15 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @events = Event.all
-    @events = @events.where(category: params[:query]) if params[:query].present?
-    @category = params[:query].capitalize if params[:query].present? # Assuming query parameter contains the city name
-    @events = @events.where(level: params[:level].capitalize) if params[:level].present?
-    @events = @events.where(city: params[:city].capitalize) if params[:city].present?
 
-# raise
+    @events = @events.where(category: params[:query]) if params[:query].present?
+    @category = params[:query].capitalize if params[:query].present?
+    # Assuming query parameter contains the city name
+    @events = @events.where(level: params[:level].capitalize) if params[:level].present?
+
+    @events = @events.where(city: params[:city].capitalize) if params[:city].present?
+    @city = params[:city].capitalize if params[:city].present?
+
     # The `geocoded` scope filters only events with coordinates
     @markers = @events.geocoded.map do |event|
       {

@@ -18,25 +18,24 @@ h1{
 .index-category-bar{
   display:block;
   width: 100%;
-  height: 50px;
-  background: white;
+  // height: 50px;
   overflow-x: scroll;
   padding-left: 10%px;
   margin: 0;
   white-space: nowrap;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  // border-top: 2px solid rgba(0, 0, 0, 0.1);
+  // border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   position: sticky;
   align-items: center;
-  display: flex;
-  // background-color: $orange;
+  // display: flex;
   border-radius: 0px;
 }
 
 .item {
   display: inline-block;
   height: 100%;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   background-size: cover;
   position:relative;
   // color: $primary;
@@ -64,16 +63,12 @@ h1{
 //   font-size: 1em;
 // }
 
-
-
-
-
 .category-label {
   display: inline-block;
   padding: 5px 10px;
   background-color: #f0f0f0;
   border-radius: 20px;
-  margin-right: 10px;
+  // margin-right: 10px;
   cursor: pointer;
   border: 1px solid $primary;
 }

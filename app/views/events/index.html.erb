@@ -3,25 +3,26 @@
     <%= render "shared/map_container", markers: @markers %>
   </div>
   <div class="category-container">
+
     <%= render "shared/category_bar" %>
 
-    <%= render "shared/level_filter" %>
-    <%= render "shared/city_filter" %>
 
     <div class="results-card-container">
       <% if params[:query].present? %>
-        <h2>Results for <%= @category %></h2>
+        <h2>Results for <%= @category %> </h2>
       <% else %>
-        <h2>All events</h2>
+        <h2>All events </h2>
       <% end %>
 
-      <h1><%# @event_city %></h1>
+          <div class="filter-container d-flex">
+      <%= render "shared/level_filter" %>
+      <%= render "shared/city_filter" %>
+    </div>
+
       <div class="index-event-cards" data-filter-target="cards">
-        <%# <% @events.each do |event| %>
           <div class="index-event-card">
             <%= render "shared/index_card_all", events: @events %>
           </div>
-        <%# <% end %>
       </div>
     </div>
   </div>
