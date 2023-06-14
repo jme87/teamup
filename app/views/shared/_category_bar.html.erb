@@ -11,7 +11,19 @@
       <% categories.each do |category| %>
         <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
           <div id="<%= category %>" class="item">
+            <% icon_class = case category.downcase %>
+            <% when "volleyball" %>
+              "fa-solid fa-volleyball"
+            <% when "football" %>
+              "fa-regular fa-football"
+            <% when "tennis" %>
+              "fa-solid fa-table-tennis-paddle-ball" 
+            <% else %>
+              "fa-solid fa-volleyball" <!-- Default icon class -->
+          <% end %>
+        <i class="<%= icon_class %>"></i>
             <h1><%= category %></h1>
+
           </div>
         <% end %>
       <% end %>
