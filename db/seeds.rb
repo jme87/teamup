@@ -256,13 +256,13 @@ user13.save!
 print '*'
 STDOUT.flush
 
-user14photo = URI.open("https://media.licdn.com/dms/image/C4D03AQHQOgGbmMK_ag/profile-displayphoto-shrink_800_800/0/1555509383375?e=2147483647&v=beta&t=cdQtRuha86hggLvoa46bpc5jAAlIrYKl1F5LIllGWX8")
+user14photo = URI.open("https://media.licdn.com/dms/image/D4D03AQHYqQUzf7VWNA/profile-displayphoto-shrink_800_800/0/1671007808243?e=2147483647&v=beta&t=tujaP5_rmv0PXNr1iEHppaXDYi4Hphpyb5vlbml8CaU")
 user14 = User.new(
   {
     email: "patrick@test.com",
     first_name: "Patrick",
     last_name: "Prüßen",
-    nickname: "pa",
+    nickname: "patrick",
     city: "Berlin",
     bio: "Patrick here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
     password: "123456"
@@ -1159,7 +1159,7 @@ STDOUT.flush
 ##### Event 4 Skill Building Volleyball
 booking = Booking.create!(
   {
-    user_id: user6.id,
+    user_id: user11.id,
     event_id: event4.id
   }
 )
@@ -1170,7 +1170,7 @@ STDOUT.flush
 ##### Event 5 Morning Indoor Game
 booking = Booking.create!(
   {
-    user_id: user4.id,
+    user_id: user11.id,
     event_id: event5.id
   }
 )
