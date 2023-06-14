@@ -27,39 +27,64 @@ h1{
   border-top: 2px solid rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   position: sticky;
-  background-color: $orange;
+  align-items: center;
+  display: flex;
+  // background-color: $orange;
   border-radius: 0px;
 }
 
 .item {
   display: inline-block;
-  width:70px ;
   height: 100%;
   padding-bottom: 10px;
   background-size: cover;
   position:relative;
+  // color: $primary;
 }
 
-.item:hover{
-background-color: rgb(142, 57, 1);
+// .item:hover{
+// background-color: rgb(142, 57, 1);
+// }
+
+// .item div{
+//   width: 100%;
+//   top:10%;
+//   position:absolute;
+//   text-align:center;
+//   font-size: 9em;
+//   color: white;
+// }
+
+// .item h1{
+//   top: 50%;
+//   position: absolute;
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   font-size: 1em;
+// }
+
+
+
+
+
+.category-label {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid $primary;
 }
 
-.item div{
-  width: 100%;
-  top:10%;
-  position:absolute;
-  text-align:center;
-  font-size: 9em;
-  color: white;
+.category-label:hover {
+  background-color: #e0e0e0;
 }
 
-.item h1{
-  top: 50%;
-  position: absolute;
-  color: white;
-  text-align: center;
-  width: 100%;
-  font-size: 1em;
+.category-checkbox:checked + .category-label {
+  background-color: #007bff;
+  color: #fff;
 }
 
 .fa-solid {

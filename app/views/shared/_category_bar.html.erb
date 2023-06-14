@@ -5,27 +5,16 @@
 <%# </div> %>
 
 
-  <div class="category-container">
-    <div class="index-category-bar">
-      <% categories = Event.pluck(:category).uniq %>
-      <% categories.each do |category| %>
-        <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
-          <div id="<%= category %>" class="item">
-            <% icon_class = case category.downcase %>
-            <% when "volleyball" %>
-              "fa-solid fa-volleyball"
-            <% when "football" %>
-              "fa-regular fa-football"
-            <% when "tennis" %>
-              "fa-solid fa-table-tennis-paddle-ball" 
-            <% else %>
-              "fa-solid fa-volleyball" <!-- Default icon class -->
-          <% end %>
-        <i class="<%= icon_class %>"></i>
-            <h1><%= category %></h1>
-
-          </div>
-        <% end %>
+<div class="category-container">
+  <div class="index-category-bar">
+    <% categories = Event.pluck(:category).uniq %>
+    <% categories.each do |category| %>
+      <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
+        <div id="<%= category %>" class="item">
+          <%= check_box_tag "categories[]", category, false, class: "category-checkbox visually-hidden", id: "category-#{category.parameterize}" %>
+          <%= label_tag "category-#{category.parameterize}", category, class: "category-label" %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
