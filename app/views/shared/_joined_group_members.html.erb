@@ -1,8 +1,12 @@
 <div class="container mt-4">
   <h5 class="mb-4">Group Members</h5>
   <div class="members-avatars d-flex flex-wrap">
-    <% @users.each do |user| %>
-      <%= cl_image_tag user.photo.key, class: "each-member-avatar mb-2", width: 60, height: 60, crop: :thumb, gravity: :face %>
+    <% @users.each_with_index do |user, index| %>
+      <% if index == 0 %>
+        <%= cl_image_tag user.photo.key, class: "each-member-avatar creator", width: 60, height: 60, crop: :thumb, gravity: :face %>
+      <% else %>
+        <%= cl_image_tag user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
+      <% end %>
     <% end %>
   </div>
 </div>
