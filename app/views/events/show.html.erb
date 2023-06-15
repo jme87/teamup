@@ -6,14 +6,14 @@
   <% end %>
 </div>
 
-<div class="container pb-5">
-  <h1 class="mt-3"><strong><%= @event.title %></strong></h1>
+<div class="container">
   <%# Details section %>
-  <div class="container px-3 pt-4 pb-2 group-info">
+  <div class="container px-3 pt-3 pb-2 mt-3 group-info">
+  <h2 class="mb-4 ml-5"><%= @event.title %></h2>
     <ul class="fa-ul">
       <li>
         <div class="d-flex flex-column">
-          <span class="fa-li"><i class="fa-solid fa-calendar-days"></i></span> <%= @event.start_date.strftime('%a, %b %d %Y %H:%M') %>
+          <span class="fa-li"><i class="fa-solid fa-calendar-days"></i></span> <%= @event.start_date.strftime('%a, %d %b %Y - %H:%M') %>
           <a href="#">Add to Calendar</a>
         </div>
       </li>
@@ -47,11 +47,13 @@
         </div>
       </div>
     </div>
-    <button data-action="click->show-map#show" class="btn rounded-pill mt-2 d-flex justify-content-center" id="map-btn">Hide/Show Map</button>
+    <div class="text-center">
+      <button data-action="click->show-map#show" class="btn rounded-pill mt-2 d-flex justify-content-center" id="map-btn">Hide/Show Map</button>
+    </div>
   </div>
 
-  <h5 class="mt-3"><strong>Members that joined</strong></h5>
-  <div class="members-avatars">
+  <h5 class="mb-4">Members That Joined</h5>
+  <div class="members-avatars d-flex flex-wrap">
     <% @event.bookings.each do |booking| %>
       <%= cl_image_tag booking.user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
     <% end %>
@@ -86,7 +88,7 @@
 
   <br>
   <div class="container p-3 group-info">
-    <h3>Description</h3>
+    <h5 class="mb-4">Description</h5>
     <%= @event.description %>
   </div>
 
@@ -99,7 +101,7 @@
       data-chatroom-subscription-chatroom-id-value="<%= @event.chatroom.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-      <h2>Event Chat</h2>
+      <h2 class="mb-4">Event Chat</h2>
 
       <div class="messages" data-chatroom-subscription-target="messages">
       <% @event.chatroom.messages.each do |message| %>

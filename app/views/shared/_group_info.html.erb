@@ -1,12 +1,12 @@
 <div class="group-info-card">
   <ul class="fa-ul">
-    <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> City: <%= @group.city %> </li>
-    <li><span class="fa-li"><i class="fa-solid fa-users"></i></i></span> Members: <%= @users_count %>  | <%= @group.private ? 'Private group' : 'Public group' %> </li>
-    <li><span class="fa-li"><i class="fa-solid fa-user"></i></span> Organized by: <strong><%= @creator.capitalize %></strong> </li>
+    <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <%= @group.city %> </li>
+    <li><span class="fa-li"><i class="fa-solid fa-users"></i></i></span> <%= @users_count %>  Members - <%= @group.private ? 'Private group' : 'Public group' %> </li>
+    <li><span class="fa-li"><i class="fa-solid fa-user"></i></span> Organized by <strong><%= @creator.capitalize %></strong> </li>
     <div class="d-flex">
       <li><span class="fa-li"><i class="fa-solid fa-share-nodes"></i></span>
-        Share: <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
-                <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
+        Share on  <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
+                  <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
       </li>
     </div>
   </ul>
