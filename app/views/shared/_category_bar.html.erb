@@ -1,6 +1,6 @@
 
 <div class="category-container">
-  <div class="index-category-bar ps-1">
+  <div class="index-category-bar ps-2 py-2">
     <% categories = Event.pluck(:category).uniq %>
     <% categories.each do |category| %>
       <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>

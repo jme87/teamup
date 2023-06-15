@@ -725,8 +725,8 @@ STDOUT.flush
 event14photo = URI.open("https://source.unsplash.com/1v7axvhwnOU")
 event14 = Event.new(
   {
-    title: 'Beach Volleyball at Munich Olympic Park',
-    description: "Join us for a fun and friendly game of beach volleyball at the beautiful Olympic Park.",
+    title: 'Volleyball at Munich Olympic Park',
+    description: "Join us for a fun and friendly game of volleyball at the beautiful Olympic Park.",
     start_date: DateTime.new(2023, 7, 1, 10, 0, 0),
     end_date: DateTime.new(2023, 7, 1, 12, 0, 0),
     address: 'Olympiapark München, 80809 München, Germany',
