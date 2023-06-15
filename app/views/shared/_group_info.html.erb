@@ -13,7 +13,7 @@
 </div>
 <div class="button d-flex justify-content-center">
   <% if current_user.groups.include?(@group) %>
-    <%= link_to "Create an Event", group_new_event_path(@group), class:"btn btn-success mt-3 col-6 rounded-pill" %>
+    <%= link_to "Create an Event", group_new_event_path(@group), class:"btn btn-primary mt-3 col-6 rounded-pill" %>
   <% else %>
     <%= link_to "Join Group", group_user_groups_path(@group), data: {turbo_method: :post}, class:"btn btn-primary col-6 rounded-pill" %>
   <% end %>
