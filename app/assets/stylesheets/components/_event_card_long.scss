@@ -35,7 +35,7 @@ a {
 
 .event-card-long-right {
   width: 100%;
-  padding: 15px 15px;
+  padding: 15px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -49,4 +49,11 @@ a {
   margin: 0px;
   font-size: 15px;
   color: #3d3d3d;
+}
+
+.event-card-long-icon {
+  width: 22px;
+  text-align: center;
+  margin-right: 8px;
+  display: inline-block;
 }
