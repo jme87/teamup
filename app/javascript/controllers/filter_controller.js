@@ -26,7 +26,7 @@ export default class extends Controller {
   fire(event) {
     event.preventDefault();
     this.cat = event.currentTarget.children[0].id;
-    this.titleTarget.innerHTML = `Results for ${this.cat}`;
+    this.titleTarget.innerHTML = `Results for <span class="result-category">${this.cat}</span>`;
 
     fetch(this.createURL(), {
       method: "GET",
