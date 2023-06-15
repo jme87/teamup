@@ -37,14 +37,14 @@
     </ul>
     <div class="tab-content" id="myTabContent">
       <!-- GROUP DESCRIPTION -->
-      <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+      <div class="tab-pane fade show active mb-3" id="description" role="tabpanel" aria-labelledby="description-tab">
         <%= render "shared/group_description" %>
       </div>
       <!-- IF JOINED: ALL MEMBERS, IF UNJOINED: SAMPLE OF MEMBERS  -->
       <div class="tab-pane fade mt-3" id="members" role="tabpanel" aria-labelledby="members-tab">
         <%= render "shared/joined_group_members" %>
         <!-- LEAVE GROUP BUTTON -->
-        <div class="d-flex justify-content-center mt-4">
+        <div class="d-flex justify-content-center mt-4 mb-3">
           <%= link_to "Leave Group", user_group_path(@usergroup), data: {turbo_method: :delete}, class:"btn btn-warning col-6 rounded-pill" %>
         </div>
       </div>
