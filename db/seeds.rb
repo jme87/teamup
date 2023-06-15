@@ -421,7 +421,7 @@ puts ""
 puts "Seeding 30 hardcoded events "
 #################### 15 hardcoded events ####################
 
-event1photo = URI.open("https://source.unsplash.com/10Qk17k0mVA")
+event1photo = URI.open("https://unsplash.com/de/fotos/WYJNl4D-H7Y")
 event1 = Event.new(
   {
     title: 'Summer Volleyball Tournament',
