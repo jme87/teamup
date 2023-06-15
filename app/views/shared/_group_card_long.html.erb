@@ -1,14 +1,23 @@
 <%= link_to group_path(group) do %>
   <div class="group-card-long">
-    <% if group.photos.attached? %>
-      <%= cl_image_tag group.photos[0].key, crop: :fill, class: "group-card-long-image" %>
-    <% else %>
-      <img src="https://placehold.co/600x400" alt="Group Image 1" class="group-card-long-image">
-    <% end %>
+
+
+    <div class="group-card-long-img-container">
+    <div class="group-card-long-category">
+      <h6><%= group.category %></h6>
+    </div>
+      <% if group.photos.attached? %>
+        <%= cl_image_tag group.photos[0].key, crop: :fill, class: "group-card-long-image" %>
+      <% else %>
+        <img src="https://placehold.co/600x400" alt="Group Image 1" class="group-card-long-image">
+      <% end %>
+    </div>
     <div class="group-card-long-bottom">
       <h5 class="group-card-long-title"><%= group.title %></h5>
-      <p class="group-card-long-text">Location: <%= group.city %> </p>
-      <p class="group-card-long-text">Category: <%= group.category %> </p>
+      <ul class="fa-ul">
+        <li class="group-card-long-text"><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <%= group.city %> </li>
+        <li class="group-card-long-text"><span class="fa-li"><i class="fa-solid fa-users"></i></i></span> <%= pluralize(group.user_groups.count, 'Member') %></li>
+      </ul>
     </div>
   </div>
 <% end %>

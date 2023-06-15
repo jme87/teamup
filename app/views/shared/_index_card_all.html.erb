@@ -10,7 +10,7 @@
       <div class="event-card-long-right">
         <p class="event-card-long-text"><%= event.start_date.strftime('%a, %d %b - %H:%M') %></p>
         <h5 class="event-card-long-title"><%= event.title %></h5>
-        <p class="event-card-long-text"> <%= pluralize(event.bookings.size, 'Attendee') %> | <%= pluralize(event.spots_left(event), 'Spot') %> Left</p>
+        <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span><p class="event-card-long-text"> <%= pluralize(event.bookings.size, 'Attendee') %> | <%= pluralize(event.spots_left(event), 'Spot') %> Left</p>
         <p class="event-card-long-text"><%= event.city %></p>
       </div>
     </div>
