@@ -1,11 +1,10 @@
-
 <div class="city-filter">
-      <div class="city-dropdown">
-        <button style="border-width:0;" class=" dropdown-toggle m-0"
+      <div class="filter-dropdown">
+        <button class="filter-button dropdown-toggle m-0 text-secondary"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-          <span >City</span>
+          <span class="filter-item" >City</span>
         </button>
         <ul class="dropdown-menu">
           <% cities = Event.pluck(:city).uniq %>
@@ -19,6 +18,6 @@
         </ul>
   </div>
 
-  <div class="" data-filter-target="selectedcity"><%= @city %></div>
+    <div class="filter-selection" data-filter-target="selectedcity"><%= @city %></div>
 
 </div>

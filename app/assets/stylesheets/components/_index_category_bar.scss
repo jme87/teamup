@@ -51,27 +51,8 @@ h1{
   position:relative;
   // color: $primary;
 }
-
-// .item:hover{
-// background-color: rgb(142, 57, 1);
-// }
-
-// .item div{
-//   width: 100%;
-//   top:10%;
-//   position:absolute;
-//   text-align:center;
-//   font-size: 9em;
-//   color: white;
-// }
-
-// .item h1{
-//   top: 50%;
-//   position: absolute;
-//   color: white;
-//   text-align: center;
-//   width: 100%;
-//   font-size: 1em;
+// .item:hover {
+// border:3px solid red;
 // }
 
 .category-label {
@@ -81,16 +62,25 @@ h1{
   border-radius: 20px;
   // margin-right: 10px;
   cursor: pointer;
-  border: 1px solid $primary;
+  border: 1px solid #999;
 }
 
-.category-label:hover {
+.catergory-label:hover {
+  border:3px solid $primary;
+}
+
+.category-label:checked {
   background-color: #e0e0e0;
+  border: 1px solid $primary;
+
 }
 
 .category-checkbox:checked + .category-label {
   background-color: #007bff;
   color: #fff;
+  border: 1px solid $primary;
+  outline: 2px solid $primary;
+
 }
 
 .fa-solid {
