@@ -421,7 +421,7 @@ puts ""
 puts "Seeding 30 hardcoded events "
 #################### 15 hardcoded events ####################
 
-event1photo = URI.open("https://source.unsplash.com/10Qk17k0mVA")
+event1photo = URI.open("https://unsplash.com/de/fotos/WYJNl4D-H7Y")
 event1 = Event.new(
   {
     title: 'Summer Volleyball Tournament',
@@ -443,8 +443,10 @@ event1.photos.attach(io: event1photo, filename: "event1.png", content_type: "ima
 event1.save!
 event1.create_chatroom!(name: "Chatroom for #{event1.title}")
 
+
 print '*'
 STDOUT.flush
+
 
 event2photo = URI.open("https://source.unsplash.com/WkY8KhEFXak/400x300")
 event2 = Event.new(
