@@ -132,6 +132,13 @@
 </div>
 
 <div class="join-event text-align-center">
+  <% if !user_signed_in? %>
+    <%= link_to "Join event",
+        new_user_session_path,
+        class: "btn btn-primary col-8 offset-2 p-3 justify-content-center rounded-pill"
+      %>
+      <br>
+  <% end %>
   <% if user_signed_in? && current_user.events.exclude?(@event) %>
     <%= link_to "Join event",
       event_bookings_path(@event),
