@@ -13,5 +13,4 @@ class Group < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORIES }
 
   attr_accessor :private
-
 end

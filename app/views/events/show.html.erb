@@ -53,7 +53,7 @@
   </div>
 
   <h5 class="mb-4">Members That Joined</h5>
-  <div class="members-avatars d-flex flex-wrap">
+  <div class="members-avatars">
     <% @event.bookings.each do |booking| %>
       <%= cl_image_tag booking.user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
     <% end %>
