@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <h5 class="mb-4">Group members</h5>
-  <div class="members-avatars d-flex">
+  <div class="members-avatars d-flex mb-3">
     <% @sample.each do |user| %>
       <%= cl_image_tag user.photo.key, class: "each-member-avatar", width: 60, height: 60, crop: :thumb, gravity: :face %>
     <% end %>
