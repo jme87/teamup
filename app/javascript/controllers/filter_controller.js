@@ -11,6 +11,10 @@ export default class extends Controller {
   connect() {
     console.log("Hello from filter s. controller");
     // console.log(this.filterTargets)
+    console.log(this.cityTarget);
+    if (!this.cityTarget) {
+      this.selectedcityTarget.classList.add("d-none");
+    }
   }
 
   createURL() {
@@ -39,6 +43,7 @@ export default class extends Controller {
     event.preventDefault();
     this.levelChoice = event.currentTarget.dataset.target;
     this.selectedlevelTarget.innerHTML = this.levelChoice;
+    this.selectedlevelTarget.classList.remove("d-none");
 
     fetch(this.createURL(), {
       method: "GET",
@@ -55,6 +60,7 @@ export default class extends Controller {
     event.preventDefault();
     this.cityChoice = event.currentTarget.dataset.target;
     this.selectedcityTarget.innerHTML = this.cityChoice;
+    // this.selectedcityTarget.classList.remove("d-none");
 
     fetch(this.createURL(), {
       method: "GET",
