@@ -1,6 +1,7 @@
 <div class="d-flex flex-column">
   <% if @event.photos.attached? %>
-    <%= cl_image_tag @event.photos[0].key, crop: :fill %>
+    <%= cl_image_tag @event.photos[0].key, crop: :fill, aspect_ratio: "4:3",  gravity: "auto" %>
+
   <% else %>
       <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
   <% end %>

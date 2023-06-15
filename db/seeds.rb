@@ -169,12 +169,12 @@ STDOUT.flush
 user9photo = URI.open("https://source.unsplash.com/sibVwORYqs0/600x300")
 user9 = User.new(
   {
-    email: "james@test.com",
-    first_name: "James",
+    email: "jefferson@test.com",
+    first_name: "Jefferson",
     last_name: "White",
-    nickname: "james",
+    nickname: "jefferson",
     city: "Berlin",
-    bio: "I'm James, an adventurer in the vast landscape of web development with Ruby on Rails at LeWagon. Off the coding grid, I'm either sketching landscapes or trying to cook the perfect steak. I love the colors of the earth, they ground me. Sketch, sizzle, code!",
+    bio: "I'm Jefferson, an adventurer in the vast landscape of web development with Ruby on Rails at LeWagon. Off the coding grid, I'm either sketching landscapes or trying to cook the perfect steak. I love the colors of the earth, they ground me. Sketch, sizzle, code!",
     password: "123456"
   }
 )
@@ -271,8 +271,9 @@ user14 = User.new(
 user14.photo.attach(io: user14photo, filename: "user14.png", content_type: "image/png")
 user14.save!
 
+
+
 print '*'
-STDOUT.flush
 puts "Done"
 puts ""
 
@@ -413,7 +414,6 @@ group8.photos.attach(io: group8photo, filename: "group8.png", content_type: "ima
 group8.save!
 
 print '*'
-STDOUT.flush
 puts "Done"
 puts ""
 
@@ -421,7 +421,7 @@ puts ""
 puts "Seeding 30 hardcoded events "
 #################### 15 hardcoded events ####################
 
-event1photo = URI.open("https://source.unsplash.com/10QkXxk0mVA")
+event1photo = URI.open("https://source.unsplash.com/10Qk17k0mVA")
 event1 = Event.new(
   {
     title: 'Summer Volleyball Tournament',
@@ -1055,7 +1055,6 @@ STDOUT.flush
   event27.create_chatroom!(name: "Chatroom for #{event27.title}")
 
   print '*'
-  STDOUT.flush
   puts "Done"
   puts ""
 
@@ -1082,22 +1081,36 @@ booking = Booking.create!(
 
 booking = Booking.create!(
   {
-    user_id: user12.id,
+    user_id: user1.id,
     event_id: event4.id
   }
 )
 
 booking = Booking.create!(
   {
-    user_id: user13.id,
+    user_id: user2.id,
     event_id: event4.id
   }
 )
 
 booking = Booking.create!(
   {
-    user_id: user14.id,
+    user_id: user3.id,
     event_id: event4.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user4.id,
+    event_id: event4.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user5.id,
+    event_id: event7.id
   }
 )
 
@@ -1159,7 +1172,7 @@ STDOUT.flush
 ##### Event 4 Skill Building Volleyball
 booking = Booking.create!(
   {
-    user_id: user11.id,
+    user_id: user7.id,
     event_id: event4.id
   }
 )
@@ -1222,7 +1235,7 @@ STDOUT.flush
 
 booking = Booking.create!(
   {
-    user_id: user5.id,
+    user_id: user6.id,
     event_id: event7.id
   }
 )
@@ -1312,7 +1325,6 @@ booking = Booking.create!(
 )
 
 print '*'
-STDOUT.flush
 puts "Done"
 puts ""
 
@@ -1545,7 +1557,326 @@ usergroup = UserGroup.create!(
 )
 
 print '*'
-STDOUT.flush
 puts "Done"
 
+puts "Creating a lot of Le Wagon related stuff "
+
+print '*'
+STDOUT.flush
+
+user15photo = URI.open("https://profile-images.xing.com/images/5e782a61eaa8fdad0a09d87d073523b8-1/olivier-girardot.1024x1024.jpg")
+user15 = User.new(
+  {
+    email: "olivier@test.com",
+    first_name: "Olivier",
+    last_name: "Somename",
+    nickname: "olivier",
+    city: "Berlin",
+    bio: "Olivier here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user15.photo.attach(io: user15photo, filename: "user15.png", content_type: "image/png")
+user15.save!
+
+print '*'
+STDOUT.flush
+
+user16photo = URI.open("https://media.licdn.com/dms/image/D4E03AQGXNa9Ghzna5w/profile-displayphoto-shrink_800_800/0/1664445068836?e=2147483647&v=beta&t=pIEtXJPQxge250hWYZVgV8Dg-P5aG0YchJuGbbkyZmw")
+user16 = User.new(
+  {
+    email: "ana@test.com",
+    first_name: "ana",
+    last_name: "Somename",
+    nickname: "ana",
+    city: "Berlin",
+    bio: "Ana here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user16.photo.attach(io: user16photo, filename: "user16.png", content_type: "image/png")
+user16.save!
+
+print '*'
+STDOUT.flush
+
+user17photo = URI.open("https://media.licdn.com/dms/image/D4E03AQFIB4E-Zgvf0w/profile-displayphoto-shrink_800_800/0/1676574564365?e=2147483647&v=beta&t=M0sjZnYh06WYyUnEc0lyhrQObf9b-sTtStVlZCgok0k")
+user17 = User.new(
+  {
+    email: "emre@test.com",
+    first_name: "Emre",
+    last_name: "Somename",
+    nickname: "emre",
+    city: "Berlin",
+    bio: "Emre here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user17.photo.attach(io: user17photo, filename: "user17.png", content_type: "image/png")
+user17.save!
+
+
+print '*'
+STDOUT.flush
+
+user18photo = URI.open("https://i.ytimg.com/vi/KShgk-0DB68/maxresdefault.jpg")
+  user18 = User.new(
+  {
+    email: "iwona@test.com",
+    first_name: "Iwona",
+    last_name: "Somename",
+    nickname: "iwona",
+    city: "Berlin",
+    bio: "Iwona here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user18.photo.attach(io: user18photo, filename: "user18.png", content_type: "image/png")
+user18.save!
+
+print '*'
+STDOUT.flush
+
+user19photo = URI.open("https://media.licdn.com/dms/image/C5603AQHDQdk97x3GIw/profile-displayphoto-shrink_800_800/0/1606284500711?e=2147483647&v=beta&t=hKulwq9YCdFBjw3WAew5N64ze0-i6MvKG66HtLZA9U0")
+user19 = User.new(
+  {
+    email: "nic@test.com",
+    first_name: "nic",
+    last_name: "Somename",
+    nickname: "nic",
+    city: "Berlin",
+    bio: "Ana here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user19.photo.attach(io: user19photo, filename: "user19.png", content_type: "image/png")
+user19.save!
+
+print '*'
+STDOUT.flush
+
+user20photo = URI.open("https://media.licdn.com/dms/image/C4D03AQEupLdAhJ3JnQ/profile-displayphoto-shrink_800_800/0/1643972640053?e=2147483647&v=beta&t=ut7z08J3Tse1VIgise1nm46i-2BL2HhDUtcl8yXbnU8")
+user20 = User.new(
+  {
+    email: "emma@test.com",
+    first_name: "Emma",
+    last_name: "Somename",
+    nickname: "emma",
+    city: "Berlin",
+    bio: "Emma here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user20.photo.attach(io: user20photo, filename: "user20.png", content_type: "image/png")
+user20.save!
+
+print '*'
+STDOUT.flush
+
+user21photo = URI.open("https://media.licdn.com/dms/image/C4D03AQG8GLgirDLtWg/profile-displayphoto-shrink_800_800/0/1636644330140?e=1692230400&v=beta&t=O8qOMTI3nt1nxRerXRxiJ30EEUE-ytebDmLRrcpdbdc")
+user21 = User.new(
+  {
+    email: "james@test.com",
+    first_name: "James",
+    last_name: "Somename",
+    nickname: "james",
+    city: "Berlin",
+    bio: "James here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user21.photo.attach(io: user21photo, filename: "user21.png", content_type: "image/png")
+user21.save!
+
+print '*'
+STDOUT.flush
+
+user22photo = URI.open("https://media.licdn.com/dms/image/D4E03AQFBTTElDRL4ng/profile-displayphoto-shrink_800_800/0/1679822678597?e=1692230400&v=beta&t=dpM1OimpuT__VQUxbfdMfeBWKm8FEw0J2I4vy7XFOXo")
+user22 = User.new(
+  {
+    email: "edu@test.com",
+    first_name: "Edu",
+    last_name: "Somename",
+    nickname: "edu",
+    city: "Berlin",
+    bio: "Edu here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user22.photo.attach(io: user22photo, filename: "user22.png", content_type: "image/png")
+user22.save!
+
+print '*'
+STDOUT.flush
+
+user23photo = URI.open("https://media.licdn.com/dms/image/C4E22AQHhAKzI9gGaeA/feedshare-shrink_800/0/1667479133411?e=2147483647&v=beta&t=b9Oa2aABeyKvjb2a_lDdZGpuvWCwRvUiruiPH6qPWxQ")
+user23 = User.new(
+  {
+    email: "pedro@test.com",
+    first_name: "Pedro",
+    last_name: "Somename",
+    nickname: "pedro",
+    city: "Berlin",
+    bio: "Pedro here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user23.photo.attach(io: user23photo, filename: "user23.png", content_type: "image/png")
+user23.save!
+
+print '*'
+STDOUT.flush
+
+user24photo = URI.open("https://media.licdn.com/dms/image/D4E03AQFBaxE7pQ1hcQ/profile-displayphoto-shrink_800_800/0/1675516737920?e=2147483647&v=beta&t=0Kk562XWQipnNe1jzArRKWVd5a0mThoIRYy54oJWqww")
+user24 = User.new(
+  {
+    email: "sebi@test.com",
+    first_name: "Sebi",
+    last_name: "Somename",
+    nickname: "sebi",
+    city: "Berlin",
+    bio: "Sebi here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user24.photo.attach(io: user24photo, filename: "user24.png", content_type: "image/png")
+user24.save!
+
+print '*'
+STDOUT.flush
+
+user25photo = URI.open("https://media.licdn.com/dms/image/C4E03AQE6S3Ka8QlbLg/profile-displayphoto-shrink_800_800/0/1632811836324?e=1692230400&v=beta&t=Z2xgkSHW5HJuTAtNuBOiniO-wt8M1-MyHsKH0_6leMo")
+user25 = User.new(
+  {
+    email: "rudi@test.com",
+    first_name: "Rudi",
+    last_name: "Somename",
+    nickname: "rudi",
+    city: "Berlin",
+    bio: "Rudi here! Exploring the digital universe with LeWagon's Ruby on Rails Fullstack Bootcamp. When not coding, I'm either at a pottery class or playing with my two golden retrievers. I'm all about indigo and sunflower yellow - they feed my creative spirit. Code, create, and play fetch!",
+    password: "123456"
+  }
+)
+user25.photo.attach(io: user25photo, filename: "user25.png", content_type: "image/png")
+user25.save!
+
+print '*'
+STDOUT.flush
+
+group9photo = URI.open("https://www.lewagon.com/default_meta_image.jpg")
+group9 = Group.new(
+{
+  title: 'Le Wagon Volleyball Group',
+  description: "Welcome to the Le Wagon Volleyball Network, the ideal place for anyone in the Le Wagon community with a passion for volleyball! We are a diverse, fun-loving group of current students, alumni, staff, and friends, who meet regularly to enjoy the sport we all love. Whether you're a seasoned player or a newcomer to the game, we invite you to join us on the court for some competitive fun and networking!
+  In our games, we focus on promoting teamwork, skill development, and a positive sporting spirit. Post-match, there's always an opportunity to socialize and network, strengthening the ties within the Le Wagon community.
+  We organize regular practice sessions, friendly matches, and participate in local tournaments. And, of course, all skill levels are welcomed. If you have never played before, don't worry, we have seasoned players ready to help you get started.
+  Join the Le Wagon Volleyball Network today and spike your way to an unforgettable experience!",
+  city: "Berlin",
+  category: "Volleyball",
+  user_id: user11.id,
+  private: false
+}
+)
+group9.photos.attach(io: group9photo, filename: "group9.png", content_type: "image/png")
+group9.save!
+
+print '*'
+STDOUT.flush
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user15.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user16.id,
+    group_id: group9.id
+  }
+)
+usergroup = UserGroup.create!(
+  {
+    user_id: user17.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user18.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user19.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user20.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user21.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user22.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user23.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user24.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user25.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user11.id,
+    group_id: group9.id
+  }
+)
+
+usergroup = UserGroup.create!(
+  {
+    user_id: user11.id,
+    group_id: group5.id
+  }
+)
+
+booking = Booking.create!(
+  {
+    user_id: user11.id,
+    event_id: event21.id
+  }
+)
 puts "Congratulations - You now have wonderful SEEDS"
