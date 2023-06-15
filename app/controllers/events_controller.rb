@@ -54,18 +54,27 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @group = params[:group_id] ? Group.find(params[:group_id]) : nil
+    if @group.nil?
+      @event = Event.new
+    else
+      @event = Event.new(group_id: @group.id)
+    end
     @categories = ApplicationRecord::CATEGORIES
     @level = ApplicationRecord::LEVEL
   end
 
   def create
+    @group = params[:group_id] ? Group.find(params[:group_id]) : nil
     @event = Event.new(event_params)
+    @event.group = @group if @group
+    # @event = Event.new(event_params)
     @event.duration = @event.end_date - @event.start_date
     @event.user_id = current_user.id
     @event.city = @event.address.split[-2].gsub(',', '')
     if @event.save
       @event.create_chatroom!(name: "Chatroom for #{@event.title}")
+      Booking.create(user_id: current_user.id, event_id: @event.id)
       redirect_to event_path(@event)
       flash[:notice] = "Your Event \"#{@event.title}\" has been created."
     else
@@ -113,6 +122,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :category, :start_date, :end_date, :address, :price, :spots_available, :level, photos: [])
+    params.require(:event).permit(:group_id, :title, :description, :category, :start_date, :end_date, :address, :price, :spots_available, :level, photos: [])
   end
 end

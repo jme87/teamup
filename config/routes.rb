@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   # delete "/groups/:group_id/posts/:id", to: "posts#destroy", as: "delete_post"
   resources :posts, only: :destroy
   resources :user_groups, only: :destroy
+  resources :groups do
+    get 'events/new', to: 'events#new', as: :new_event
+    post 'events', to: 'events#create'
+  end
 end
