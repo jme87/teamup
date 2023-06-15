@@ -59,7 +59,7 @@
     <% end %>
     <% (@event.spots_available - @event.bookings.count).times do %>
       <%= link_to event_bookings_path(@event), data: {turbo_method: :post, turbo_confirm: "Yeah! Confirm to join #{@event.title}"} do %>
-        <%= image_tag "placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
+        <%= image_tag "join_placeholder.png", class: "each-member-avatar", width: 60, height: 60, crop: :thumb %>
       <% end %>
     <% end %>
   </div>
