@@ -6,7 +6,9 @@
     flex-wrap: wrap;
 
     .index-event-card {
-      flex-basis: 33.33%;
+      // flex-basis: 33.33%;
+      display: flex;
+      justify-content: space-betweengit ;
       max-width: 100%;
 
     }

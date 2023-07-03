@@ -1,6 +1,6 @@
 <%= render "shared/home_banner" %>
 
-<div class="container mb-lg-5">
+<div class="container mb-md-4 mb-lg-5">
   <%= render "shared/category_bar" %>
   <br>
   <div class="results-card-container">
@@ -22,7 +22,7 @@
     </div>
 
 
-    <div class="index-event-cards">
+    <div class="d-flex index-event-cards">
       <% @near_events.each do |event| %>
           <div class="index-event-card">
             <%= render "shared/event_card_long", event: event %>
