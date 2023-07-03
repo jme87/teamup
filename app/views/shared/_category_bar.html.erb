@@ -4,7 +4,7 @@
     <% categories = Event.pluck(:category).uniq %>
     <% categories.each do |category| %>
       <%= link_to events_path(query: category), data: { filter_target: "filter", action: "click->filter#fire"} do %>
-        <div id="<%= category %>" class="item ps-2">
+        <div id="<%= category %>" class="item ps-3">
           <%= check_box_tag "categories[]", category, false, class: "category-checkbox visually-hidden", id: "category-#{category.parameterize}" %>
           <%= label_tag "category-#{category.parameterize}", category, class: "category-label" %>
         </div>
